@@ -34,7 +34,9 @@ that `terraform state list` is empty.
 ```
 analysis/
   rubric.md           frozen before Phase 2; append-only thereafter
-  scenarios.md        generated from Terraform state + the AWS API (Phase 1)
+  scenarios.md        ground truth, generated from the AWS API (Phase 1)
+  account-baseline.md non-lab resources; what target_absent depends on
+  fixture-removal-2026-08-31.md   iamwho fixtures deleted, with reasons
   grades.csv          source of truth for every grade
   validation/         manual proof, one file per scenario
   matrix.md           the deliverable, written by hand from grades.csv

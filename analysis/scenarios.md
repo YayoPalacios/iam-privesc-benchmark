@@ -40,28 +40,42 @@ property of the deployment, not of the tools, and it inflates reachability for
 every admin-context run. Note it in the writeup; the `limited` (`SecurityAudit`)
 run is the only one where this is not in play.
 
-**2. The account was not empty before the lab was applied.**
+**2. The account was not empty before the lab was applied, and it is still not.**
 
-`get-account-authorization-details` shows 13 non-lab principals that predate this
-deployment:
+Full inventory in `account-baseline.md`. Two changes since this file was first
+generated:
 
-- 11 `iamwho-test-*` roles carrying policies named `admin-access`,
-  `sneaky-escalation`, `dangerous-passrole`, `lambda-code-injection`,
-  `notaction-trap`, `data-access` and similar — fixtures for `iamwho`.
-- `EC2-AutoRemediation-role-h3s42wj1` and `EC2CloudWatchAgentRole`, with a live
-  Lambda function `EC2-AutoRemediation`.
+- **The 11 `iamwho-test-*` roles have been deleted** — see
+  `fixture-removal-2026-08-31.md`. They carried policies named `admin-access`,
+  `sneaky-escalation`, `dangerous-passrole`, `lambda-code-injection` and similar,
+  several duplicating lab mechanisms outright, and two were assumable by
+  `AWS: "*"`. Leaving `iamwho`'s own fixtures in the account would have
+  undercut the "baseline you did not build around it" property that holding
+  `iamwho` back was meant to preserve.
+- **A wider sweep found resources the first pass missed**, because the first pass
+  only looked in `us-east-1`. All 17 enabled regions have now been checked.
 
-This matters twice over. Both tools will report paths through these principals,
-and those reports are neither lab scenarios nor false positives — they are
-off-list findings that will contaminate the denominator unless excluded
-explicitly. More seriously, `iamwho`'s own test fixtures are sitting in the
-account where its future competitors are about to be measured, which undercuts
-the "baseline you did not build around it" property that holding `iamwho` back
-was meant to preserve. **This is a decision to make before Phase 2 runs**, and it
-is recorded here rather than resolved.
+What remains, and matters:
 
-GuardDuty is also enabled (service-linked roles present). Rubric §7 puts runtime
-detection out of scope, but the lab will generate findings.
+- **Lambda `EC2-AutoRemediation` (us-east-1), kept deliberately.** It is the only
+  reachable target for `privesc17`, and the role it runs as grants EC2 read and
+  tagging — not admin. That makes it a live rubric §4.8 overstated-impact test.
+  Do not delete it.
+- **CloudFormation stack `iamwho-stress-test-roles` (us-west-2).** Residue from
+  the fixture stack, now fully drifted. It is the only stack in the account, and
+  therefore the only target for `privesc-CloudFormationUpdateStack` — which is
+  why that scenario's `target_absent` is now `no`. Deleting the stack flips it
+  back to `yes`. **Decide before Phase 2 runs.**
+- `role/service-role/EC2-AutoRemediation-role-h3s42wj1`, `role/EC2CloudWatchAgentRole`,
+  5 service-linked roles, `user/iamadmin`, one CloudFormation template bucket,
+  one SNS topic, three unused EC2 key pairs.
+
+A tool reporting a path through any of these is producing an off-list finding —
+neither a lab scenario nor a false positive. Exclude them from the denominator
+explicitly rather than silently.
+
+GuardDuty is enabled. Rubric §7 puts runtime detection out of scope, but the lab
+will generate findings.
 
 ## Columns
 
@@ -92,7 +106,8 @@ detection out of scope, but the lab will generate findings.
 | inert | 1 | 1 |
 | **total** | **46** | **86** |
 
-`target_absent = yes` on 7 mechanisms (14 rows).
+`target_absent = yes` on 6 mechanisms (12 rows). Verified across all 17 enabled
+regions, not just `us-east-1` — see `account-baseline.md`.
 
 All 41 lab users hold exactly one access key. No lab role holds one; roles are
 reached by `sts:AssumeRole` from `user/iamadmin`.
@@ -145,8 +160,8 @@ reached by `sts:AssumeRole` from `user/iamadmin`.
 | `privesc20-PassExistingRoleToCloudFormation--user` | `arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user` | privesc20-PassExistingRoleToCloudFormation | Allow: `iam:PassRole`, `cloudformation:CreateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | yes | yes - access key | **no** | privesc |
 | `privesc21-PassExistingRoleToNewDataPipeline--role` | `arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role` | privesc21-PassExistingRoleToNewDataPipeline | Allow: `iam:PassRole`; Allow: `datapipeline:CreatePipeline`, `datapipeline:PutPipelineDefinition`, `datapipeline:ActivatePipeline` | privesc-high-priv-service-role (`*:*`) via datapipeline | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc21-PassExistingRoleToNewDataPipeline--user` | `arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user` | privesc21-PassExistingRoleToNewDataPipeline | Allow: `iam:PassRole`; Allow: `datapipeline:CreatePipeline`, `datapipeline:PutPipelineDefinition`, `datapipeline:ActivatePipeline` | privesc-high-priv-service-role (`*:*`) via datapipeline | yes | yes - access key | **no** | privesc |
-| `privesc-CloudFormationUpdateStack--role` | `arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | no | no - assume from `user/iamadmin` | **yes** | privesc |
-| `privesc-CloudFormationUpdateStack--user` | `arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | yes | yes - access key | **yes** | privesc |
+| `privesc-CloudFormationUpdateStack--role` | `arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | no | no - assume from `user/iamadmin` | **no** | privesc |
+| `privesc-CloudFormationUpdateStack--user` | `arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | yes | yes - access key | **no** | privesc |
 | `privesc-codeBuildCreateProjectPassRole--role` | `arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role` | privesc-codeBuildCreateProjectPassRole | Allow: `codebuild:CreateProject`, `codebuild:StartBuild`, `codebuild:StartBuildBatch`, `iam:PassRole` +1 more | privesc-high-priv-service-role (`*:*`) via codebuild | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc-codeBuildCreateProjectPassRole--user` | `arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user` | privesc-codeBuildCreateProjectPassRole | Allow: `codebuild:CreateProject`, `codebuild:StartBuild`, `codebuild:StartBuildBatch`, `iam:PassRole` +1 more | privesc-high-priv-service-role (`*:*`) via codebuild | yes | yes - access key | **no** | privesc |
 | `privesc-ec2InstanceConnect--role` | `arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role` | privesc-ec2InstanceConnect | Allow: `ec2:DescribeInstances`, `ec2-instance-connect:SendSSHPublicKey`, `ec2-instance-connect:SendSerialConsoleSSHPublicKey` | shell on an EC2 instance carrying a role | no | no - assume from `user/iamadmin` | **yes** | privesc |
@@ -238,7 +253,7 @@ One entry per mechanism. Applies to both principal rows unless stated.
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc21-PassExistingRoleToNewDataPipeline`** (privesc, target_absent **no**) — creates a new pipeline. Data Pipeline is closed to new customers; whether this account can still create one is **inferred, not confirmed** - validate before grading  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc-CloudFormationUpdateStack`** (privesc, target_absent **yes**) — `cloudformation:UpdateStack` needs an existing stack; `describe-stacks` returns 0 (verified)  
+- **`privesc-CloudFormationUpdateStack`** (privesc, target_absent **no** — _corrected 2026-08-31_) — `cloudformation:UpdateStack` needs an existing stack. The original check ran `describe-stacks` in `us-east-1` only and found 0. A full sweep found `iamwho-stress-test-roles` in `us-west-2`; the grant carries no region condition, so the target is reachable. Note the target is itself `iamwho` residue — if that stack is deleted this reverts to `yes`. See `account-baseline.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc-codeBuildCreateProjectPassRole`** (privesc, target_absent **no**) — creates a new project; trust policy includes codebuild.amazonaws.com  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
@@ -309,3 +324,10 @@ Recorded per the CLAUDE.md constraint to flag inference rather than assert it.
 4. **`target_absent` was verified by resource-existence checks, not by attempting
    exploitation.** A `no` means a target exists, not that the path has been
    proven to work end to end. That is Phase 3's job.
+
+## Corrections
+
+| Date | Row | Change | Cause |
+|---|---|---|---|
+| 2026-08-31 | `privesc-CloudFormationUpdateStack` (both rows) | `target_absent` **yes → no** | First pass checked `us-east-1` only. A 17-region sweep found a CloudFormation stack in `us-west-2`. See `account-baseline.md`. |
+| 2026-08-31 | header §2 | rewritten | 11 `iamwho-test-*` roles deleted; see `fixture-removal-2026-08-31.md`. |
