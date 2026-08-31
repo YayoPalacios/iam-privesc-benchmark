@@ -1,106 +1,77 @@
 # IAM tool benchmark
 
-The full writeup is in POST.md.
+The evidence behind a write-up benchmarking two open-source AWS IAM
+privilege-escalation tools — PMapper 1.1.5 and cloudfox 2.0.5 — against Bishop
+Fox's `iam-vulnerable` lab in a throwaway account. Everything here is what I
+graded from: the rubric I froze first, the grades, the checks I did by hand, and
+the untouched tool output.
 
-A per-scenario detection matrix comparing PMapper and cloudfox against Bishop
-Fox's iam-vulnerable lab. Track B, phase 1. `iamwho` is deliberately not part of
-this phase — it gets measured later, against a baseline built without it.
+**Read the article first: [POST-short.md](POST.md).** The long working
+draft it was cut from is [POST.md](FINDINGS-full.md).
 
-**Phases 0–5 are complete.** The rubric was frozen before deployment (commit
-`f2e62ee`) and amended only by append. Both labs were applied, both tools were
-run and graded, the matrix is in `analysis/matrix.md`, and the writeup is
-`POST.md` at the repo root.
+## What's here
 
-**Both Terraform states are now empty** — `lab/terraform.tfstate` and
-`lab-oidc/terraform.tfstate` each hold 0 resource instances, so both roots have
-been destroyed. That is a statement about the local state files; confirm against
-the account itself if you need certainty. The teardown section below stays at the
-top because it applies to every future run, not because anything is outstanding.
+**[analysis/rubric.md](analysis/rubric.md)** — what counts as Detected, Partial,
+Missed, and a false alarm. Committed before I deployed anything, so `git log` on
+that file is the proof the bar didn't move after I saw results. Amended only by
+append.
 
-## Teardown — load-bearing, not hygiene
+**[analysis/grades.csv](analysis/grades.csv)** — 344 rows, one per
+`(scenario, tool, context, flagset)`. Each carries its grade, the path to the
+raw output it came from, the exact query or search I used, and whether I
+confirmed it by hand or inferred it. That last column is published, not buried:
+most rows are `inferred`, and you can see which.
+
+**[analysis/validation/](analysis/validation/)** — 19 files, one per scenario I
+checked by hand, with the exact commands and what came back. This is where the
+"my answer key was wrong" section of the article comes from.
+
+**[raw-output/](raw-output/)** — unedited output from every run, one directory
+per tool per run: cloudfox and PMapper, as admin and as a read-only
+`SecurityAudit` user, default flags and flagged. The only change is `redact.sh`,
+a one-way substitution that swaps the account ID for `000000000000` and access
+key IDs for placeholders. The script is committed next to its output, so
+"unedited" means "unedited apart from one rule you can read."
+
+Also: `analysis/scenarios.md` (the ground truth, generated from the AWS API
+rather than the lab's README), `analysis/matrix.md` (the per-scenario matrix,
+written by hand from `grades.csv` — there is no generator), `lab/`
+(`iam-vulnerable`, unmodified) and `lab-oidc/` (the GitHub OIDC scenario from
+the last section of the article, in its own state).
+
+## If you reproduce this, tear it down
+
+Both Terraform states in this repo are empty — 0 resource instances each — so
+these labs are already destroyed. That's a statement about the local state
+files; check the account itself if you need certainty.
+
+If you deploy them yourself, destroy the OIDC one first:
 
 ```
-cd lab && terraform destroy      # and again in lab-oidc/ once Phase 5 exists
+cd lab-oidc && terraform destroy   # 13 resources — first
+cd ../lab   && terraform destroy   # 265 resources
 ```
 
-**Run this the moment a run ends. It is not cleanup, it is containment.**
+**OIDC first, because those roles are reachable from outside AWS with no
+credentials at all.** One of them trusts every repo in a GitHub org, and the
+only thing keeping strangers out is that the org name is unregistered. If
+someone registers it, they get admin in that account. The main lab at least
+requires stealing existing credentials first.
 
-The lab creates 41 `aws_iam_access_key` resources, so `lab/terraform.tfstate`
-holds **41 live AWS secret access keys in plaintext** — one per lab user, every
-one of them attached to a principal that exists specifically to escalate to
-account admin. The state file is gitignored (by the lab's own `.gitignore` and
-by the nested `.git`), so it will not be committed. It is still credential
-material sitting on a laptop, and it stays valid until the keys are deleted.
-
-Nothing else about the lab is expensive or urgent — every resource is IAM and
-costs nothing. The keys are the reason the destroy step matters, and the reason
-it belongs at the top of this file rather than the bottom.
-
-Confirm afterwards with `aws iam list-access-keys` over the lab users, or simply
-that `terraform state list` is empty.
-
-## Layout
-
-```
-analysis/
-  rubric.md           frozen before Phase 2; append-only thereafter
-  scenarios.md        ground truth, generated from the AWS API (Phase 1)
-  account-baseline.md non-lab resources; what target_absent depends on
-  fixture-removal-2026-08-31.md   iamwho fixtures deleted, with reasons
-  grades.csv          source of truth for every grade
-  validation/         manual proof, one file per scenario
-  matrix.md           the deliverable, written by hand from grades.csv
-raw-output/           unedited tool output, one dir per run
-lab/                  iam-vulnerable, unmodified
-lab-oidc/             Phase 5 OIDC scenario, separate state
-redact.sh             one-way account ID / access key ID substitution
-```
-
-## Conventions
-
-**Run directories.** `raw-output/<tool>/<context>-<flagset>-<date>/`, each with a
-`run-metadata.md` copied from `raw-output/run-metadata.template.md`. Contexts are
-`admin` and `limited`; flagsets are `default` and `flagged`. See
-`raw-output/README.md`.
-
-**Grades.** `analysis/grades.csv` is the source of truth — one row per
-`(scenario, tool, context, flagset)`:
-
-| column | values |
-|---|---|
-| `scenario_id` | stable ID, matches the validation filename |
-| `principal` | the principal half of the scenario row |
-| `mechanism` | the mechanism half; headline numbers roll up to this |
-| `tool` | `pmapper` \| `cloudfox` |
-| `context` | `admin` \| `limited` |
-| `flagset` | `default` \| `flagged` |
-| `grade` | `D` \| `P` \| `M` \| `FP` \| `N/A` |
-| `evidence_path` | path under `raw-output/`, plus the exact query or search used |
-| `validation_status` | `validated` \| `inferred` |
-| `note` | required for `FP`, `N/A`, and anything graded under rubric §4.5 or §4.6 |
-
-`validation_status` is a published column, not a caveat in prose. Most rows will
-be `inferred`; the matrix has to say which.
-
-`matrix.md` is written **by hand** from this file. There is no generator.
-
-**Validation.** `analysis/validation/<scenario_id>.md`, one per scenario, exact
-commands and outcomes. See `analysis/validation/README.md`.
-
-**Redaction.** Run `./redact.sh` over `raw-output/` before any commit that adds
-tool output, and `./redact.sh --check` to verify. It reads the account ID from
-`.account-id` (gitignored — create it with
-`aws sts get-caller-identity --profile personal --query Account --output text`).
-Placeholders keep the shape of what they replace, so ARNs stay well-formed and
-JSON stays parseable. The script is committed alongside its output: "unedited"
-means "unedited modulo one auditable rule."
-
-**Terraform variables.** `*.tfvars` is gitignored, so `terraform.tfvars.example`
-plus the values recorded in each `run-metadata.md` are the only record of what
-was deployed. The iam-vulnerable commit hash is pinned in run metadata.
+The main lab is the bigger cleanup: it creates 41 real access keys, so
+`lab/terraform.tfstate` holds 41 live AWS secret keys in plaintext. The state
+file is gitignored, so it never gets committed, but it's real credential
+material sitting on a laptop until the keys are deleted. Confirm with
+`terraform state list` coming back empty, or `aws iam list-access-keys` over the
+lab users.
 
 ## Account hygiene
 
-Dedicated personal AWS sandbox account, profile `personal`. Every AWS call uses
-`--profile personal` or an explicit `AWS_PROFILE`. Other profiles on this machine
-are work accounts. Confirm `aws sts get-caller-identity` before anything.
+Throwaway account only. `iam-vulnerable` creates real users, real access keys,
+and real roles built to escalate to account admin — this is not something to
+point at an account tied to anything you care about, and definitely not a shared
+one.
+
+I used a dedicated personal sandbox under the profile `personal`, and every AWS
+call in this repo names it explicitly. Check `aws sts get-caller-identity`
+before you run anything.
