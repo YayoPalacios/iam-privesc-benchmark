@@ -1,5 +1,7 @@
 # IAM tool benchmark
 
+The full writeup is in POST.md.
+
 A per-scenario detection matrix comparing PMapper and cloudfox against Bishop
 Fox's iam-vulnerable lab. Track B, phase 1. `iamwho` is deliberately not part of
 this phase — it gets measured later, against a baseline built without it.
@@ -102,5 +104,3 @@ was deployed. The iam-vulnerable commit hash is pinned in run metadata.
 Dedicated personal AWS sandbox account, profile `personal`. Every AWS call uses
 `--profile personal` or an explicit `AWS_PROFILE`. Other profiles on this machine
 are work accounts. Confirm `aws sts get-caller-identity` before anything.
-
-Repo stays private until the writeup is ready.
