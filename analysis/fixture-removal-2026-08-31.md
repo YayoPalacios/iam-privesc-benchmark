@@ -69,22 +69,54 @@ aws iam list-groups   --query 'Groups[?starts_with(GroupName,`iamwho`)]'
 aws iam list-policies --scope Local --query 'Policies[?starts_with(PolicyName,`iamwho`)]'
 ```
 
-## Left in place, deliberately
+## Second pass, same day: the fixture stack and its bucket
 
-**The `iamwho-stress-test-roles` CloudFormation stack (us-west-2,
-`CREATE_COMPLETE`, created 2026-01-25)** is the source of all 11 roles above. Its
-resources were deleted out of band, so it is now fully drifted. It was **not**
-deleted, for two reasons: deleting a stack was not part of the authorised change,
-and the stack is currently the only CloudFormation stack in the account, which
-makes it the only reachable target for the `privesc-CloudFormationUpdateStack`
-scenario. See `account-baseline.md`.
+**Deleted.** `iamwho-stress-test-roles` (us-west-2, created 2026-01-25) was the
+CloudFormation stack that created all 11 roles above. After they were removed out
+of band it held no live resources at all.
 
-**This needs a decision before Phase 2.** Deleting the stack removes the last
-fixture residue but flips `privesc-CloudFormationUpdateStack` back to
-`target_absent = yes`. Keeping it leaves an `iamwho`-authored artifact in the
-account that a tool could name in its output. Either is defensible; the choice
-has to be made and disclosed, not left to whichever happens to be true on the
-day the tools run.
+Dependency check before deleting: its resource list was exactly those 11 IAM
+roles, all already gone; `list-exports` returned empty, so no stack could be
+importing from it; and it was the only stack in any of the 17 enabled regions.
 
-**The `EC2-AutoRemediation` Lambda is kept on purpose.** See `account-baseline.md`
-and the `privesc17` note in `scenarios.md`.
+**Deleted:** `cf-templates-1ajkstp6a3kyv-us-west-2` and its 9 objects —
+CloudFormation's auto-created template staging bucket. Every one of the 9
+templates was verified as `iamwho` residue first: all dated 2026-01-13 to
+2026-01-25, all described as "IAM test roles for iamwho testing" or "IAMWho
+Stress Test Roles", all defining only `iamwho-test-*` roles. Nothing else had
+ever been staged there. CloudFormation recreates such a bucket on demand.
+
+The two newest templates carried an OIDC role definition
+(`iamwho-test-oidc-nosub`, a GitHub Actions trust with no `sub` condition) that
+was **commented out and never deployed**. The account has no OIDC or SAML
+provider, confirmed by `list-open-id-connect-providers` and
+`list-saml-providers`. Phase 5 therefore starts from a clean slate — worth
+knowing, since a pre-existing federation artifact would have muddied the one
+finding in this project that is genuinely novel.
+
+**Consequence:** `privesc-CloudFormationUpdateStack` returns to
+`target_absent = yes`. It was briefly `no` because this stack was the only one in
+the account. Scoring the tools against a target that existed only because the
+withheld tool's leftovers put it there would not have been defensible. See the
+Corrections table in `scenarios.md`.
+
+## Kept, deliberately
+
+**The `EC2-AutoRemediation` Lambda.** See `account-baseline.md` and the
+`privesc17` note in `scenarios.md`. It predates everything here, is unrelated to
+`iamwho`, and makes `privesc17` a live overstated-impact test case under rubric
+§4.8. Do not delete it during teardown; Terraform never created it and
+`terraform destroy` will not touch it.
+
+## Residue check, after both passes
+
+All empty, account-wide:
+
+```
+aws iam list-roles       --query 'Roles[?contains(RoleName,`iamwho`)]'
+aws iam list-users       --query 'Users[?contains(UserName,`iamwho`)]'
+aws iam list-groups      --query 'Groups[?contains(GroupName,`iamwho`)]'
+aws iam list-policies --scope Local --query 'Policies[?contains(PolicyName,`iamwho`)]'
+aws cloudformation describe-stacks   # zero stacks, all 17 enabled regions
+aws s3api list-buckets               # zero buckets
+```

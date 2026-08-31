@@ -61,14 +61,15 @@ What remains, and matters:
   reachable target for `privesc17`, and the role it runs as grants EC2 read and
   tagging — not admin. That makes it a live rubric §4.8 overstated-impact test.
   Do not delete it.
-- **CloudFormation stack `iamwho-stress-test-roles` (us-west-2).** Residue from
-  the fixture stack, now fully drifted. It is the only stack in the account, and
-  therefore the only target for `privesc-CloudFormationUpdateStack` — which is
-  why that scenario's `target_absent` is now `no`. Deleting the stack flips it
-  back to `yes`. **Decide before Phase 2 runs.**
+- **The `iamwho-stress-test-roles` CloudFormation stack has been deleted**, along
+  with its template bucket. It was the source of the 11 fixture roles and the
+  last `iamwho` artifact in the account. Because it was also the only stack in
+  the account, `privesc-CloudFormationUpdateStack` returns to
+  `target_absent = yes` — the honest reading, since the only thing that made it
+  exploitable was residue from the tool being held back from this phase.
 - `role/service-role/EC2-AutoRemediation-role-h3s42wj1`, `role/EC2CloudWatchAgentRole`,
-  5 service-linked roles, `user/iamadmin`, one CloudFormation template bucket,
-  one SNS topic, three unused EC2 key pairs.
+  5 service-linked roles, `user/iamadmin`, one SNS topic, three unused EC2 key
+  pairs. No CloudFormation stacks and no S3 buckets remain, account-wide.
 
 A tool reporting a path through any of these is producing an off-list finding —
 neither a lab scenario nor a false positive. Exclude them from the denominator
@@ -106,7 +107,7 @@ will generate findings.
 | inert | 1 | 1 |
 | **total** | **46** | **86** |
 
-`target_absent = yes` on 6 mechanisms (12 rows). Verified across all 17 enabled
+`target_absent = yes` on 7 mechanisms (14 rows). Verified across all 17 enabled
 regions, not just `us-east-1` — see `account-baseline.md`.
 
 All 41 lab users hold exactly one access key. No lab role holds one; roles are
@@ -160,8 +161,8 @@ reached by `sts:AssumeRole` from `user/iamadmin`.
 | `privesc20-PassExistingRoleToCloudFormation--user` | `arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user` | privesc20-PassExistingRoleToCloudFormation | Allow: `iam:PassRole`, `cloudformation:CreateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | yes | yes - access key | **no** | privesc |
 | `privesc21-PassExistingRoleToNewDataPipeline--role` | `arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role` | privesc21-PassExistingRoleToNewDataPipeline | Allow: `iam:PassRole`; Allow: `datapipeline:CreatePipeline`, `datapipeline:PutPipelineDefinition`, `datapipeline:ActivatePipeline` | privesc-high-priv-service-role (`*:*`) via datapipeline | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc21-PassExistingRoleToNewDataPipeline--user` | `arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user` | privesc21-PassExistingRoleToNewDataPipeline | Allow: `iam:PassRole`; Allow: `datapipeline:CreatePipeline`, `datapipeline:PutPipelineDefinition`, `datapipeline:ActivatePipeline` | privesc-high-priv-service-role (`*:*`) via datapipeline | yes | yes - access key | **no** | privesc |
-| `privesc-CloudFormationUpdateStack--role` | `arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | no | no - assume from `user/iamadmin` | **no** | privesc |
-| `privesc-CloudFormationUpdateStack--user` | `arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | yes | yes - access key | **no** | privesc |
+| `privesc-CloudFormationUpdateStack--role` | `arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | no | no - assume from `user/iamadmin` | **yes** | privesc |
+| `privesc-CloudFormationUpdateStack--user` | `arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user` | privesc-CloudFormationUpdateStack | Allow: `cloudformation:UpdateStack`, `cloudformation:DescribeStacks` | privesc-high-priv-service-role (`*:*`) via cloudformation | yes | yes - access key | **yes** | privesc |
 | `privesc-codeBuildCreateProjectPassRole--role` | `arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role` | privesc-codeBuildCreateProjectPassRole | Allow: `codebuild:CreateProject`, `codebuild:StartBuild`, `codebuild:StartBuildBatch`, `iam:PassRole` +1 more | privesc-high-priv-service-role (`*:*`) via codebuild | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc-codeBuildCreateProjectPassRole--user` | `arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user` | privesc-codeBuildCreateProjectPassRole | Allow: `codebuild:CreateProject`, `codebuild:StartBuild`, `codebuild:StartBuildBatch`, `iam:PassRole` +1 more | privesc-high-priv-service-role (`*:*`) via codebuild | yes | yes - access key | **no** | privesc |
 | `privesc-ec2InstanceConnect--role` | `arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role` | privesc-ec2InstanceConnect | Allow: `ec2:DescribeInstances`, `ec2-instance-connect:SendSSHPublicKey`, `ec2-instance-connect:SendSerialConsoleSSHPublicKey` | shell on an EC2 instance carrying a role | no | no - assume from `user/iamadmin` | **yes** | privesc |
@@ -253,7 +254,7 @@ One entry per mechanism. Applies to both principal rows unless stated.
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc21-PassExistingRoleToNewDataPipeline`** (privesc, target_absent **no**) — creates a new pipeline. Data Pipeline is closed to new customers; whether this account can still create one is **inferred, not confirmed** - validate before grading  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc-CloudFormationUpdateStack`** (privesc, target_absent **no** — _corrected 2026-08-31_) — `cloudformation:UpdateStack` needs an existing stack. The original check ran `describe-stacks` in `us-east-1` only and found 0. A full sweep found `iamwho-stress-test-roles` in `us-west-2`; the grant carries no region condition, so the target is reachable. Note the target is itself `iamwho` residue — if that stack is deleted this reverts to `yes`. See `account-baseline.md`  
+- **`privesc-CloudFormationUpdateStack`** (privesc, target_absent **yes**) — `cloudformation:UpdateStack` needs an existing stack. Zero stacks exist in any of the 17 enabled regions. The one stack that briefly made this exploitable was `iamwho-stress-test-roles`, deleted 2026-08-31 to keep the baseline uncontaminated. See the Corrections table and `account-baseline.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc-codeBuildCreateProjectPassRole`** (privesc, target_absent **no**) — creates a new project; trust policy includes codebuild.amazonaws.com  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
@@ -329,5 +330,6 @@ Recorded per the CLAUDE.md constraint to flag inference rather than assert it.
 
 | Date | Row | Change | Cause |
 |---|---|---|---|
-| 2026-08-31 | `privesc-CloudFormationUpdateStack` (both rows) | `target_absent` **yes → no** | First pass checked `us-east-1` only. A 17-region sweep found a CloudFormation stack in `us-west-2`. See `account-baseline.md`. |
-| 2026-08-31 | header §2 | rewritten | 11 `iamwho-test-*` roles deleted; see `fixture-removal-2026-08-31.md`. |
+| 2026-08-31 | `privesc-CloudFormationUpdateStack` (both rows) | `target_absent` **yes → no** | First pass checked `us-east-1` only. A 17-region sweep found a CloudFormation stack in `us-west-2`. |
+| 2026-08-31 | `privesc-CloudFormationUpdateStack` (both rows) | `target_absent` **no → yes** (reverted) | The only reachable stack was `iamwho` residue — the fixture stack that created the deleted `iamwho-test-*` roles. It was removed to keep the baseline uncontaminated, so no stack exists in any region and the target is genuinely absent. Grading a scenario as exploitable only because the withheld tool's own leftovers made it so would not have been defensible. |
+| 2026-08-31 | header §2 | rewritten twice | 11 `iamwho-test-*` roles deleted, then the fixture stack and its template bucket. See `fixture-removal-2026-08-31.md`. |
