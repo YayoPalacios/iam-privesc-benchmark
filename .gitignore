@@ -1,0 +1,13 @@
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+*.pem
+*.key
+credentials*
+.env
+__pycache__/
+.venv/
+.account-id
+.idea/
