@@ -6,8 +6,8 @@ Fox's `iam-vulnerable` lab in a throwaway account. Everything here is what I
 graded from: the rubric I froze first, the grades, the checks I did by hand, and
 the untouched tool output.
 
-**Read the article first: [POST-short.md](POST.md).** The long working
-draft it was cut from is [POST.md](FINDINGS-full.md).
+**Read the article first: [POST.md](POST.md).** The long working
+draft it was cut from is [FINDINGS-full.md](FINDINGS-full.md).
 
 ## What's here
 
