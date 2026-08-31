@@ -11,3 +11,7 @@ __pycache__/
 .venv/
 .account-id
 .idea/
+
+# lab/ is a plain clone of iam-vulnerable with its own .git.
+# The outer repo records only the pinned commit, in raw-output/lab-deployment.md.
+/lab/

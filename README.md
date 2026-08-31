@@ -7,10 +7,27 @@ this phase — it gets measured later, against a baseline built without it.
 **Nothing is deployed yet.** The rubric is frozen (commit `f2e62ee`); the lab
 has not been cloned or applied.
 
-## Teardown
+## Teardown — load-bearing, not hygiene
 
-`terraform destroy` in **both** `lab/` and `lab-oidc/`. Do not leave a lab full
-of live privilege-escalation paths running.
+```
+cd lab && terraform destroy      # and again in lab-oidc/ once Phase 5 exists
+```
+
+**Run this the moment a run ends. It is not cleanup, it is containment.**
+
+The lab creates 41 `aws_iam_access_key` resources, so `lab/terraform.tfstate`
+holds **41 live AWS secret access keys in plaintext** — one per lab user, every
+one of them attached to a principal that exists specifically to escalate to
+account admin. The state file is gitignored (by the lab's own `.gitignore` and
+by the nested `.git`), so it will not be committed. It is still credential
+material sitting on a laptop, and it stays valid until the keys are deleted.
+
+Nothing else about the lab is expensive or urgent — every resource is IAM and
+costs nothing. The keys are the reason the destroy step matters, and the reason
+it belongs at the top of this file rather than the bottom.
+
+Confirm afterwards with `aws iam list-access-keys` over the lab users, or simply
+that `terraform state list` is empty.
 
 ## Layout
 
