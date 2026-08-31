@@ -1,52 +1,52 @@
 # Two AWS IAM privesc tools, one path finder
 
-*A per-scenario detection matrix for PMapper and cloudfox, and the six rows where my ground truth was wrong.*
+*A per-scenario detection matrix for PMapper and cloudfox, and the six rows where my own answer key was wrong.*
 
-> I spent two weekends deploying Bishop Fox's `iam-vulnerable` into a sandbox AWS account and grading two open-source IAM privilege-escalation tools against it, using a rubric I froze before deploying anything. That gave me 344 graded cells, 19 hand-validated scenarios, and every byte of raw tool output published unedited. Here's what I found, including the part where the tools were right and my scenario list was wrong.
+> I spent two weekends running two open-source AWS IAM privilege-escalation tools against a deliberately-broken practice account (Bishop Fox's `iam-vulnerable`) and grading every result by hand, against a rubric I locked in before I started. That's 344 graded cells, 19 scenarios I checked by hand, and all the raw output published so anyone can check my work. Here's what I found — including the part where the tools were right and I was wrong.
 
 ---
 
 ## 1. What this is
 
-Over two weekends I deployed Bishop Fox's `iam-vulnerable` into a dedicated AWS account and ran two open-source IAM privilege-escalation tools against it: **cloudfox (2.0.5)** and **PMapper (1.1.5)**. I graded every scenario the lab created by hand, against a rubric I froze in git before deploying anything. That gave me a 344-row grade file, 19 validation files with the exact CLI commands I ran and what they returned, and a per-scenario matrix. It's all published, raw tool output included. The only edit is a one-way account-ID substitution, and that script is committed next to the output it produced.
+Over two weekends I deployed Bishop Fox's `iam-vulnerable` into a throwaway AWS account and ran two open-source IAM privilege-escalation tools against it: **cloudfox (2.0.5)** and **PMapper (1.1.5)**. I graded every scenario the lab creates by hand, against a rubric I froze in git before I deployed anything. That gave me a 344-row grade file, 19 validation files with the exact commands I ran and what came back, and a per-scenario matrix. It's all published, raw output included. The only edit is swapping my account ID for a placeholder, and that script is in the repo too.
 
-This isn't a shootout and there's no winner. Two tools isn't a survey of the field, one account isn't a population, and each run happened once. This is what happened when I ran these two tools against this lab on 2026-08-31. If I say anything broader than that, I say so and show the reasoning.
+This isn't a shootout and there's no winner. It's small: two tools, one account, one run each. Where I say anything broader than "here's what happened on 2026-08-31," I show the reasoning.
 
-**What I graded.** The lab applied 265 resources at commit `0f29866`. From those I got 46 escalation mechanisms across 86 `(principal, mechanism)` rows, generated from `iam get-account-authorization-details` plus per-service existence checks against the live account, not from the lab's README. Each row got a grade per tool:
+**What I graded.** The lab stands up 265 resources. From those I pulled 46 escalation mechanisms across 86 `(principal, mechanism)` rows — built from the live account (`iam get-account-authorization-details` plus per-service checks), not from the lab's README. Each row got a grade per tool:
 
-- **Detected:** the output names the principal, the enabling permission, and the reachable target.
-- **Partial:** it ties a risky permission to a specific principal but connects it to nothing.
-- **Missed:** nothing in the output would point a reviewer at the path.
+- **Detected:** the output names the principal, the permission, and the target it can reach.
+- **Partial:** it ties a risky permission to a principal but stops there.
+- **Missed:** nothing in the output would point you at the path.
 
-I ran each tool twice, once as an administrator and once as a user holding only the AWS-managed `SecurityAudit` policy, which is what a real auditor or CSPM tool would have.
+I ran each tool twice: once as an admin, once as a user with only the AWS-managed `SecurityAudit` policy — the kind of read-only access a real auditor or scanning tool would have.
 
-**Three things to know before any of the numbers.**
+**Three things to know before the numbers.**
 
-The lab is built from Rhino Security Labs' catalogue of AWS privesc methods, and both tools were largely written to detect that catalogue. High scores are the expected result, not proof of quality. The interesting cells are the misses, the false positives, and anything outside the catalogue.
+The lab is built from Rhino Security Labs' list of AWS privesc methods, and both tools were largely written to catch that list. So high scores are expected and don't prove much. The interesting cells are the misses, the false alarms, and anything off the list.
 
-The lab's `aws_assume_role_arn` variable defaults to whoever deploys it, so all 45 roles it creates name my admin user in their trust policies. Under admin credentials the role graph is a star centred on one principal, and every reachability result is inflated by that. That's a property of how the lab deploys, not of either tool.
+The lab names whoever deploys it in the trust policy of all 45 roles it creates. So under admin the whole graph points at my one user, which inflates the reachability numbers. That's the lab, not the tools.
 
-I have my own IAM tool, `iamwho`, and I left it out of this benchmark on purpose. I wanted a baseline I hadn't shaped around my own work, so I measured these two first. Eleven old `iamwho` test resources were still in the account when I started, so I deleted them, and the CloudFormation stack that made them, before grading. That cost me one scenario: `privesc-CloudFormationUpdateStack` needs a stack to attack, and mine was the only one there. Keeping it would have meant scoring the tools against my own leftovers.
+I have my own IAM tool, `iamwho`, and I left it out on purpose — I wanted a baseline I hadn't shaped around my own work. Eleven old `iamwho` test resources were still in the account, so I deleted them (and the CloudFormation stack behind them) before grading. That cost me one scenario: `privesc-CloudFormationUpdateStack` needs a stack to attack, and mine was the only one there. Grading it would have meant scoring the tools against my own leftovers.
 
-**What I didn't test.** Runtime and behavioural detection. Cross-account and Organizations-level paths. SCPs and permission boundaries beyond what the lab deploys. Resource policies other than role trust policies. Anything needing write access or an agent.
+**What I didn't test.** Runtime detection. Cross-account and org-level paths. SCPs and permission boundaries beyond what the lab sets up. Resource policies other than role trust. Anything needing write access.
 
-One more gap matters, because it caused the most interesting mistake I made: I never ran an `iam:SimulatePrincipalPolicy` sweep as an independent check. My ground truth is just a list of who was granted what, and section 5 is what that cost me.
+One more gap, and it caused the most interesting mistake I made: I never ran an `iam:SimulatePrincipalPolicy` sweep as an independent check. My answer key is just a list of who was granted what — section 5 is what that cost me.
 
-Grading is unweighted. Missing a four-hop chain to full admin counts the same as missing a single hop to something trivial. Weighting would need a way to rank impact that I don't have, and inventing one after seeing the results is exactly what the frozen rubric was meant to prevent.
+Grading is unweighted. A missed four-hop path to full admin counts the same as a missed one-hop to nothing much. Ranking them would need an impact model I don't have, and making one up after seeing the results is exactly what freezing the rubric was meant to stop.
 
 ---
 
-## 2. The default invocation returns nothing
+## 2. The default run gives you nothing
 
-PMapper builds a directed graph of every principal in an account and the edges between them, then answers questions over it. Everything starts with `pmapper graph create`, so I ran that with admin credentials against the freshly applied lab:
+PMapper builds a map of every identity in an account and the links between them, then answers questions over the map. It all starts with `pmapper graph create`, so I ran that as admin against the fresh lab:
 
 ```
 $ pmapper --profile personal graph create
 ```
 
-It ran for five minutes and fifty-two seconds and exited 1.
+It ran for five minutes fifty-two seconds and exited with an error.
 
-The first four minutes look fine. It pulls users, roles, groups and policies, sorts the relationships, gathers access keys and MFA devices, works out which principals are administrative. Then it starts edge checks, beginning with EC2 Auto Scaling, which means listing launch configurations in every region. My account has 17 regions enabled and AWS advertises even more, so most of those calls go to endpoints the account can't use. PMapper handles that:
+The first four minutes look fine. It pulls the users, roles, groups and policies, works out who's already an admin, then starts checking for links — beginning with EC2 Auto Scaling, which means checking every region. My account has 17 regions on and AWS has many more, so most of those calls hit regions I can't use. PMapper is written to shrug those off:
 
 ```
 19:23:21 | Unable to search region af-south-1 for launch configs. The region may be
@@ -55,54 +55,45 @@ The first four minutes look fine. It pulls users, roles, groups and policies, so
 19:23:22 | Unable to search region ap-east-2 for launch configs. ... Continuing.
 ```
 
-Fifteen regions, fifteen warnings, fifteen times "Continuing." Then the sixteenth:
+Fifteen regions, fifteen "Continuing." Then the sixteenth:
 
 ```
 botocore.exceptions.ConnectTimeoutError: Connect timeout on endpoint URL:
 "https://autoscaling.me-south-1.amazonaws.com/"
 ```
 
-and the process dies at `autoscaling_edges.py:60`.
+and the whole thing dies at `autoscaling_edges.py:60`.
 
-It comes down to one line of exception handling. `AutoScalingEdgeChecker.return_edges` wraps its paginator in a `try` whose handler is exactly the warning printed fifteen times above:
+It comes down to one line. The code that catches "region didn't work, keep going" only catches one kind of error — a region *refusing* you (`ClientError`). The other fifteen regions all refused, so they got caught and shrugged off. `me-south-1` didn't refuse; it just went silent and timed out. A timeout is a different kind of error (`ConnectTimeoutError`, which isn't a `ClientError`), so it sails straight past the catch and kills the program.
 
-```python
-except ClientError as ex:
-    logger.warning('Unable to search region {} for launch configs. The region may be
-                    disabled, or the error may be caused by an authorization issue.
-                    Continuing.'.format(as_client.meta.region_name))
-```
+The catch isn't missing. Someone wrote it for exactly this situation — they just aimed it at the wrong kind of error.
 
-Fifteen of those regions answered, just with an error (`AuthFailure`, or a disabled-region refusal). A service error arriving over HTTP is a botocore `ClientError`, which the handler catches. `me-south-1` didn't answer at all. A connection that never establishes raises `ConnectTimeoutError`, which inherits from `BotoCoreError` rather than `ClientError`, so it goes straight past the handler, out of the region loop, out of `obtain_edges`, and out of `main`.
+And a small miss becomes a total one, because of how PMapper is built. Auto Scaling is the first of nine checks it runs, and it doesn't save anything until all nine finish. There's no save-as-you-go. So the four minutes of good data it already had — the whole map — was sitting in memory unsaved when it crashed, and it's gone. One far-off region I don't even use took the entire run down with it.
 
-The handler isn't missing. It's there, it's deliberate, it's written for this exact situation, and it's scoped to the wrong exception class.
-
-What it costs is way out of proportion to the cause. Auto Scaling is the **first of nine** edge checks (`autoscaling`, `cloudformation`, `codebuild`, `ec2`, `iam`, `lambda`, `sagemaker`, `ssm`, `sts`) and `obtain_edges` collects all nine into one list, returning it only at the end. There's no partial result and no checkpoint. The IAM data that took four minutes to collect is still sitting in memory when the process exits, and it never gets written to disk. One unreachable regional endpoint throws away the entire graph.
-
-Everything downstream depends on that file. I ran the seven other commands anyway, to record what a user actually experiences. Six of them died identically:
+Everything after this needs that saved file. I ran the other seven commands anyway, to see what a user actually gets. Six died the same way:
 
 ```
 ValueError: Did not find file at: /Users/.../com.nccgroup.principalmapper/000000000000
 ```
 
-That's `graph display`, both privesc queries, both analysis outputs, and the visualiser. The seventh, `graph list`, exited 0 and printed:
+The seventh, `graph list`, exited cleanly and printed:
 
 ```
 Account IDs:
 ---
 ```
 
-The only command that succeeded is the one whose job is to tell you there's nothing there.
+The one command that worked is the one whose only job is to tell you there's nothing there.
 
-Under my rubric, a tool that errors or silently skips a principal grades **Missed** on the affected scenarios, because a reviewer gets nothing and the reason doesn't change that. So the default PMapper column is 86 rows of M. I count those separately from detection misses all the way through. A tool that can't run is a maintenance finding, a tool that runs and misses is a detection finding, and mixing them gives you a column that misleads in both directions. What PMapper does when it *does* run is section 4's subject, and it's not what this section implies.
+By my rubric, a tool that crashes or skips a principal gets **Missed** on those scenarios — a reviewer got nothing, and why doesn't change that. So the default PMapper column is 86 Misses. I keep those separate from real detection misses all the way through, because "can't run" and "ran and missed" are different problems, and blending them would mislead in both directions. What PMapper does *when it runs* is section 4 — and it's not what this section makes it look like.
 
-I'm recording one observation, not a rate. I don't know whether that endpoint times out again. I saw it once and I'm reporting it once. The bug itself isn't environmental though. It doesn't depend on my network, my credentials, or my region set. Any unreachable endpoint among the hundreds this loop touches produces it, and `autoscaling_edges.py` sits on the only code path that builds the graph. The line is unchanged on upstream `master`, whose HEAD is dated **2022-02-03**.
+This is one observation, not a rate. I don't know how often that endpoint times out; I saw it once and I'm reporting it once. But the bug isn't about my setup — any unreachable endpoint in this loop triggers it, and this loop is the only thing that builds the map. And the line hasn't changed on the project's main branch since **2022-02-03**.
 
-### The same problem, one layer down
+### The same problem, one level down
 
 Getting to the crash took longer than the crash did.
 
-`pip install principalmapper` succeeds on the Python this machine ships with, resolving current versions of all four dependencies without a warning. Then every run fails at import:
+`pip install principalmapper` installs fine on the Python this machine ships with. Then every run dies immediately at import:
 
 ```
 File ".../principalmapper/util/case_insensitive_dict.py", line 34, in <module>
@@ -110,35 +101,29 @@ File ".../principalmapper/util/case_insensitive_dict.py", line 34, in <module>
 ImportError: cannot import name 'Mapping' from 'collections'
 ```
 
-Those aliases were deprecated in Python 3.3 and removed in **3.10**. The import sits at module scope on the path every subcommand takes, so the tool doesn't degrade or warn, it just can't start. And `setup.py` declares `python_requires='>=3.5, <4'` while the README says "Python 3.5+", both of which are false above 3.9. Since the declared range is satisfied, pip installs happily on 3.10 through 3.13 and you find out by running the tool.
+That import was deprecated in Python 3.3 and removed in **3.10**. It's near the top of a file every command loads, so the tool can't even start. And the setup says it supports "Python 3.5+", which isn't true above 3.9 — so pip installs it happily on 3.10 through 3.13 and you only find out when you run it.
 
-For contrast, and the contrast is the point rather than a courtesy: cloudfox took under a minute. Download the release binary for your platform, verify the SHA-1 the release publishes, run it. No toolchain, no interpreter, no quarantine attribute. Worked first try. I only recorded it in the install log because the difference matters.
+For contrast — and the contrast is the point: cloudfox took under a minute. Download the binary, check the hash, run it. No interpreter, no fuss, worked first try.
 
-The real ceiling is Python 3.9, which reached end of life in October 2025. I installed it via Homebrew, which told me:
+The real ceiling is Python 3.9, which hit end of life in October 2025. I got it from Homebrew, which warned me it'll stop shipping it on **2026-10-15**. So six weeks after this run, the only Python that runs PMapper as published is one Homebrew won't hand out anymore.
 
-> Deprecated because it is deprecated upstream! It will be disabled on **2026-10-15**.
-
-Six weeks after this run, the only interpreter that runs PMapper as published is one Homebrew stops distributing.
-
-Worth noting that nothing needed pinning except the interpreter. `setup.py` pins no dependency versions at all, and the 2022 code works fine against 2026 botocore. The rot is in one import and one metadata line.
-
-I didn't patch it. Changing that line to `from collections.abc import Mapping` is a one-word fix that would have let PMapper run on 3.13, and I turned it down: the benchmark grades the tool as it ships, and a patched PMapper isn't what `pip install principalmapper` gives you. Installing an old interpreter leaves the thing under test byte-identical to the published release.
+I didn't patch it. Changing that one line (`from collections.abc import Mapping`) would've let it run on 3.13, but I left it alone on purpose — the point was to test the tool as it actually ships, not a fixed-up copy only I have. So I installed the old Python instead.
 
 ---
 
-## 3. The other tool runs clean, finds no paths, and doesn't look for them
+## 3. The other tool runs fine, finds no paths, and never tries to
 
-cloudfox ran without any trouble. One command, `cloudfox aws all-checks -p personal -y`, produced fifteen CSVs and their JSON equivalents: 94 principals, 6,008 permission grants, 43 active access keys, 44 role-to-principal trust edges, 17 role-to-service edges, three resource policies. Nothing crashed and nothing needed a flag.
+cloudfox ran without a hitch. One command, `cloudfox aws all-checks -p personal -y`, spat out fifteen CSVs and their JSON versions: 94 principals, 6,008 permission grants, 43 active access keys, 44 trust edges, and so on. Nothing crashed, nothing needed a flag.
 
-One of the columns it emits is `CanPrivEscToAdmin?`. It shows up 140 times across four output files, once for each of the 94 principals, once for each of the 44 trust edges, once for the account's single root-trust finding, and once for its single workload. In this run all 140 instances read:
+One of its columns is `CanPrivEscToAdmin?`. It shows up 140 times, and in this run every single one reads:
 
 ```
 "CanPrivEscToAdmin?": "Skipping, no pmapper data",
 ```
 
-cloudfox has no path finder. It hands privesc path enumeration off to PMapper, and it's unusually upfront about it. Three places, at increasing volume.
+cloudfox has no path finder. It hands that job to PMapper, and it's upfront about it in three places.
 
-The wiki page that cloudfox itself prints a link to during the run:
+Its own wiki, which it links to during the run:
 
 > Cloudfox will not install or run `pmapper` for you, but because `pmapper` stores it's graph data in a predictable location, this CloudFox command will look to see if that data exists, and if it does, it give you a list of all of the principals that pmapper thinks can escalate to admin.
 
@@ -146,53 +131,48 @@ The console, mid-run:
 
 > `[iam-simulator][personal] We suggest running the pmapper commands in the loot file to get the same information but taking privesc paths into account.`
 
-And then the loot file itself, `loot/iam-simulator-pmapper-commands.txt`, sixteen lines, one `graph create` and fifteen `query` invocations, every one of them `pmapper` and none of them cloudfox:
+And a file it writes for you, `loot/iam-simulator-pmapper-commands.txt` — sixteen lines, every one of them a `pmapper` command, none of them cloudfox:
 
 ```
 pmapper --profile personal graph create
 pmapper --profile personal query "who can do sts:AssumeRole with *" | tee ...
 pmapper --profile personal query "who can do iam:PassRole with *" | tee ...
-pmapper --profile personal query "who can do secretsmanager:GetSecretValue with *" | tee ...
 ...
 ```
 
-The tool that ran successfully wrote me a shell script for the tool that hadn't run yet.
+The tool that ran successfully wrote me a to-do list for the tool that didn't.
 
-This is deliberate, and cloudfox's documentation is clear about the trade it's making. Without PMapper data, its fallback answers *who is an admin* rather than *what paths exist*, and it says so. The fallback "is really just a wrapper around AWS's IAM simulate principal policy API call." The same page calls PMapper "the most accurate open source AWS policy simulator project that takes into account privilege escalation." cloudfox v2.0.5 shipped 2026-05-26 and it points at a project whose last commit is dated 2022-02-03.
+This is deliberate, and cloudfox says so. Without PMapper's data, its fallback tells you *who's an admin*, not *what paths exist* — and it calls that fallback "really just a wrapper around AWS's IAM simulate principal policy API call." The same page calls PMapper "the most accurate open source AWS policy simulator" for privesc. cloudfox 2.0.5 shipped in May 2026 and points you at a project whose last commit is from February 2022.
 
-Two consequences follow, and I want to be careful about the scope of each.
+Two things follow, and I want to be careful about each.
 
-**The narrow one is about my matrix.** My rubric grades a category N/A only where the tool's own documentation explicitly disclaims it, quoted and linked. cloudfox clears that bar for path enumeration, so its path column is N/A on all 86 rows, recorded rather than scored as a miss. But the N/A applies to that column, not to cloudfox as a tool. Reading the disclaimer generously enough to void every miss would make the matrix meaningless, so everything cloudfox works out itself (`permissions`, `principals`, `iam-simulator`, `role-trusts`, `lambda`, `workloads`) is graded normally, and that's where its results in section 4 come from.
+**The narrow one, about my grading.** My rubric only grades something N/A if the tool's own docs say it doesn't do it. cloudfox clears that bar for path-finding, so its path column is N/A on all 86 rows — recorded, not counted as a miss. But that N/A is for that one column, not the whole tool. Everything cloudfox works out itself — permissions, principals, trust edges — is graded normally, and that's where its section 4 results come from.
 
-**The broader one is about what I was actually able to measure.** I set out to compare two tools on path detection and found I had one path-finding engine and one tool that displays its output. If PMapper's graph had been on disk when cloudfox ran, `CanPrivEscToAdmin?` would have been a display of PMapper's answer, and I'd have graded the same engine twice under two names while thinking I had two data points. That only didn't happen because I ordered the runs to prevent it. cloudfox ran first, on a machine where PMapper had never run, with `~/.local/share/principalmapper` and `~/Library/Application Support/com.nccgroup.principalmapper` both confirmed absent immediately beforehand. It's recorded in both run metadata files.
+**The broader one, about what I could actually measure.** I set out to compare two tools on path-finding and found I had one engine (PMapper) and one tool that just displays PMapper's output. If PMapper's map had been sitting on disk when cloudfox ran, that `CanPrivEscToAdmin?` column would have been PMapper's answer wearing cloudfox's name, and I'd have graded the same engine twice thinking I had two. That didn't happen only because I ran cloudfox first, on a machine where PMapper had never run and I'd confirmed its data folders were empty. It's noted in both run logs.
 
-I'm not claiming to have surveyed the field, I ran two tools. What I can say from those two is that the actively maintained one doesn't find paths and refers you to the one that does, and the one that does has been dormant for four and a half years and, in section 2, threw away its entire graph on a connect timeout. Anyone putting together a comparison of open-source AWS IAM path finders should check whether the second column is reading the first one's output off disk before treating them as independent evidence.
+I'm not claiming to have surveyed the whole field — I ran two tools. But of those two, the maintained one doesn't find paths and points you at the other, and the other has been untouched for four and a half years and throws its whole map away on a timeout. If you're comparing open-source AWS IAM path finders, check whether your second tool is just reading the first one's output off disk before you treat them as two data points.
 
 ---
 
 ## 4. What the tools found
 
-PMapper detected 20 of the 23 canonical escalation mechanisms in this lab. Its default invocation returns nothing at all. Both sentences describe the same tool on the same account on the same night, and the rest of this section is an attempt to hold them together without letting either one swallow the other.
+PMapper caught 20 of the 23 known escalation methods in this lab. Its default run gives you nothing. Both are true of the same tool on the same night, and this section is about holding those two facts together.
 
-### Before the numbers: this lab is the tools' home turf
+### Before the numbers: this is the tools' home turf
 
-`iam-vulnerable` implements Rhino Security Labs' catalogue of AWS privilege escalation methods, and both PMapper and cloudfox were largely built to detect that catalogue. A high score on it is the expected outcome and is close to worthless as proof of quality, because all it measures is whether a tool detects the list it was written against.
+The lab is built from a known catalogue of AWS privesc methods, and both tools were largely built to catch that catalogue. So a high score here mostly proves the tool detects the list it was written for. The numbers below are a baseline, not a verdict — what actually matters is the misses despite the home advantage, the false alarms, and anything off the list. I'm publishing the baseline anyway, because without it none of the rest has context, and a benchmark that only shows its exciting bits isn't one.
 
-So the numbers below are a control, not a verdict. What's actually informative sits in three narrower places: the mechanisms a tool misses *despite* the home-turf advantage, the paths it reports that don't work, and the rows outside the catalogue. I report the control anyway, because without it none of the rest is calibrated, and because a benchmark that only publishes its interesting cells isn't a benchmark.
+### The three buckets
 
-### The denominators
+The 46 mechanisms don't all ask the same question, so I keep them in three buckets and never mix them:
 
-The lab's 46 mechanisms and 86 principal rows don't all pose the same question, so they're counted in three buckets and never pooled.
+**Detection — 31 mechanisms, 52 rows.** A real path with a real target. This is the headline.
 
-**Detection: 31 mechanisms, 52 rows.** A real path with a live target. This is the D/P/M ladder and the headline.
+**Target-absent — 8 mechanisms, 16 rows.** The permission is real but the thing it needs to attack isn't there: no EC2 instances, no stacks, no notebooks, and Glue dev endpoints that AWS has retired. Checked across all 17 regions. Left out of the detection count.
 
-**Target-absent: 8 mechanisms, 16 rows.** The grant is real and the thing it needs to point at doesn't exist here. No EC2 instances, no SSM-managed nodes, no CloudFormation stacks, no SageMaker notebooks, and Glue dev endpoints retired account-wide by AWS. Verified across all 17 enabled regions and left out of every detection count.
+**No-path — 18 rows.** Nothing to detect. Five are the lab's on-purpose false-alarm traps, where staying quiet is the right answer. Six more moved into this bucket because of a mistake I made — that's section 5.
 
-**No-path: 18 rows.** Nothing to detect. Five of these are the lab's designed false-positive fixtures: `Allow` and `Deny` in one policy, `Deny iam:*` with no allow, a resource constraint scoped to the unwritable AWS-owned policy namespace. Correct behaviour is silence, so these grade *Correctly Silent* or *false positive*, never on the detection ladder.
-
-The remaining six no-path rows weren't in that bucket when I started. They moved there because of a mistake I made, and that mistake is section 5.
-
-**One caveat travels with every PMapper number below.** They come from a rerun with `--include-regions` restricted to the account's 17 opted-in regions, which is the flag I used to get around the crash in section 2. It's detection-neutral by construction, since AWS doesn't let you create resources in a region an account hasn't enabled. It's still non-default, and my rubric forbids merging a flagged run into a default score. The default column is 86 rows of Missed. Every number in this section is the flagged run.
+**One note on every PMapper number below:** they come from a rerun with `--include-regions` set to my 17 live regions — the flag I used to get around the crash. It can't change what's detectable, since AWS won't let you build resources in a region you haven't turned on. But it's not the default run, so I keep it labelled. The default run is 86 Misses; every number here is the flagged run.
 
 ### Detection bucket
 
@@ -205,275 +185,239 @@ The remaining six no-path rows weren't in that bucket when I started. They moved
 | cloudfox, own surfaces | 3 | **26** | 2 | 0 |
 | cloudfox, path column | 0 | 0 | 0 | **31** |
 
-**52 principal rows:** PMapper region-scoped D 44 / M 8; cloudfox 3 D, 47 P, 2 M.
+**52 rows:** PMapper D 44 / M 8; cloudfox 3 D, 47 P, 2 M.
 
-Restricted to the canonical Rhino catalogue with a live target (23 mechanisms, 40 rows), PMapper detects 20 of 23 mechanisms and 34 of 40 rows. cloudfox detects none of them and partials 21 of 23.
+On just the known catalogue with a live target (23 mechanisms), PMapper gets 20. cloudfox gets none, and lands on Partial for 21 of them.
 
-### The two tools have different shapes, and the grades are mostly measuring that
+### The two tools have different shapes, and the grades mostly measure that
 
-**PMapper produced zero Partial grades.** Not few, none. It has no partial output form. A principal is on the privesc list with a named target and a named mechanism, or it's absent. That's what a graph gives you, since the edge either closes or it doesn't.
+**PMapper never scored Partial. Not once.** It has no middle setting — a principal is on the escalation list with a named target, or it isn't. That's what a map gives you: the link is either there or it isn't.
 
-**cloudfox produced 47 Partials out of 52 rows, and that isn't a failure grade.** Its `permissions.csv` is 6,008 rows of `(principal, policy, effect, action, resource, condition)`. Every dangerous permission in this lab is in there, tied to the specific principal that holds it. My rubric's bar for partial credit is exactly that link, and a list of scary permission names with no principal attached would have been Missed. cloudfox clears the bar comprehensively and then stops one step short of a claim. It tells you `privesc10-PutUserPolicy-user` can call `iam:PutUserPolicy` on `*`. It doesn't tell you that this makes the user an administrator.
+**cloudfox scored Partial on 47 of 52, and that's not a bad grade.** Its `permissions.csv` has all 6,008 grants, every dangerous one tied to the principal that holds it. That's exactly what earns Partial in my rubric — a bare list of scary permissions with no principal would've been a Miss. cloudfox nails that and then stops one step short. It'll tell you `privesc10-PutUserPolicy-user` can call `iam:PutUserPolicy` on `*`. It won't tell you that makes them an admin.
 
-The clearest single comparison in the whole matrix is the lab's three-role assume-role chain. cloudfox's `role-trusts-principals.csv` contains this row:
+The clearest example in the whole matrix is the lab's three-role chain. cloudfox's output has this row:
 
 ```
 ending-role | Trusted Principal = intermediate-role | IsAdmin? = YES
 ```
 
-and one row later:
+and one row down:
 
 ```
 intermediate-role | Trusted Principal = starting-role | IsAdmin? = No
 ```
 
-Every hop of the chain is in cloudfox's output, but the chain isn't. Nothing in those two rows joins them, and my rubric scores hop 1 without the chain as Partial. PMapper prints both hops under a single heading and scores Detected. That pair of cells is the shortest way I can say what a path finder buys you, and it isn't better data, since cloudfox's underlying data is arguably richer. It's the join.
+Every step of the chain is in there. The chain isn't. Nothing connects those two rows, so I scored it Partial. PMapper prints both hops under one heading and I scored it Detected. That's the whole value of a path finder in two cells — not better data (cloudfox's is arguably richer), just the connecting of it.
 
-The three rows where cloudfox does reach Detected are the two roles it names outright (`iam-simulator` says *"Appears to be an administrator"* and `principals.csv` sets `IsAdminRole? = YES`), plus that first trust row, where principal, trust edge and administrative target happen to land on one line. I flagged the third as inferred, because the grade comes from me joining two columns rather than from any escalation statement cloudfox makes.
+The three rows where cloudfox does hit Detected are two roles it flat-out calls admins, plus one trust row where the principal, the trust, and the admin target happen to land on the same line. I flagged that third one as inferred, since the grade came from me joining two columns, not from cloudfox saying "escalation."
 
-### The four mechanisms PMapper misses
+### The four PMapper misses
 
-Three are confirmed working paths. One rests on ground truth I couldn't confirm.
+Three are real paths it missed. One I couldn't fully confirm.
 
-**`privesc13-AddUserToGroup`.** I validated this by exercising it. The role added a zero-permission user to `privesc-sre-group`, and that user immediately held `iam:CreateUser` and `iam:AttachUserPolicy`. I put the membership back afterwards. PMapper models group edges for permission resolution but doesn't surface `AddUserToGroup` as an escalation into an admin-carrying group.
+**`privesc13-AddUserToGroup`.** I tested this one live — the role added a no-permission user to an admin group, and the user instantly had admin. Put it back after. PMapper tracks group membership for working out permissions, but doesn't flag "add someone to an admin group" as an escalation.
 
-**`fn3-exploitableConditionConstraint`** is the pointed one. The lab wraps `iam:CreatePolicyVersion` in a condition, `DateGreaterThan aws:TokenIssueTime 2020-01-01`, which is always true. AWS's own simulator allows the action once the context key is supplied. PMapper reports the sibling fixtures `fn2` (a resource constraint that looks limiting but matches the principal's own policy) and `fn4` (a `NotAction` that still permits `iam:PutUserPolicy`) as administrative, and drops only the condition-wrapped variant. That's exactly the failure `fn3` was built to expose.
+**`fn3-exploitableConditionConstraint`** is the pointed one. The lab wraps a permission in a condition (`DateGreaterThan aws:TokenIssueTime 2020-01-01`) that's always true. AWS's own simulator allows it. PMapper catches the two sibling traps next to it and misses only this one — the condition-wrapped one. Which is exactly what that trap was built to catch.
 
-**`privesc17-EditExistingLambdaFunctionWithRole`** is a miss by design. PMapper draws edges only toward principals it has already decided are administrative, and this scenario's only reachable target is a pre-existing `EC2-AutoRemediation` function whose role grants EC2 read, tagging and logs. That role isn't administrative. The path is real and the miss is genuine. The same design decision is why PMapper didn't overstate it, which matters further down.
+**`privesc17-EditExistingLambdaFunctionWithRole`** is a miss by design. PMapper only draws links toward principals it's already decided are admins, and this one's target — a leftover `EC2-AutoRemediation` function — isn't an admin. The path is real; the miss is genuine. But that same rule is why PMapper *didn't* overclaim it, which matters below.
 
-**`privesc21-PassExistingRoleToNewDataPipeline`.** PMapper has no Data Pipeline edge check. But AWS Data Pipeline is closed to new customers and I never tried to create a pipeline in this account, so whether the target exists at all is inferred rather than confirmed. The cell stays flagged. It's one of only four PMapper misses, which means it carries more weight than an unconfirmed row should have to.
+**`privesc21-PassExistingRoleToNewDataPipeline`.** PMapper has no Data Pipeline check. But Data Pipeline is closed to new customers and I never tried to make one here, so whether the target even exists is unconfirmed. I flagged the cell rather than count it clean.
 
-cloudfox misses none of these outright, since it ties every one of the enabling permissions to every principal that holds it. It connects none of them to a target either.
+cloudfox misses none of these outright, because it lists every permission against every principal that holds it. It also connects none of them to a target.
 
-### Four false positives, all PMapper, all the same mistake
+### Four false alarms, all PMapper, all the same mistake
 
-PMapper reported 32 escalation paths and called 17 principals administrative. cloudfox reported 0 escalation paths and made 78 `iam-simulator` assertions. Against those denominators, and within a validated sample of 22 principal rows across 19 files: **PMapper 4 confirmed false positives, cloudfox 0.** That's a count from a sample rather than a rate. I didn't check the whole population and I won't imply I did.
+PMapper reported 32 paths and called 17 principals admins. cloudfox reported 0 paths. In a hand-checked sample of 22 rows: **PMapper 4 false alarms, cloudfox 0.** That's from a sample, not a rate — I didn't check all 86 and won't pretend I did.
 
-All four are the same error, twice over. PMapper asserts, on its primary surface and again in its analysis report at severity High:
+All four are the same error. PMapper says, at High severity:
 
 ```
 user/privesc-ssmSendCommand-user can call ssm:SendCommand to access an EC2
    instance with access to role/privesc-high-priv-service-role
 ```
 
-There is no such instance. Zero EC2 instances and zero SSM-managed nodes across all 17 enabled regions. PMapper's own supporting finding gives away the guess: *"The following IAM Roles are attached to at least one instance profile."* It's reasoning from the existence of an **instance profile** on the administrative role to the existence of an **instance** carrying it. The profile is real, the instance isn't.
+There is no such instance. Zero EC2 instances, zero SSM nodes, across all 17 regions. PMapper's own note gives it away — *"The following IAM Roles are attached to at least one instance profile"* — it's reasoning from "there's an instance profile" to "there must be an instance." The profile is real. The instance isn't.
 
-What makes this a false positive rather than a modelling choice is the contrast sitting next to it in the same account. `privesc3-CreateEC2WithExistingInstanceProfile` uses the *same* instance profile and *is* a working path, because that principal holds `ec2:RunInstances` and creates the instance it then uses. The SSM principals hold `ec2:DescribeInstances` and the SSM actions and nothing else, so they can only act on an instance that's already there, and there isn't one.
+What makes it a false alarm and not just a modelling choice is the row right next to it. `privesc3` uses the *same* instance profile and *is* a real path, because that principal can `ec2:RunInstances` — it makes its own instance. The SSM ones can only describe instances, not create them, so they need one to already exist, and none does.
 
-To be exact about what this isn't: PMapper isn't wrong about the permission, the mechanism, or the risk. In an account with SSM-managed instances the path works. It's a false positive about *this account*, because PMapper reasons over declared IAM state and doesn't check whether the compute its path runs through exists. That's a design boundary and worth naming as one, because in section 5 the same declared-state-only reasoning produces the identical error in my ground truth, running the other direction.
+To be fair to PMapper: it's not wrong about the permission or the risk. In an account that *has* SSM-managed instances, this path works. It's a false alarm *about this account*, because PMapper reasons over the permissions on paper and doesn't check whether the machine in the middle of the path actually exists. That's a design boundary — and worth naming, because in section 5 I make the exact same mistake in my grading, just pointing the other way.
 
-Three other candidates I validated and cleared. The sharpest was `privesc17` overstating impact, since the reachable Lambda target grants EC2 read and tagging rather than admin, so a tool calling it a path to administrator would have been wrong. Neither tool did. PMapper doesn't report it at all, and cloudfox lists the role with `IsAdminRole? = No`. Both correct, by different routes.
+I checked three other suspicious ones and cleared them. The sharpest: `privesc17`'s target grants read-only, not admin — so a tool calling it a path to admin would've been wrong, and neither tool did.
 
-Neither tool reported any of the five designed false-positive fixtures, so both were silent where silence was the right answer. That result is worth stating and discounting in the same breath, because a tool that reports nothing anywhere passes every false-positive test ever devised, which is why the crashed PMapper column scores those rows as crash-Missed rather than crediting it for silence it didn't choose.
+And neither tool tripped any of the five on-purpose traps. Both stayed quiet where quiet was right — though that's worth discounting in the same breath, since a tool that says nothing anywhere passes every false-alarm test ever made. That's why the crashed PMapper column is scored Missed on those, not credited for a silence it didn't choose.
 
-### Two things that only show up in the error log
+### Two things only the error log shows
 
-cloudfox's `iam-simulator` used up its three retries on `SimulatePrincipalPolicy … Throttling: Rate exceeded` for three principals. My rubric makes the affected scenarios Missed, which costs cloudfox two detection grades. The sharper problem is that **those failures are invisible in cloudfox's output.** The three principals still appear in `principals.csv` with `IsAdminRole? = No`, no different from a genuine negative. Only `cloudfox-logs/cloudfox-error.log` knows the question was never answered.
+cloudfox got rate-limited by AWS on three principals and gave up after three retries, which cost it two detection grades. The worse part: **you can't see it in the output.** Those three principals just show up as `IsAdminRole? = No`, same as a real "no." Only the error log knows the question never actually got answered.
 
-The second is what happened when I reran both tools as a `SecurityAudit` user instead of an administrator. I predicted a much smaller output. I was wrong, and not by a little. PMapper's privesc output is **byte-identical** between the two contexts: same 32 paths, same 17 administrative principals, same ordering, same 10,520 bytes. Its analysis report differs by one line, the timestamp. cloudfox's 94 principals are field-for-field identical including `IsAdminRole?`, and `permissions.json` compares equal once the new principal's own 1,031 grant rows are removed. `SecurityAudit` grants enough IAM read access that neither tool notices the difference. That result is about this policy, not about low privilege in general. A principal missing `iam:ListRoles` would have produced a very different and much less interesting answer.
+The second: I reran both tools as a read-only `SecurityAudit` user instead of admin, expecting much thinner output. I was wrong, and not by a little. PMapper's result was **byte-for-byte identical** — same paths, same admins, same everything, down to the file size. cloudfox's was identical too. `SecurityAudit` gives you enough IAM read access that neither tool notices the drop. (That's about this one policy, not low privilege in general — a user missing `iam:ListRoles` would've looked very different.)
 
-The error logs do differ, though, and that difference is the finding. cloudfox's `Glue: ListDevEndpoints` call fails 17 times under administrator with `InternalFailure`, which is what AWS returns for a feature it has retired, and is the evidence my scenario list cites for two mechanisms having no target. Under `SecurityAudit` the same call fails 17 times with `AccessDeniedException`. **The report looks identical either way.** An auditor holding `SecurityAudit` can't tell *this capability no longer exists* apart from *I wasn't allowed to look*, and both show up as an absent section.
+But the error logs *did* differ, and that's the finding. Under admin, a Glue call fails with `InternalFailure` — AWS's way of saying the feature's retired. Under `SecurityAudit`, the same call fails with `AccessDenied`. The report looks identical either way. So a read-only auditor **can't tell "this feature is gone" from "I wasn't allowed to look."** Both just show up as a blank section.
 
-### Scoring my own predictions
+### Grading my own predictions
 
-I wrote five predictions into the frozen rubric before deploying anything. Four were wrong or unanswerable.
+I wrote five predictions into the frozen rubric before I started. Four were wrong or unanswerable — I'm reporting that because a prediction I got wrong is worth more than a scorecard with no author in it.
 
-I predicted both tools would detect at least four fifths of the canonical mechanisms. PMapper clears the bar at 20 of 23 and cloudfox scores zero, because its path column is disclaimed and its own surfaces stop at Partial. The prediction failed on the word "both". It didn't expect a tool graded on a partial-credit surface and it didn't expect a crash. I predicted the limited context would degrade both tools, and it didn't. I predicted PMapper would produce more Partials than Detecteds on multi-hop chains, but it produced no Partials at any point and detected both chain hops, so the prediction wasn't testable as written and was wrong in spirit. I predicted at least one false positive, and there were four. The fifth prediction concerns the OIDC scenarios and is unresolved, which is section 6.
+I predicted both tools would catch 80% of the catalogue. PMapper did; cloudfox scored zero, because its path column is disclaimed. The prediction died on the word "both." I predicted the read-only run would weaken both tools — it didn't. I predicted PMapper would score more Partials than Detects on chains — it scored zero Partials ever. I predicted at least one false alarm — there were four. The fifth is about the OIDC test and is unanswered, which is section 6.
 
 ---
 
-## 5. My ground truth was wrong, and the tool was right
+## 5. My answer key was wrong, and the tool was right
 
-Six mechanisms in the lab exist in two variants, one held by a user and one by a role, with identical permissions: `iam:AttachUserPolicy`, `iam:PutUserPolicy`, `iam:AttachGroupPolicy`, `iam:PutGroupPolicy`, `iam:AttachRolePolicy`, `iam:PutRolePolicy`.
-
-On the first pass PMapper reported exactly one variant of each and not the other, and my matrix scored the missing six as misses. That gap is the reason my rubric requires both a mechanism-level and a per-principal denominator, since a tool catching one variant of a mechanism and missing its twin is a real finding that a mechanism-level rollup hides. I flagged it as the top validation priority and wrote it down as PMapper being inconsistent.
+Six of the lab's mechanisms come in two flavours: one on a user, one on a role, same permission. On my first pass, PMapper reported one flavour of each and not the other, and I scored the missing six as misses. I wrote it down as "PMapper being inconsistent."
 
 It isn't inconsistent. It's right, and I was wrong.
 
-I validated all six by hand, one file each. Every one holds exactly one grant, and in every case that grant targets a thing the principal isn't.
+I checked all six by hand. In every case, the flavour PMapper skipped can't actually escalate itself:
 
-`iam:AttachUserPolicy` and `iam:PutUserPolicy` operate on users. The role variants can't point them at themselves. They also hold no key-minting permission, and roles carry no access keys, so there's no route to logging in as any user they could empower.
+- The permissions that edit *users* — a role holding one can hand a user admin, but a role can't log in as that user, so it can't use that to climb.
+- The permissions that edit *groups* — a role can make a group admin, but a role can't be *in* a group (AWS doesn't allow it), so again, no way up for itself.
+- The permissions that edit *roles* — a user holding one can make any role admin, but can't assume any of them, so it can't become the thing it just empowered.
 
-`iam:AttachGroupPolicy` and `iam:PutGroupPolicy` operate on groups. A role can't be a member of an IAM group, the API doesn't allow it, so the role variants can make a group administrative and can never be in it.
+Every time, the flavour PMapper *did* report is the one that can turn the permission on *itself*. Its own data marks the difference — the six it reported are `is_admin: true`, the six it skipped are `is_admin: false`. The rule, once you see it: **PMapper reports a principal that can escalate itself, not one that can escalate someone else.**
 
-`iam:AttachRolePolicy` and `iam:PutRolePolicy` operate on roles. The user variants can write `AdministratorAccess` onto any role in the account and can assume none of them, since each is named in no trust policy and holds no `sts:AssumeRole`, no `iam:UpdateAssumeRolePolicy`, and no `iam:PassRole`.
+My answer key didn't make that distinction, because it couldn't. I built it from a list of who-holds-what — principal, permission, resource. That's a fine inventory and it says nothing about whether a principal can actually reach what its permission empowers. Six of my 86 rows claimed a path that doesn't close.
 
-In every case the variant PMapper *did* report is the one that can point the permission at itself. Its graph records the difference directly, marking those six principals `is_admin: true` and these six `is_admin: false`. The rule is clear once you see it: **PMapper reports a principal where the principal can escalate itself**, not where the principal can escalate something else.
-
-My scenario list didn't make that distinction, because it couldn't. I generated it from Terraform state and `iam get-account-authorization-details`, which gives you principal, permission, resource. That's the right source for an inventory and it's silent on whether a principal can reach what its permission empowers. Six of my 86 rows claimed a path that doesn't close.
-
-My rubric planned for this case in the abstract ("a Missed that turns out not to be a real path is a scenario-list error, not a tool miss"), so the six rows were moved out of the detection bucket and into a class with no path to detect. Here's what that did to the headline:
+My rubric had already planned for this — "a Miss that turns out not to be a real path is a mistake in my list, not the tool's" — so I moved those six out of the detection bucket. Here's what that did to the headline:
 
 | | before | after |
 |---|---|---|
-| Detection bucket, mechanisms | D 21 of 31 | **D 27 of 31** |
-| Detection bucket, rows | D 44 of 58 | **D 44 of 52** |
-| Canonical catalogue, mechanisms | D 14 of 23 | **D 20 of 23** |
+| Detection, mechanisms | D 21 of 31 | **D 27 of 31** |
+| Detection, rows | D 44 of 58 | **D 44 of 52** |
+| Known catalogue | D 14 of 23 | **D 20 of 23** |
 
-D didn't move, the denominator did. PMapper detected 44 rows before the correction and 44 rows after it. Nothing about its output changed, since the same file was graded twice against two versions of the ground truth. Reading this as PMapper improving would be wrong, and the four-fifths threshold it now clears in section 4 is one it clears because I fixed my list, not because it found anything more.
+**PMapper's detections didn't move — the denominator did.** It found 44 rows before and 44 after. The same file got graded twice against two versions of my answer key. Reading this as PMapper getting better would be wrong: it cleared the 80% bar because I fixed my list, not because it found anything new.
 
-The general form of the mistake is the part worth carrying away. A list built from declared IAM state is a list of grants, and a path finder answers a question about reachability. Grading the second against the first manufactures misses, and it manufactures them in a specific, non-random direction: against exactly the tools that model reachability correctly. A cruder tool that flagged all twelve variants would have scored better on my list than PMapper did, for being less right.
+Here's the part worth keeping. **A list of who-holds-what is not a list of who-can-reach-what.** Grade a path finder against the first and you invent misses — and you invent them against exactly the tools that get reachability *right*. A dumber tool that flagged all twelve flavours would've scored better on my broken list, for being more wrong.
 
-The fix has a name and I didn't run it. An `iam:SimulatePrincipalPolicy` sweep across the principal-by-action matrix gives you a path check sourced from AWS's own policy evaluator, independent of both graded tools and free of the catalogue bias in section 4. My rubric names it and puts it out of scope to keep the phase bounded. This section is the cost of that decision, paid in six rows I corrected by hand after they'd already been scored.
+The fix has a name and I didn't run it: an `iam:SimulatePrincipalPolicy` sweep, which asks AWS's own engine "would this actually be allowed" — a separate check that doesn't depend on either tool. My rubric names it and puts it out of scope to keep this round bounded. This section is what that skip cost: six rows I had to fix by hand after already scoring them.
 
-There's a symmetry here I didn't plan and can't take credit for. In section 4, PMapper reasons over declared IAM state and claims a path through an EC2 instance that doesn't exist, giving four false positives. In section 5, I reason over declared IAM state and claim six paths that don't close, giving six manufactured misses. Same blind spot, same cause, opposite directions, one of them in the tool and one in the benchmark grading it.
+There's a symmetry I didn't plan. In section 4, PMapper reasons off the permissions-on-paper and claims a path through a machine that doesn't exist — four false alarms. Here, I reason off the permissions-on-paper and claim six paths that don't close — six invented misses. Same blind spot, opposite directions. One in the tool, one in me grading it.
 
-Three caveats, because this section is flattering to PMapper and I don't want it to flatter further than the evidence goes.
+Three caveats, because this section flatters PMapper and I don't want it flattering past the evidence:
 
-**The six principals aren't harmless.** Each can make another principal administrative, and two of them are users holding live access keys, which makes them usable starting points for someone who has them. What they can't do is escalate themselves, which is what my Detected grade measures and what PMapper's model tracks. A reader whose threat model is "an attacker with these keys can leave an administrative principal behind for later" is looking at something my matrix doesn't score. Every validation file says so and so does this section.
+**The six principals aren't harmless.** Each *can* make someone else an admin, and two of them are users with live keys. What they can't do is escalate *themselves*, which is the specific thing my Detected grade measures. If your worry is "an attacker with these keys leaves a hidden admin behind for later," my matrix doesn't score that — and I say so in every one of those files.
 
-**PMapper's rule isn't always right, and the lab contains the counterexample.** `privesc13-AddUserToGroup` is the mirror image. There the group *is* reachable, because the user adds itself to it, and I confirmed the escalation by exercising it. That's a self-escalation path by PMapper's own rule, and it's one of the four mechanisms PMapper misses. The rule is right about these six rows and doesn't save it there.
+**PMapper's rule isn't a law, and the lab proves it.** `privesc13` is the counterexample: there the group *is* reachable, because the user adds *itself* to it — a self-escalation by PMapper's own rule, and one of the four it missed. Right about these six rows, wrong there.
 
-**The late-additions bucket is empty.** My rubric set aside a separate tally for working paths found during validation that the scenario list never showed, and I found none. Given that I never ran the check that would systematically look for them, that empty bucket is a fact about my method rather than a finding about the account. Forty-one of the 344 graded cells are still flagged as inferred rather than read from output or a validation file, and the flag is a published column rather than a caveat in prose.
+**I found no bonus paths.** I kept a slot for real paths turned up during checking that my list never had. Empty. But since I never ran the sweep that would go looking for them, that empty slot says something about my method, not the account. And 41 of the 344 cells are still marked "inferred" rather than confirmed — which is a column I publish, not a footnote I bury.
 
 ---
 
-## 6. The edge I had to build, and what AWS does about it
+## 6. The edge I had to build myself, and what AWS does about it
 
-`iam-vulnerable` ships no web-identity scenario. There's no OIDC provider in it, no SAML provider, and no federated trust of any kind, which is why cloudfox's `role-trusts-federated.csv` came back with zero rows in section 4. The surface exists in the tool, there was just nothing in the account for it to hold.
+The lab ships no federated-login scenario at all — no OIDC, no SAML — which is why cloudfox's federated-trust file came back empty. The tools can look for it; there was just nothing there to find.
 
-So I built one, after the matrix was finished and frozen. Thirteen resources in a separate Terraform state, deployed 2026-08-30, never folded into any denominator in this post. **I didn't run either tool against them.** What follows is a measured fact about AWS, a measured fact about reachability, and an argument about architecture, in that order and clearly separated. The thing everyone wants me to claim here is the one thing I didn't test.
+So I built one, after the matrix was done and frozen. Thirteen resources in their own separate state, never mixed into any number above. **I did not run either tool against it.** What follows is a fact about AWS, a fact about reachability, and an argument — kept clearly apart, because the thing everyone will want me to claim here is the one thing I didn't test.
 
 ### The shape
 
-Two chains, two hops each, built the same way. **The hop-1 trust policy is the only thing that changes between them.** The thin entry permission, the tight hop-2 trust, and the administrative end are held constant, so any difference in outcome comes from the trust condition and nothing else.
+Two chains, two hops each, identical except for one thing. Hop 1 is a GitHub Actions role you log into from outside AWS, allowed to do exactly one thing: become hop 2. Hop 2 is full admin (`Allow *:*`) and trusts only hop 1 — nothing else.
 
-Hop 1 is a GitHub Actions deploy role, assumable by web identity, whose only permission is `sts:AssumeRole` on exactly one named role. Hop 2 is that role: `Allow *:*`, with a trust policy naming exactly one principal, the entry role, and nothing else.
+Hop 2 is airtight. Its trust is as narrow as it gets. The chain is wide open anyway, because hop 1's front door is open. That's the whole point: every lock on the valuable thing is perfect, and it doesn't matter, because the way in is one step back.
 
-Hop 2 is correct in both chains. Its trust is as tight as a trust policy gets and its permissions are what a Terraform execution role legitimately needs. The chain is open anyway, because hop 1's front door is open. That mismatch is the whole scenario: every control on the valuable resource is right, and it doesn't matter.
+### Scenario A was meant to be the obvious-bad case — and AWS wouldn't let me build it
 
-### Scenario A was supposed to be the strawman, and AWS refused to build it
-
-Scenario A is the floor case, a `sub` condition that matches every repository on GitHub. Indefensible on sight, and there only to be the baseline that Scenario B is measured against.
-
-I first wrote it with **no `sub` condition at all**, which is the textbook version of this misconfiguration. `CreateRole` refused, word for word:
+Scenario A was supposed to be the strawman: a rule that trusts *every* repo on GitHub. I first wrote it with no repo restriction at all, and AWS flat-out refused to create the role:
 
 ```
 MalformedPolicyDocument: Trust policy with trusted principal
-arn:aws:iam::000000000000:oidc-provider/token.actions.githubusercontent.com must
-evaluate, using StringEquals, StringLike or StringEqualsIgnoreCase,
-token.actions.githubusercontent.com:sub or
-token.actions.githubusercontent.com:job_workflow_ref which is not scoped to all.
+...token.actions.githubusercontent.com must evaluate, using StringEquals,
+StringLike or StringEqualsIgnoreCase, ...:sub or ...:job_workflow_ref
+which is not scoped to all.
 ```
 
-This wasn't in my plan. AWS ships a guardrail against exactly the misconfiguration I was trying to deploy. The obvious conclusion, that the floor case can't exist any more, is wrong, and finding out why took four `create-role` calls against a throwaway role I deleted right after.
+I wasn't expecting that. AWS ships a guardrail against exactly the mistake I was trying to make. Good — except I poked at where the guardrail actually sits, with four quick attempts:
 
-One variable, four candidates:
-
-| `sub` condition | `CreateRole` |
+| repo restriction | result |
 |---|---|
-| *(absent)* | **REJECTED** |
-| `StringLike "*"` | **REJECTED** |
-| `StringLike "repo:*"` | **ACCEPTED** |
-| `StringLike "repo:*/*"` | **ACCEPTED** |
+| *(none)* | **REJECTED** |
+| `*` | **REJECTED** |
+| `repo:*` | **ACCEPTED** |
+| `repo:*/*` | **ACCEPTED** |
 
-Every default-format GitHub Actions subject claim begins with `repo:`, as in `repo:<owner>/<repo>:ref:refs/heads/main`, `repo:<owner>/<repo>:pull_request`, `repo:<owner>/<repo>:environment:prod`. So `repo:*` matches all of them. It allows the same set as the condition AWS had just refused, and AWS accepts it.
+Every GitHub Actions login starts with `repo:`. So `repo:*` matches every repo on GitHub — the exact thing AWS just refused as `*`. Same meaning, different spelling, and AWS accepts it.
 
-The check is a string test on the policy document. It isn't a check of what the policy actually allows.
+**The guardrail checks what the rule looks like, not what it actually allows.** (One honest exception: an org can customise its login format so it doesn't start with `repo:`, in which case `repo:*` matches nothing. That's not the default, so the accurate claim is "matches every default-format login," not "every login.")
 
-One caveat belongs here rather than at the end. GitHub lets an organisation customise the subject claim via `include_claim_keys`, producing a `sub` that needn't begin with `repo:`. For such an organisation, `repo:*` matches nothing. That isn't the default and isn't the common case, so the precise claim is "matches every default-format Actions subject claim," not "matches every Actions token."
+Two things follow. If you — a reviewer, or an automated check — treat "there's a repo restriction, good" as the test, you're checking the same shallow thing AWS is, and you're wrong the same way. And because AWS's rejection message is so specific and helpful, the likely move for an engineer who hits it is to paste in the first thing that gets accepted — which is `repo:*`.
 
-Two things follow. A reviewer, an auditor, or an automated check that treats *a `sub` condition is present* as the control is checking the same thing AWS's guardrail checks, and is wrong in the same way. And the rejection message is specific and helpful, which makes it *more* likely, not less, that an engineer who hits it pastes in the first pattern that gets accepted.
+And this is the same trap that showed up back in section 4. cloudfox prints `Condition=Yes` for both the always-true condition and the never-true one — identical rows, one dangerous and one dead, because the column says a condition *exists*, not what it *does*. **Whether a rule is present is cheap to check and nearly useless. What the rule actually allows is the whole question — and it's the part that keeps getting skipped.**
 
-That same failure already showed up once in this post, in a different tool at a different layer. In section 4, `permissions.csv` prints `Condition=Yes` for the lab's always-true `DateGreaterThan` fixture and `Condition=Yes` for its never-true `DateLessThan` twin. Identical rows, one exploitable and one dead, because the column records that a condition exists rather than what it allows. The same file prints the `Resource` column in full, which is why the resource-constraint pair *is* separable from the same output. Whether a constraint is present is cheap to check and tells you very little. What the constraint actually allows is the whole question, and it's the part that keeps getting dropped.
+### Scenario B is the realistic one
 
-### Scenario B is the one that ships
-
-```json
-"StringLike": { "token.actions.githubusercontent.com:sub": "repo:iam-tool-benchmark-lab/*" }
+```
+"sub": "repo:iam-tool-benchmark-lab/*"
 ```
 
-`sub` is present, it's `StringLike`, and it names an organisation. It passes a skim review and it looks like the documented pattern.
-
-What it allows is every repository under that organisation: every branch, every tag, every environment, every `pull_request` run, and every repository created after the review by anyone who can create one.
+There's a repo restriction. It names an org. It passes a quick review and looks like the documented pattern. And it allows *every* repo in that org — every branch, every environment, and every repo anyone creates in it later.
 
 | | |
 |---|---|
-| enforced | `repo:iam-tool-benchmark-lab/*` |
-| intended | `repo:iam-tool-benchmark-lab/deploy:ref:refs/heads/main` |
+| what it enforces | `repo:iam-tool-benchmark-lab/*` |
+| what was meant | `repo:iam-tool-benchmark-lab/deploy:ref:refs/heads/main` |
 
-One asterisk apart. B is the headline and A is the strawman, since A is caught by inspection and, as of now, half-caught by AWS itself. B is caught by neither.
+One asterisk apart. A gets caught by eye, and half-caught by AWS. B gets caught by neither.
 
-### What's measured about reachability, and what's only argued
+### What I measured, and what I'm only arguing
 
-The measured part is a denial table. `user/iamadmin` holds `AdministratorAccess`, so its identity policy allows `sts:AssumeRole` on every resource in the account. Every denial below is therefore the *resource* trust policy refusing, which is exactly what needed confirming:
+The measured part: I confirmed nobody *inside* the account can reach these roles. As full admin I tried to assume all four and got `AccessDenied` on every one — meaning the only way in is a GitHub login from outside. So these thirteen resources add zero internal paths, and the matrix in section 4 stands untouched.
 
-```
-$ aws sts assume-role --profile personal \
-    --role-arn arn:aws:iam::000000000000:role/<ROLE> \
-    --role-session-name phase5-reachability-check
-```
+The argued part: a tool like PMapper maps what's *inside* the account. The first step of these chains starts *outside* it — at GitHub — and whether it's allowed comes down to matching text in a token the account never even sees while the map is being built. So nothing here shows up as a link to anything reasoning only over what's inside. That's an argument about where a map's edge falls, not a measurement — and I'm not dressing it up as one. cloudfox has a federated-trust feature; what it would've made of these roles is untested, because I didn't point it at them.
 
-| role | result |
-|---|---|
-| `oidc-gha-deploy-role` | `AccessDenied … not authorized to perform: sts:AssumeRole` |
-| `oidc-gha-terraform-role` | `AccessDenied … not authorized to perform: sts:AssumeRole` |
-| `oidc-gha-wildcard-deploy-role` | `AccessDenied … not authorized to perform: sts:AssumeRole` |
-| `oidc-gha-wildcard-terraform-role` | `AccessDenied … not authorized to perform: sts:AssumeRole` |
+### What I did *not* prove
 
-No principal inside this account can reach any of the four roles, including the account administrator. Two consequences, both factual. These thirteen resources add zero in-account escalation paths, so the graded matrix in section 4 is unaffected as a matter of fact rather than just of ordering. And the only way into either chain is `sts:AssumeRoleWithWebIdentity` presenting a GitHub-issued token.
+I did **not** prove the chain works end to end. What I confirmed: the policies exist as written, AWS accepted them, hop 2 is full admin, and nobody inside can reach either chain. What I did *not* confirm: that a real GitHub Actions token actually walks the whole chain to admin. That needs a live repo running a workflow, and I didn't run one. The reasoning is solid — it's based on GitHub's documented token format and AWS's own rules — but it's still reasoning, not a demo.
 
-The argued part is what that implies. An account-internal graph is built from the principals, policies and trust relationships the account contains. In PMapper's case that's `get-account-authorization-details` plus nine per-service edge checks, all of them listing in-account resources. The first edge of both chains starts outside that boundary, at an identity provider, and whether it's allowed turns on string-matching a claim in a token that the account doesn't issue and never sees at graph-build time. Nothing in the denial table above shows up as an edge to anything reasoning over in-account state alone.
+### This is a live door in a live account
 
-That's an argument about where the boundary of a graph falls. It isn't a measurement and I'm not turning it into one. cloudfox has a federated-trust surface, and what that surface would have produced against these four roles is untested, because I didn't point it at them.
-
-### What isn't proven
-
-End-to-end exploitability of both chains is **inferred, not shown**. Confirmed: the trust policies exist as written, AWS accepted them, the permission policies grant the hop, hop 2 holds `Allow *:*`, and no in-account principal can reach either chain. Not confirmed: that a real GitHub Actions token satisfies these conditions and yields administrator. Proving it needs a repository running a workflow with `id-token: write`, calling `AssumeRoleWithWebIdentity` and then `AssumeRole` on hop 2. No such repository exists and I didn't run one.
-
-The inference rests on the documented format of the Actions `sub` claim and on AWS's own condition-evaluation rules. Both are well documented and the inference is strong. It's still an inference, and it applies equally to Scenario A and Scenario B.
-
-### This is a live trust in a live account
-
-Worth saying plainly, because anyone reproducing it should understand what they're standing up. Scenario A's entry role can be assumed by anyone who runs a GitHub Actions workflow and knows the role ARN, and the only thing between it and account administrator is that the ARN isn't published. Scenario B's entry role can be assumed by anyone who controls a repository under the GitHub organisation `iam-tool-benchmark-lab`, a name I chose because it was unregistered, checked against `api.github.com/orgs/…` and `/users/…` immediately before apply, both HTTP 404. **If someone registers it, they get administrator in that account.**
-
-Hence the handling. The account ID stays out of the repository behind a published one-way substitution, the repository stayed private until this post, and teardown here is more urgent than for the main lab. `iam-vulnerable`'s principals can be exploited by someone who already holds credentials in the account. These two can be exploited by someone who holds none.
+Worth stating plainly, for anyone copying this. Scenario A can be walked in by anyone who runs a GitHub Action and knows the role's name — the only thing stopping them is that I didn't publish it. Scenario B can be walked in by anyone who controls a repo in the GitHub org `iam-tool-benchmark-lab` — a name I picked *because it was unregistered* (I checked, twice). **If someone registers it, they get admin in that account.** That's why I kept the account ID out of the repo, kept it private until now, and why tearing this down matters more than the main lab. The lab's roles need existing credentials to abuse. These two need none.
 
 ---
 
 ## 7. What this doesn't show
 
-The caveats attached to individual claims are next to those claims. These are the limits on the whole exercise.
+The caveats on specific claims are next to those claims. These are the limits on the whole thing:
 
-**Everything here is n=1.** One AWS account, one lab deployment, one run per tool per context, on 2026-08-31. The connect timeout in section 2 is a single observation and I report it as one, since I don't know how often that endpoint fails to answer. The bug it exposes doesn't depend on my network or my region set, but the frequency does, and I have no data on it.
+**It's n=1.** One account, one deployment, one run each. The timeout in section 2 is one sighting — I don't know how often it happens. The bug is real regardless; the frequency I can't speak to.
 
-**Two tools isn't a survey.** The claim in section 3 is about what I could measure with the two tools I ran: one finds paths, the other displays its output and says so. I didn't review the field.
+**Two tools isn't a survey.** Section 3 is about the two tools I ran, not the field. I didn't review the field.
 
-**`SecurityAudit` is one point on a spectrum, not "low privilege."** The null result in section 4 says these two tools produce near-identical output under that specific AWS-managed policy. A principal missing `iam:ListRoles` would have produced a different answer and a much less interesting one.
+**`SecurityAudit` is one setting, not "low privilege" in general.** The identical-output result is about that one policy. A more restricted user would've looked very different.
 
-**Target absence was checked by looking for the resource, not by exploiting it.** Across all 17 enabled regions I confirmed there are no EC2 instances, no SSM-managed nodes, no stacks, no notebooks. I didn't launch an instance to confirm that the SSM paths in section 4 would then work. The false-positive call rests on the absence of the resource the reported path runs through, which is enough for *this path doesn't work as the account stands* and isn't a claim about the mechanism in general. The same goes the other way: a target being present means a target exists, not that the path has been driven end to end.
+**I checked for missing targets, I didn't try to exploit them.** I confirmed there are no instances/stacks/notebooks to attack across all 17 regions. I didn't spin one up to prove the SSM paths would then work. So "this path doesn't work as things stand" is solid; "this mechanism never works" isn't a claim I'm making.
 
-**Validation is sampled.** Nineteen files covering 22 of 86 principal rows. Every false-positive count in this post is *found in a sample of 22 validated rows* rather than a rate, because I didn't check the population. Forty-one of 344 graded cells are still flagged as inferred rather than read from output or a validation file, and one of PMapper's four misses, the Data Pipeline mechanism, rests on ground truth I never confirmed, since Data Pipeline is closed to new customers and I never tried to create one.
+**I only hand-checked a sample** — 22 of 86 rows. Every false-alarm count is "found in a sample of 22," not a rate. And 41 of 344 cells are still marked inferred, including one of PMapper's four misses that rests on a target I never confirmed.
 
-**Grading is unweighted.** A missed four-hop chain to account administrator scores the same as a missed single hop to a low-value target. Weighting needs a way to rank impact I don't have, and building one after seeing results is the failure the frozen rubric exists to prevent. It does mean the counts in section 4 flatten a real difference in severity.
+**Grading is unweighted** — a missed path to full admin counts the same as a missed path to nothing. Ranking severity needs a model I don't have, and I wasn't going to invent one after seeing the results.
 
-**One rubric requirement I met on a reading rather than to the letter.** I required at least three scenarios graded Missed by *all* tools to be validated, and wrote three: `privesc2`, `privesc13`, `fn3`. Under the final grades, no row is Missed in every column, because cloudfox's principal-bound permission dump earns Partial on all three. I validated them as *Missed on the escalation question*, which is what the requirement was for and how the files were written. Saying so rather than quietly meeting the weaker version of it.
+**One rubric rule I met in spirit, not to the letter.** I was supposed to hand-check three rows that all tools missed. Under the final grades no row is missed by *everyone* (cloudfox's permission dump earns Partial), so I checked the three as missed *on the escalation question specifically*. Saying so, rather than quietly meeting the easier version.
 
-**No independent path check was run**, which is the load-bearing one. Without a `SimulatePrincipalPolicy` sweep, my scenario list is a list of declared grants and nothing systematically looked for paths the lab's author didn't place. Section 5 is what that cost when it went wrong in a direction I could catch. It says nothing about what it cost in the direction I couldn't.
+**No independent check was run** — the big one. Without the `SimulatePrincipalPolicy` sweep, my list is who-holds-what and nothing went hunting for paths the lab's author didn't plant. Section 5 is what that cost in the direction I could see. It's silent on the direction I couldn't.
 
 ---
 
 ## 8. Reproducing this
 
-Everything is in the repository: the rubric, frozen in git before the lab was deployed and append-only afterwards, so `git log -p analysis/rubric.md` shows what I committed to before I saw any output; the scenario list; `grades.csv`, one row per `(scenario, tool, context, flagset)`, 344 of them, each carrying its evidence path and the exact search string used to reach the grade; the validation files with their commands and outcomes; and `matrix.md`, written by hand from `grades.csv` with no generator in between.
+It's all in the repo: the rubric (frozen in git before I deployed anything, so `git log` proves what I committed to before seeing any output); the scenario list; the 344-row grade file, each row carrying its evidence and the exact search I used; the 19 validation files with commands and results; and the matrix, written by hand from the grades with no script in between.
 
-Raw tool output is committed unedited except for one published, one-way substitution. `redact.sh` replaces the account ID and access key IDs with fixed placeholders, in file contents and in path components, and the script is committed alongside the output it produced. "Unedited" means "unedited except for one auditable rule." Any grade in the matrix can be checked against its source.
+Raw output is unedited except for one published find-and-replace that swaps my account ID and keys for placeholders — the script is in the repo, so "unedited" means "unedited except one rule you can read." Every grade can be traced back to its source.
 
-**Versions.** cloudfox `2.0.5` (release binary, commit `ba4ff47`, published SHA-1 verified against the release's own `sha1sum.txt`). PMapper `1.1.5` (tag `d5136ff`, wheel uploaded 2022-01-13; `master` HEAD `91d2e60`, dated 2022-02-03), on Python `3.9.25`. `iam-vulnerable` at `0f29866`. Terraform `1.14.8`, `hashicorp/aws` `6.62.0`.
+**Versions.** cloudfox 2.0.5 (binary, hash verified). PMapper 1.1.5 (2022 release), on Python 3.9.25. `iam-vulnerable` at commit `0f29866`. Terraform 1.14.8.
 
-**One reproduction hazard.** PMapper 1.1.5 doesn't import on Python 3.10 or later, and the Homebrew build of `python@3.9` I used is scheduled for disablement on 2026-10-15. Anyone repeating this after that date will have to get a 3.9 interpreter another way or patch the import, and a patched PMapper is a different thing from the published one, which is why I didn't patch mine.
+**One gotcha for anyone repeating it.** PMapper 1.1.5 won't import on Python 3.10+, and the Homebrew build of Python 3.9 I used gets pulled on 2026-10-15. After that you'll have to find a 3.9 another way or patch the import — and a patched copy isn't the published tool anymore, which is the whole reason I didn't patch mine.
 
-**Account hygiene, because the lab is exactly what it says it is.** Dedicated personal sandbox account, never an account connected to anything else I touch. A named CLI profile used explicitly on every call, with `sts get-caller-identity` confirmed before anything ran. `iam-vulnerable` creates users, roles and access keys that exist specifically to escalate to administrator, so it isn't something to point at a shared account.
+**Account hygiene.** Do this in a throwaway account, never one tied to anything real, and confirm which account you're in before every command. `iam-vulnerable` creates real users and keys built to escalate to admin — it is not something to point at a shared account.
 
-**Teardown is containment, not tidying.** There are two Terraform roots and both need destroying:
+**Teardown is containment, not tidying.** Two things to destroy, OIDC first:
 
 ```
-cd lab-oidc && terraform destroy   # 13 resources, do this one first
+cd lab-oidc && terraform destroy   # 13 resources — first
 cd ../lab   && terraform destroy   # 265 resources
 ```
 
-The OIDC root goes first for the reason in section 6: those two chains can be reached by someone who holds no credentials in the account at all, and one of them depends on a GitHub organisation name staying unregistered. The main lab is the opposite risk and a bigger one in volume. It creates 41 `aws_iam_access_key` resources, so `lab/terraform.tfstate` holds **41 live AWS secret access keys in plaintext**, one per lab user, every one attached to a principal built to reach administrator. The file is gitignored and won't be committed. It's still credential material sitting on a laptop, and those keys stay valid until they're deleted. Confirm with `terraform state list` returning empty.
+The OIDC one goes first because it's reachable from outside with no credentials, and it leans on that GitHub org name staying unregistered. The main lab is the bigger cleanup: it creates 41 real access keys, so its state file holds **41 live AWS secret keys in plaintext** — gitignored, so never committed, but real credentials sitting on a laptop until they're deleted.
 
-Two things neither destroy removes, on purpose: the SecurityAudit user I made, and the pre-existing `EC2-AutoRemediation` Lambda that's the only reachable target for one of the scenarios.
+Two things I left standing on purpose: the read-only `SecurityAudit` user, and the leftover `EC2-AutoRemediation` function that's the only target for one of the scenarios.
 
-I have my own IAM tool. It isn't in this benchmark, its test resources were deleted from the account before grading, and the reason for both is that a baseline is only worth having if it was built before the thing it's meant to measure.
+My own tool isn't in here, and its test resources were cleared out before grading — because a baseline is only worth anything if it was built before the thing it's meant to measure.
