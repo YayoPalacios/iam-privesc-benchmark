@@ -4,8 +4,16 @@ A per-scenario detection matrix comparing PMapper and cloudfox against Bishop
 Fox's iam-vulnerable lab. Track B, phase 1. `iamwho` is deliberately not part of
 this phase — it gets measured later, against a baseline built without it.
 
-**Nothing is deployed yet.** The rubric is frozen (commit `f2e62ee`); the lab
-has not been cloned or applied.
+**Phases 0–5 are complete.** The rubric was frozen before deployment (commit
+`f2e62ee`) and amended only by append. Both labs were applied, both tools were
+run and graded, the matrix is in `analysis/matrix.md`, and the writeup is
+`POST.md` at the repo root.
+
+**Both Terraform states are now empty** — `lab/terraform.tfstate` and
+`lab-oidc/terraform.tfstate` each hold 0 resource instances, so both roots have
+been destroyed. That is a statement about the local state files; confirm against
+the account itself if you need certainty. The teardown section below stays at the
+top because it applies to every future run, not because anything is outstanding.
 
 ## Teardown — load-bearing, not hygiene
 

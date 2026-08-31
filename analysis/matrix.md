@@ -147,8 +147,10 @@ graded data. Both are in the matrix.** `graph create` terminated on an unhandled
 `botocore.exceptions.ConnectTimeoutError` reaching `autoscaling.me-south-1` — a
 not-opted-in region whose endpoint did not answer. `autoscaling_edges.py` catches
 `ClientError`, and a transport timeout is a `BotoCoreError`, so it propagates out and
-kills the process on the **first of eight** edge checks. The graph is never
-serialised; all seven downstream commands fail.
+kills the process on the **first of nine** edge checks (`edge_identification.checker_map`
+has nine entries; the region-scoped run logs nine `Generating Edges` lines). The graph is
+never serialised; six of the seven downstream commands fail. The seventh, `graph list`,
+exits 0 and prints an empty account list.
 
 So the honest summary of PMapper on this account is two sentences that must travel
 together: *the default invocation produced nothing*, and *every PMapper number below
@@ -609,7 +611,7 @@ finding."*
 
 | Column | crash-M rows | detection-M rows | §4.7 events | scope |
 |---|---:|---:|---:|---|
-| PMapper — default | **86** | **0** | 1 | whole run: `graph create` died on the first of eight edge checks; no principal was ever evaluated |
+| PMapper — default | **86** | **0** | 1 | whole run: `graph create` died on the first of nine edge checks; no principal was ever evaluated |
 | PMapper — region-scoped | 0 | **20** | 0 | zero skipped principals; `graph create` stderr is 0 bytes. 20 = 8 detection-bucket Ms + 12 target-absent Ms; the detection headline in §3 uses the 8 |
 | cloudfox — own surfaces | **2** | 0 | **3** | `iam-simulator` only; three principals throttled, but one of the three is now a no-path row scoring CS, so the third event costs no grade (§2.4) |
 | cloudfox — path column | 0 | 0 | 0 | N/A throughout |
