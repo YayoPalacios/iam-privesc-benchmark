@@ -1,0 +1,5 @@
+Graph Data for Account:  000000000000
+  # of Nodes:              95 (17 admins)
+  # of Edges:              311
+  # of Groups:             3
+  # of (tracked) Policies: 60

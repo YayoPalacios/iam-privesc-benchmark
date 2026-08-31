@@ -1,0 +1,47 @@
+╭────────────────────────────────────────────────────────────┬──────────────────────╮
+│                         User Name                          │    Access Key ID     │
+├────────────────────────────────────────────────────────────┼──────────────────────┤
+│ fn1-privesc3-partial-user                                  │ AKIAXXXXXXXXXXXXXXXX │
+│ fn2-exploitableResourceConstraint-user                     │ AKIAXXXXXXXXXXXXXXXX │
+│ fn3-exploitableConditionConstraint-user                    │ AKIAXXXXXXXXXXXXXXXX │
+│ fn4-exploitableNotAction-user                              │ AKIAXXXXXXXXXXXXXXXX │
+│ fp1-allow-and-deny-user                                    │ AKIAXXXXXXXXXXXXXXXX │
+│ fp2-allow-and-deny-multiple-policies-user                  │ AKIAXXXXXXXXXXXXXXXX │
+│ fp3-deny-iam-user                                          │ AKIAXXXXXXXXXXXXXXXX │
+│ fp4-nonExploitableResourceConstraint-user                  │ AKIAXXXXXXXXXXXXXXXX │
+│ fp5-nonExploitableConditionConstraint-user                 │ AKIAXXXXXXXXXXXXXXXX │
+│ iamadmin                                                   │ AKIAXXXXXXXXXXXXXXXX │
+│ iamadmin                                                   │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-AssumeRole-start-user                              │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-CloudFormationUpdateStack-user                     │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-codeBuildCreateProjectPassRole-user                │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-ec2InstanceConnect-user                            │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-sageMakerCreateNotebookPassRole-user               │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-sageMakerCreatePresignedNotebookURL-user           │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-sageMakerCreateProcessingJobPassRole-user          │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-sageMakerCreateTrainingJobPassRole-user            │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-sre-user                                           │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-ssmSendCommand-user                                │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc-ssmStartSession-user                               │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc1-CreateNewPolicyVersion-user                       │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc10-PutUserPolicy-user                               │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc11-PutGroupPolicy-user                              │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc12-PutRolePolicy-user                               │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc13-AddUserToGroup-user                              │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc14-UpdatingAssumeRolePolicy-user                    │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc15-PassExistingRoleToNewLambdaThenInvoke-user       │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc17-EditExistingLambdaFunctionWithRole-user          │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc18-PassExistingRoleToNewGlueDevEndpoint-user        │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc19-UpdateExistingGlueDevEndpoint-user               │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc2-SetExistingDefaultPolicyVersion-user              │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc20-PassExistingRoleToCloudFormation-user            │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc21-PassExistingRoleToNewDataPipeline-user           │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc3-CreateEC2WithExistingInstanceProfile-user         │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc4-CreateAccessKey-user                              │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc5-CreateLoginProfile-user                           │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc6-UpdateLoginProfile-user                           │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc7-AttachUserPolicy-user                             │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc8-AttachGroupPolicy-user                            │ AKIAXXXXXXXXXXXXXXXX │
+│ privesc9-AttachRolePolicy-user                             │ AKIAXXXXXXXXXXXXXXXX │
+╰────────────────────────────────────────────────────────────┴──────────────────────╯

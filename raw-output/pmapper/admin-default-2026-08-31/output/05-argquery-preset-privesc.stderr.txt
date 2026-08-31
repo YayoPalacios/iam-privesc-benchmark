@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/./tools/pmapper-venv/bin/pmapper", line 6, in <module>
+    sys.exit(main())
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/__main__.py", line 151, in main
+    return argquery_cli.process_arguments(parsed_args)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/querying/argquery_cli.py", line 105, in process_arguments
+    graph = graph_actions.get_existing_graph(session, parsed_args.account)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/graph_actions.py", line 80, in get_existing_graph
+    graph = get_graph_from_disk(os.path.join(get_default_graph_path(response['Account'])))
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/graph_actions.py", line 65, in get_graph_from_disk
+    return Graph.create_graph_from_local_disk(location)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/common/graphs.py", line 132, in create_graph_from_local_disk
+    raise ValueError('Did not find file at: {}'.format(rootpath))
+ValueError: Did not find file at: /Users/yael.palacios/Library/Application Support/com.nccgroup.principalmapper/000000000000

@@ -1,0 +1,392 @@
+[
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+    "Query": "Appears to be an administrator"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/iamadmin",
+    "Query": "Appears to be an administrator"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Query": "Appears to be an administrator"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+    "Query": "can ec2:DescribeInstanceAttributeInput on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can ec2:DescribeInstanceAttributeInput on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sre-role",
+    "Query": "can ec2:DescribeInstanceAttributeInput on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can ec2:DescribeInstanceAttributeInput on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sre-user",
+    "Query": "can ec2:DescribeInstanceAttributeInput on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can ecr:BatchGetImage on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can ecr:BatchGetImage on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+    "Query": "can ecr:BatchGetImage on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can ecr:GetAuthorizationToken on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can ecr:GetAuthorizationToken on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+    "Query": "can ecr:GetAuthorizationToken on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can eks:UpdateClusterConfig on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can eks:UpdateClusterConfig on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sre-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sre-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+    "Query": "can iam:PassRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+    "Query": "can lambda:ListFunctions on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can lambda:ListFunctions on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+    "Query": "can lambda:ListFunctions on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can lambda:ListFunctions on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sre-user",
+    "Query": "can s3:GetObject on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can s3:GetObject on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sre-role",
+    "Query": "can s3:GetObject on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can s3:GetObject on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-sre-user",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-sre-role",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDuty",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+    "Query": "can s3:ListBucket on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can secretsmanager:GetSecretValue on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can secretsmanager:GetSecretValue on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can sns:Subscribe on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can sns:Subscribe on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can sqs:SendMessage on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can sqs:SendMessage on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can ssm:GetParameter on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can ssm:GetParameter on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+    "Query": "can ssm:SendCommand on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can ssm:SendCommand on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+    "Query": "can ssm:SendCommand on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can ssm:SendCommand on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can ssm:StartSession on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+    "Query": "can ssm:StartSession on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+    "Query": "can ssm:StartSession on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can ssm:StartSession on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "Query": "can sts:AssumeRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+    "Query": "can sts:AssumeRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+    "Query": "can sts:AssumeRole on *"
+  },
+  {
+    "Account": "000000000000",
+    "Principal": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Query": "can sts:AssumeRole on *"
+  }
+]

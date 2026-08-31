@@ -1,0 +1,398 @@
+[
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+    "Role Name": "fn1-privesc3-partial-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fn2-exploitableResourceConstraint-role",
+    "Role Name": "fn2-exploitableResourceConstraint-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fn3-exploitableConditionConstraint-role",
+    "Role Name": "fn3-exploitableConditionConstraint-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "Role Name": "fn4-exploitableNotAction-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fp1-allow-and-deny-role",
+    "Role Name": "fp1-allow-and-deny-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fp2-allow-and-deny-multiple-policies-role",
+    "Role Name": "fp2-allow-and-deny-multiple-policies-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fp3-deny-iam-role",
+    "Role Name": "fp3-deny-iam-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fp4-nonExploitableResourceConstraint-role",
+    "Role Name": "fp4-nonExploitableResourceConstraint-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/fp5-nonExploitableConditionConstraint-role",
+    "Role Name": "fp5-nonExploitableConditionConstraint-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+    "Role Name": "privesc-AssumeRole-ending-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+    "Role Name": "privesc-AssumeRole-intermediate-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role",
+    "Role Name": "privesc-AssumeRole-starting-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role",
+    "Role Name": "privesc-CloudFormationUpdateStack-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+    "Role Name": "privesc-codeBuildCreateProjectPassRole-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role",
+    "Role Name": "privesc-ec2InstanceConnect-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+    "Role Name": "privesc-permissive-role-trust",
+    "Trusted Principal": "arn:aws:iam::000000000000:root"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+    "Role Name": "privesc-sageMakerCreateNotebookPassRole-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreatePresignedNotebookURL-role",
+    "Role Name": "privesc-sageMakerCreatePresignedNotebookURL-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+    "Role Name": "privesc-sageMakerCreateProcessingJobPassRole-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+    "Role Name": "privesc-sageMakerCreateTrainingJobPassRole-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-sre-role",
+    "Role Name": "privesc-sre-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/privesc-sre-user"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+    "Role Name": "privesc-ssmSendCommand-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+    "Role Name": "privesc-ssmStartSession-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc1-CreateNewPolicyVersion-role",
+    "Role Name": "privesc1-CreateNewPolicyVersion-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role",
+    "Role Name": "privesc10-PutUserPolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role",
+    "Role Name": "privesc11-PutGroupPolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc12-PutRolePolicy-role",
+    "Role Name": "privesc12-PutRolePolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc13-AddUserToGroup-role",
+    "Role Name": "privesc13-AddUserToGroup-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+    "Role Name": "privesc14-UpdatingAssumeRolePolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+    "Role Name": "privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+    "Role Name": "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc17-EditExistingLambdaFunctionWithRole-role",
+    "Role Name": "privesc17-EditExistingLambdaFunctionWithRole-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+    "Role Name": "privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc19-UpdateExistingGlueDevEndpoint-role",
+    "Role Name": "privesc19-UpdateExistingGlueDevEndpoint-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role",
+    "Role Name": "privesc2-SetExistingDefaultPolicyVersion-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+    "Role Name": "privesc20-PassExistingRoleToCloudFormation-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role",
+    "Role Name": "privesc21-PassExistingRoleToNewDataPipeline-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+    "Role Name": "privesc3-CreateEC2WithExistingInstanceProfile-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+    "Role Name": "privesc4-CreateAccessKey-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+    "Role Name": "privesc5-CreateLoginProfile-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role",
+    "Role Name": "privesc6-UpdateLoginProfile-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role",
+    "Role Name": "privesc7-AttachUserPolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role",
+    "Role Name": "privesc8-AttachGroupPolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc9-AttachRolePolicy-role",
+    "Role Name": "privesc9-AttachRolePolicy-role",
+    "Trusted Principal": "arn:aws:iam::000000000000:user/iamadmin"
+  }
+]

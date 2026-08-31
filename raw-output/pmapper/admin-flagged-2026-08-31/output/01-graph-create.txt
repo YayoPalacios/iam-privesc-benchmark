@@ -1,0 +1,601 @@
+2026-08-30 19:39:44-0600 | Obtaining IAM Users/Roles/Groups/Policies in the account.
+2026-08-30 19:39:47-0600 | Sorting users, roles, groups, policies, and their relationships.
+2026-08-30 19:39:47-0600 | Obtaining Access Keys data for IAM users
+2026-08-30 19:39:55-0600 | Gathering MFA virtual device information
+2026-08-30 19:39:55-0600 | Gathering MFA physical device information
+2026-08-30 19:39:59-0600 | Determining which principals have administrative privileges
+2026-08-30 19:39:59-0600 | Initiating edge checks.
+2026-08-30 19:39:59-0600 | Generating Edges based on EC2 Auto Scaling.
+2026-08-30 19:40:09-0600 | Pulling data on CloudFormation stacks.
+2026-08-30 19:40:18-0600 | Generating Edges based on data from CloudFormation.
+2026-08-30 19:40:18-0600 | Found new edge: user/privesc20-PassExistingRoleToCloudFormation-user can create a stack in CloudFormation to access role/privesc-high-priv-service-role
+2026-08-30 19:40:18-0600 | Found new edge: role/privesc20-PassExistingRoleToCloudFormation-role can create a stack in CloudFormation to access role/privesc-high-priv-service-role
+2026-08-30 19:40:18-0600 | Generating Edges based on CodeBuild.
+2026-08-30 19:40:27-0600 | Found new edge: user/privesc-codeBuildCreateProjectPassRole-user can create a project in CodeBuild to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Found new edge: role/privesc-codeBuildCreateProjectPassRole-role can create a project in CodeBuild to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Generating Edges based on EC2.
+2026-08-30 19:40:27-0600 | Found new edge: user/fn1-privesc3-partial-user can use EC2 to run an instance with an existing instance profile to access role/EC2CloudWatchAgentRole
+2026-08-30 19:40:27-0600 | Found new edge: user/privesc3-CreateEC2WithExistingInstanceProfile-user can use EC2 to run an instance with an existing instance profile to access role/EC2CloudWatchAgentRole
+2026-08-30 19:40:27-0600 | Found new edge: user/privesc3-CreateEC2WithExistingInstanceProfile-user can use EC2 to run an instance and then associate an existing instance profile to access role/EC2CloudWatchAgentRole
+2026-08-30 19:40:27-0600 | Found new edge: role/fn1-privesc3-partial-role can use EC2 to run an instance with an existing instance profile to access role/EC2CloudWatchAgentRole
+2026-08-30 19:40:27-0600 | Found new edge: role/privesc3-CreateEC2WithExistingInstanceProfile-role can use EC2 to run an instance with an existing instance profile to access role/EC2CloudWatchAgentRole
+2026-08-30 19:40:27-0600 | Found new edge: role/privesc3-CreateEC2WithExistingInstanceProfile-role can use EC2 to run an instance and then associate an existing instance profile to access role/EC2CloudWatchAgentRole
+2026-08-30 19:40:27-0600 | Found new edge: user/fn1-privesc3-partial-user can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Found new edge: user/privesc3-CreateEC2WithExistingInstanceProfile-user can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Found new edge: user/privesc3-CreateEC2WithExistingInstanceProfile-user can use EC2 to run an instance and then associate an existing instance profile to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Found new edge: role/fn1-privesc3-partial-role can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Found new edge: role/privesc3-CreateEC2WithExistingInstanceProfile-role can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Found new edge: role/privesc3-CreateEC2WithExistingInstanceProfile-role can use EC2 to run an instance and then associate an existing instance profile to access role/privesc-high-priv-service-role
+2026-08-30 19:40:27-0600 | Generating Edges based on IAM
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/AWSServiceRoleForAmazonGuardDuty
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/AWSServiceRoleForAmazonGuardDutyMalwareProtection
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/AWSServiceRoleForResourceExplorer
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/AWSServiceRoleForSupport
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/AWSServiceRoleForTrustedAdvisor
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/EC2-AutoRemediation-role-h3s42wj1
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/EC2CloudWatchAgentRole
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fn1-privesc3-partial-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fn2-exploitableResourceConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fn3-exploitableConditionConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fn4-exploitableNotAction-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fp1-allow-and-deny-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fp2-allow-and-deny-multiple-policies-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fp3-deny-iam-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fp4-nonExploitableResourceConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fp5-nonExploitableConditionConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-AssumeRole-ending-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-AssumeRole-intermediate-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-AssumeRole-starting-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-CloudFormationUpdateStack-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-codeBuildCreateProjectPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-ec2InstanceConnect-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-high-priv-service-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-permissive-role-trust
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-sageMakerCreateNotebookPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-sageMakerCreatePresignedNotebookURL-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-sageMakerCreateProcessingJobPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-sageMakerCreateTrainingJobPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-sre-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-ssmSendCommand-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc-ssmStartSession-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc1-CreateNewPolicyVersion-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc10-PutUserPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc11-PutGroupPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc12-PutRolePolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc13-AddUserToGroup-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc14-UpdatingAssumeRolePolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc17-EditExistingLambdaFunctionWithRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc19-UpdateExistingGlueDevEndpoint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc2-SetExistingDefaultPolicyVersion-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc20-PassExistingRoleToCloudFormation-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc21-PassExistingRoleToNewDataPipeline-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc3-CreateEC2WithExistingInstanceProfile-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc4-CreateAccessKey-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc5-CreateLoginProfile-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc6-UpdateLoginProfile-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc7-AttachUserPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc8-AttachGroupPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/privesc9-AttachRolePolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fn1-privesc3-partial-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fn2-exploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fn3-exploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fn4-exploitableNotAction-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fp1-allow-and-deny-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fp2-allow-and-deny-multiple-policies-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fp3-deny-iam-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fp4-nonExploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fp5-nonExploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-AssumeRole-start-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-CloudFormationUpdateStack-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-codeBuildCreateProjectPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-ec2InstanceConnect-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-sageMakerCreateNotebookPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-sageMakerCreatePresignedNotebookURL-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-sageMakerCreateProcessingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-sageMakerCreateTrainingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-sre-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-ssmSendCommand-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc-ssmStartSession-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc1-CreateNewPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc10-PutUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc11-PutGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc12-PutRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc13-AddUserToGroup-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc14-UpdatingAssumeRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc17-EditExistingLambdaFunctionWithRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc19-UpdateExistingGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc2-SetExistingDefaultPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc20-PassExistingRoleToCloudFormation-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc21-PassExistingRoleToNewDataPipeline-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc3-CreateEC2WithExistingInstanceProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc5-CreateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc6-UpdateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc7-AttachUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc8-AttachGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/privesc9-AttachRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fn1-privesc3-partial-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fn2-exploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fn3-exploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fn4-exploitableNotAction-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fp1-allow-and-deny-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fp2-allow-and-deny-multiple-policies-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fp3-deny-iam-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fp4-nonExploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fp5-nonExploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-AssumeRole-start-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-CloudFormationUpdateStack-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-codeBuildCreateProjectPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-ec2InstanceConnect-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-sageMakerCreateNotebookPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-sageMakerCreatePresignedNotebookURL-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-sageMakerCreateProcessingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-sageMakerCreateTrainingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-sre-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-ssmSendCommand-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc-ssmStartSession-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc1-CreateNewPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc10-PutUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc11-PutGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc12-PutRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc13-AddUserToGroup-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc14-UpdatingAssumeRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc17-EditExistingLambdaFunctionWithRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc19-UpdateExistingGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc2-SetExistingDefaultPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc20-PassExistingRoleToCloudFormation-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc21-PassExistingRoleToNewDataPipeline-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc3-CreateEC2WithExistingInstanceProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc4-CreateAccessKey-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc6-UpdateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc7-AttachUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc8-AttachGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/privesc9-AttachRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: user/privesc6-UpdateLoginProfile-user can set the password to authenticate as user/iamadmin
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/AWSServiceRoleForAmazonGuardDuty
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/AWSServiceRoleForAmazonGuardDutyMalwareProtection
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/AWSServiceRoleForResourceExplorer
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/AWSServiceRoleForSupport
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/AWSServiceRoleForTrustedAdvisor
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/EC2-AutoRemediation-role-h3s42wj1
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/EC2CloudWatchAgentRole
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fn1-privesc3-partial-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fn2-exploitableResourceConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fn3-exploitableConditionConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fn4-exploitableNotAction-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fp1-allow-and-deny-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fp2-allow-and-deny-multiple-policies-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fp3-deny-iam-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fp4-nonExploitableResourceConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fp5-nonExploitableConditionConstraint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-AssumeRole-ending-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-AssumeRole-intermediate-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-AssumeRole-starting-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-CloudFormationUpdateStack-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-codeBuildCreateProjectPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-ec2InstanceConnect-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-high-priv-service-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-permissive-role-trust
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-sageMakerCreateNotebookPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-sageMakerCreatePresignedNotebookURL-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-sageMakerCreateProcessingJobPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-sageMakerCreateTrainingJobPassRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-sre-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-ssmSendCommand-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc-ssmStartSession-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc1-CreateNewPolicyVersion-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc10-PutUserPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc11-PutGroupPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc12-PutRolePolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc13-AddUserToGroup-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc17-EditExistingLambdaFunctionWithRole-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc19-UpdateExistingGlueDevEndpoint-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc2-SetExistingDefaultPolicyVersion-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc20-PassExistingRoleToCloudFormation-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc21-PassExistingRoleToNewDataPipeline-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc3-CreateEC2WithExistingInstanceProfile-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc4-CreateAccessKey-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc5-CreateLoginProfile-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc6-UpdateLoginProfile-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc7-AttachUserPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc8-AttachGroupPolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/privesc9-AttachRolePolicy-role
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fn1-privesc3-partial-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fn2-exploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fn3-exploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fn4-exploitableNotAction-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fp1-allow-and-deny-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fp2-allow-and-deny-multiple-policies-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fp3-deny-iam-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fp4-nonExploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fp5-nonExploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-AssumeRole-start-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-CloudFormationUpdateStack-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-codeBuildCreateProjectPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-ec2InstanceConnect-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-sageMakerCreateNotebookPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-sageMakerCreatePresignedNotebookURL-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-sageMakerCreateProcessingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-sageMakerCreateTrainingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-sre-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-ssmSendCommand-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc-ssmStartSession-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc1-CreateNewPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc10-PutUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc11-PutGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc12-PutRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc13-AddUserToGroup-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc14-UpdatingAssumeRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc17-EditExistingLambdaFunctionWithRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc19-UpdateExistingGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc2-SetExistingDefaultPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc20-PassExistingRoleToCloudFormation-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc21-PassExistingRoleToNewDataPipeline-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc3-CreateEC2WithExistingInstanceProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc4-CreateAccessKey-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc5-CreateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc6-UpdateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc7-AttachUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc8-AttachGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/privesc9-AttachRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fn1-privesc3-partial-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fn2-exploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fn3-exploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fn4-exploitableNotAction-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fp1-allow-and-deny-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fp2-allow-and-deny-multiple-policies-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fp3-deny-iam-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fp4-nonExploitableResourceConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fp5-nonExploitableConditionConstraint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-AssumeRole-start-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-CloudFormationUpdateStack-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-codeBuildCreateProjectPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-ec2InstanceConnect-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-sageMakerCreateNotebookPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-sageMakerCreatePresignedNotebookURL-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-sageMakerCreateProcessingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-sageMakerCreateTrainingJobPassRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-sre-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-ssmSendCommand-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc-ssmStartSession-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc1-CreateNewPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc10-PutUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc11-PutGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc12-PutRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc13-AddUserToGroup-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc14-UpdatingAssumeRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc17-EditExistingLambdaFunctionWithRole-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc19-UpdateExistingGlueDevEndpoint-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc2-SetExistingDefaultPolicyVersion-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc20-PassExistingRoleToCloudFormation-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc21-PassExistingRoleToNewDataPipeline-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc3-CreateEC2WithExistingInstanceProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc4-CreateAccessKey-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc5-CreateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc6-UpdateLoginProfile-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc7-AttachUserPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc8-AttachGroupPolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/privesc9-AttachRolePolicy-user
+
+2026-08-30 19:40:43-0600 | Found new edge: role/privesc6-UpdateLoginProfile-role can set the password to authenticate as user/iamadmin
+
+2026-08-30 19:40:43-0600 | Pulling data on Lambda functions
+2026-08-30 19:40:52-0600 | Generating Edges based on Lambda data.
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user can use Lambda to create a new function with arbitrary code, then pass and access role/EC2-AutoRemediation-role-h3s42wj1
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user can use Lambda to create a new function with arbitrary code, then pass and access role/EC2-AutoRemediation-role-h3s42wj1
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc17-EditExistingLambdaFunctionWithRole-user can use Lambda to edit an existing function (arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation) to access role/EC2-AutoRemediation-role-h3s42wj1
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role can use Lambda to create a new function with arbitrary code, then pass and access role/EC2-AutoRemediation-role-h3s42wj1
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role can use Lambda to create a new function with arbitrary code, then pass and access role/EC2-AutoRemediation-role-h3s42wj1
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc17-EditExistingLambdaFunctionWithRole-role can use Lambda to edit an existing function (arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation) to access role/EC2-AutoRemediation-role-h3s42wj1
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Generating Edges based on SageMaker
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc-sageMakerCreateNotebookPassRole-user can use SageMaker to launch a notebook and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc-sageMakerCreateProcessingJobPassRole-user can use SageMaker to create a processing job and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: user/privesc-sageMakerCreateTrainingJobPassRole-user can use SageMaker to create a training job and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc-sageMakerCreateNotebookPassRole-role can use SageMaker to launch a notebook and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc-sageMakerCreateProcessingJobPassRole-role can use SageMaker to create a processing job and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Found new edge: role/privesc-sageMakerCreateTrainingJobPassRole-role can use SageMaker to create a training job and access role/privesc-high-priv-service-role
+2026-08-30 19:40:53-0600 | Generating Edges based on SSM
+2026-08-30 19:40:54-0600 | Found new edge: user/privesc-ssmSendCommand-user can call ssm:SendCommand to access an EC2 instance with access to role/privesc-high-priv-service-role
+2026-08-30 19:40:54-0600 | Found new edge: user/privesc-ssmStartSession-user can call ssm:StartSession to access an EC2 instance with access to role/privesc-high-priv-service-role
+2026-08-30 19:40:54-0600 | Found new edge: role/privesc-ssmSendCommand-role can call ssm:SendCommand to access an EC2 instance with access to role/privesc-high-priv-service-role
+2026-08-30 19:40:54-0600 | Found new edge: role/privesc-ssmStartSession-role can call ssm:StartSession to access an EC2 instance with access to role/privesc-high-priv-service-role
+2026-08-30 19:40:54-0600 | Generating Edges based on STS
+2026-08-30 19:40:54-0600 | Found new edge: role/privesc-AssumeRole-intermediate-role can access via sts:AssumeRole role/privesc-AssumeRole-ending-role
+2026-08-30 19:40:54-0600 | Found new edge: role/privesc-AssumeRole-starting-role can access via sts:AssumeRole role/privesc-AssumeRole-intermediate-role
+2026-08-30 19:40:54-0600 | Found new edge: user/privesc14-UpdatingAssumeRolePolicy-user can access via sts:AssumeRole role/privesc-permissive-role-trust
+2026-08-30 19:40:54-0600 | Found new edge: role/privesc14-UpdatingAssumeRolePolicy-role can access via sts:AssumeRole role/privesc-permissive-role-trust
+2026-08-30 19:41:02-0600 | Caching policy for arn:aws:sns:us-east-1:000000000000:EC2-Alarms
+2026-08-30 19:41:02-0600 | Caching policy for arn:aws:sns:us-east-1:000000000000:EC2-Alarms2
+2026-08-30 19:41:20-0600 | Caching policy for arn:aws:kms:us-east-1:000000000000:key/11e102ab-7b74-48f2-a5b6-6f5ddfa64904
+2026-08-30 19:41:20-0600 | Caching policy for arn:aws:kms:us-east-1:000000000000:key/128b2482-d449-46ba-ab34-e7b2c44365d4
+Graph Data for Account:  000000000000
+  # of Nodes:              94 (17 admins)
+  # of Edges:              307
+  # of Groups:             3
+  # of (tracked) Policies: 59

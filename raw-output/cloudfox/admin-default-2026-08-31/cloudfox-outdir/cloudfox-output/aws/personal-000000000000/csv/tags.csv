@@ -1,0 +1,2 @@
+Account,Service,Region,Type,Key,Value
+000000000000,ec2,us-east-1,network-acl,Name,CloudGuard-Prod-Protection-NACL

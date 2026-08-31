@@ -75,6 +75,33 @@ deployed**, consistent with the empty provider list above.
 | `AWSServiceRoleForSupport` | SLR | service-managed | No |
 | `AWSServiceRoleForTrustedAdvisor` | SLR | service-managed | No |
 
+### Added 2026-08-31 by this benchmark — `user/benchmark-securityaudit`
+
+Not a lab resource and not a scenario row. It is **benchmark apparatus**, created
+to satisfy rubric §5.1's requirement that the `limited` context run as the
+AWS-managed `SecurityAudit` policy "attached to a purpose-made principal". No
+such principal existed in the account.
+
+| | |
+|---|---|
+| ARN | `arn:aws:iam::000000000000:user/benchmark-securityaudit` |
+| Created | 2026-08-31T01:47:41Z, by `user/iamadmin` |
+| Policies | `arn:aws:iam::aws:policy/SecurityAudit` only |
+| Access keys | one, for the `securityaudit` runs |
+| Tags | `purpose=iam-tool-benchmark`, `phase=2`, `rubric=5.1` |
+| Escalation target? | **No** — read-only; verified `iam:CreateUser` is denied |
+
+**It did not exist during either admin run**, so the admin runs saw 94 principals
+and the `securityaudit` runs saw 95. Exclude it from every denominator, as with
+the other non-lab principals above. Its only effect on tool output was 4 inbound
+PMapper graph edges — `privesc4-CreateAccessKey` and `privesc5-CreateLoginProfile`,
+role and user of each — which reach a non-administrative target and so produce no
+escalation path.
+
+**Teardown:** `terraform destroy` will not remove it. Delete the access key,
+detach the policy, delete the user. Commands in
+`raw-output/cloudfox/securityaudit-default-2026-08-31/run-metadata.md`.
+
 One non-lab customer-managed policy exists,
 `AWSLambdaBasicExecutionRole-6ee3187d-851d-4ed1-be6d-968092e15b25`, auto-created
 by the Lambda console for the function above.

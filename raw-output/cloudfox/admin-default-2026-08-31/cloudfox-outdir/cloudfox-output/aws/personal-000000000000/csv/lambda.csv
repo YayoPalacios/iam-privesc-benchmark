@@ -1,0 +1,2 @@
+Account,Region,Name,Arn,Role,IsAdminRole?,CanPrivEscToAdmin?
+000000000000,us-east-1,EC2-AutoRemediation,arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation,arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1,No,"Skipping, no pmapper data"

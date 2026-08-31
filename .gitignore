@@ -15,3 +15,12 @@ __pycache__/
 # lab/ is a plain clone of iam-vulnerable with its own .git.
 # The outer repo records only the pinned commit, in raw-output/lab-deployment.md.
 /lab/
+
+# Tool binaries and virtualenvs installed for Phase 2.
+# Versions, commit hashes and install steps are recorded in analysis/tool-install.md.
+/tools/
+
+# Terraform saved plans and apply logs. Binary plans and raw apply output both
+# embed the account ID, and neither is an artifact anyone grades.
+*.tfplan
+apply-*.log

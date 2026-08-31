@@ -1,0 +1,127 @@
+# PMapper admin-FLAGGED run — console transcript
+
+Retry of the crashed admin-default run of the same date.
+Non-default flag: --include-regions <17 enabled regions>, on graph create only.
+
+Start (UTC): 2026-08-31T01:39:42Z
+Interpreter: Python 3.9.25
+
+--- caller identity ---
+{
+    "UserId": "AIDAZV7NGMXUIHN6FVLRB",
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/iamadmin"
+}
+
+--- pmapper data on disk before this run ---
+total 0
+drwx------@  2 yael.palacios  staff    64 30 ago 19:23 .
+drwx------+ 76 yael.palacios  staff  2432 30 ago 19:23 ..
+
+
+================================================================
+COMMAND : pmapper --profile personal graph create --include-regions ap-northeast-1 ap-northeast-2 ap-northeast-3 ap-south-1 ap-southeast-1 ap-southeast-2 ca-central-1 eu-central-1 eu-north-1 eu-west-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2
+SLUG    : 01-graph-create
+START   : 2026-08-31T01:39:43Z
+================================================================
+EXIT    : 0
+STDOUT  : output/01-graph-create.txt (601 lines)
+STDERR  : output/01-graph-create.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:31Z
+
+================================================================
+COMMAND : pmapper --profile personal graph display
+SLUG    : 02-graph-display
+START   : 2026-08-31T01:41:31Z
+================================================================
+EXIT    : 0
+STDOUT  : output/02-graph-display.txt (5 lines)
+STDERR  : output/02-graph-display.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:31Z
+
+================================================================
+COMMAND : pmapper --profile personal graph list
+SLUG    : 03-graph-list
+START   : 2026-08-31T01:41:31Z
+================================================================
+EXIT    : 0
+STDOUT  : output/03-graph-list.txt (3 lines)
+STDERR  : output/03-graph-list.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:32Z
+
+================================================================
+COMMAND : pmapper --profile personal query preset privesc *
+SLUG    : 04-query-preset-privesc
+START   : 2026-08-31T01:41:32Z
+================================================================
+EXIT    : 0
+STDOUT  : output/04-query-preset-privesc.txt (114 lines)
+STDERR  : output/04-query-preset-privesc.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:32Z
+
+================================================================
+COMMAND : pmapper --profile personal argquery --preset privesc --principal *
+SLUG    : 05-argquery-preset-privesc
+START   : 2026-08-31T01:41:32Z
+================================================================
+EXIT    : 0
+STDOUT  : output/05-argquery-preset-privesc.txt (114 lines)
+STDERR  : output/05-argquery-preset-privesc.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:33Z
+
+================================================================
+COMMAND : pmapper --profile personal analysis --output-type text
+SLUG    : 06-analysis-text
+START   : 2026-08-31T01:41:33Z
+================================================================
+EXIT    : 0
+STDOUT  : output/06-analysis-text.txt (324 lines)
+STDERR  : output/06-analysis-text.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:34Z
+
+================================================================
+COMMAND : pmapper --profile personal analysis --output-type json
+SLUG    : 07-analysis-json
+START   : 2026-08-31T01:41:34Z
+================================================================
+EXIT    : 0
+STDOUT  : output/07-analysis-json.txt (63 lines)
+STDERR  : output/07-analysis-json.stderr.txt (0 lines)
+END     : 2026-08-31T01:41:35Z
+
+================================================================
+COMMAND : pmapper --profile personal visualize --filetype dot
+SLUG    : 08-visualize-dot
+START   : 2026-08-31T01:41:35Z
+================================================================
+EXIT    : 1
+STDOUT  : output/08-visualize-dot.txt (0 lines)
+STDERR  : output/08-visualize-dot.stderr.txt (29 lines)
+END     : 2026-08-31T01:41:36Z
+End (UTC): 2026-08-31T01:41:36Z
+
+================================================================
+COMMAND : pmapper --profile personal visualize --filetype dot
+SLUG    : 08-visualize-dot  (RE-RUN after installing graphviz)
+NOTE    : the original attempt at 2026-08-31T01:41:35Z failed with
+          FileNotFoundError: "dot" not found in path. Graphviz was
+          then installed and this command re-run unchanged. For a
+          figure, not for grading. Same stored graph, untouched.
+START   : 2026-08-31T01:48:45Z
+================================================================
+EXIT    : 0
+STDOUT  : output/08-visualize-dot.txt (1 lines)
+STDERR  : output/08-visualize-dot.stderr.txt (0 lines)
+END     : 2026-08-31T01:48:47Z
+
+================================================================
+COMMAND : pmapper --profile personal visualize --filetype svg
+SLUG    : 09-visualize-svg
+NOTE    : the renderable figure. svg is visualize's default filetype.
+          Same stored graph as 01-08. For a figure, not for grading.
+START   : 2026-08-31T01:49:05Z
+================================================================
+EXIT    : 0
+STDOUT  : output/09-visualize-svg.txt (1 lines)
+STDERR  : output/09-visualize-svg.stderr.txt (0 lines)
+END     : 2026-08-31T01:49:06Z

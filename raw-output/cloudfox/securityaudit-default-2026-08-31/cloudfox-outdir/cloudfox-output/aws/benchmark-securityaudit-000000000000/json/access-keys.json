@@ -1,0 +1,222 @@
+[
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "benchmark-securityaudit"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fn1-privesc3-partial-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fn2-exploitableResourceConstraint-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fn3-exploitableConditionConstraint-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fn4-exploitableNotAction-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fp1-allow-and-deny-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fp2-allow-and-deny-multiple-policies-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fp3-deny-iam-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fp4-nonExploitableResourceConstraint-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "fp5-nonExploitableConditionConstraint-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "iamadmin"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "iamadmin"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-AssumeRole-start-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-CloudFormationUpdateStack-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-codeBuildCreateProjectPassRole-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-ec2InstanceConnect-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-sageMakerCreateNotebookPassRole-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-sageMakerCreatePresignedNotebookURL-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-sageMakerCreateProcessingJobPassRole-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-sageMakerCreateTrainingJobPassRole-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-sre-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-ssmSendCommand-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc-ssmStartSession-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc1-CreateNewPolicyVersion-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc10-PutUserPolicy-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc11-PutGroupPolicy-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc12-PutRolePolicy-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc13-AddUserToGroup-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc14-UpdatingAssumeRolePolicy-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc15-PassExistingRoleToNewLambdaThenInvoke-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc17-EditExistingLambdaFunctionWithRole-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc18-PassExistingRoleToNewGlueDevEndpoint-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc19-UpdateExistingGlueDevEndpoint-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc2-SetExistingDefaultPolicyVersion-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc20-PassExistingRoleToCloudFormation-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc21-PassExistingRoleToNewDataPipeline-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc3-CreateEC2WithExistingInstanceProfile-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc4-CreateAccessKey-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc5-CreateLoginProfile-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc6-UpdateLoginProfile-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc7-AttachUserPolicy-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc8-AttachGroupPolicy-user"
+  },
+  {
+    "Access Key ID": "AKIAXXXXXXXXXXXXXXXX",
+    "Account": "000000000000",
+    "User Name": "privesc9-AttachRolePolicy-user"
+  }
+]

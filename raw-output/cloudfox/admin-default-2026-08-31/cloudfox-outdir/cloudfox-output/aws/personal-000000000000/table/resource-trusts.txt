@@ -1,0 +1,8 @@
+╭────────────────────────────────────────────────────────────────────┬────────┬─────────────┬───────────────────────────────────────────────────────────────────────────────────╮
+│                                ARN                                 │ Public │ Interesting │                              Resource Policy Summary                              │
+├────────────────────────────────────────────────────────────────────┼────────┼─────────────┼───────────────────────────────────────────────────────────────────────────────────┤
+│ arn:aws:sns:us-east-1:000000000000:EC2-Alarms                      │ No     │ No          │ Default resource policy: Not exploitable                                          │
+│ arn:aws:sns:us-east-1:000000000000:EC2-Alarms2                     │ No     │ No          │ Default resource policy: Not exploitable                                          │
+│ arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation │ No     │ No          │ sns.amazonaws.com can lambda:InvokeFunction                                       │
+│                                                                    │        │             │ -> Only when AWS:SourceArn is like arn:aws:sns:us-east-1:000000000000:EC2-Alarms2 │
+╰────────────────────────────────────────────────────────────────────┴────────┴─────────────┴───────────────────────────────────────────────────────────────────────────────────╯

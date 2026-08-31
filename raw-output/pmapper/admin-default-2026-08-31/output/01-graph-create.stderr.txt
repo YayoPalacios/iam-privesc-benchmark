@@ -1,0 +1,94 @@
+Traceback (most recent call last):
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/httpsession.py", line 477, in send
+    urllib_response = conn.urlopen(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/util/retry.py", line 527, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1061, in _validate_conn
+    conn.connect()
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/urllib3/connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<botocore.awsrequest.AWSHTTPSConnection object at 0x105693b20>, 'Connection to autoscaling.me-south-1.amazonaws.com timed out. (connect timeout=60)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/./tools/pmapper-venv/bin/pmapper", line 6, in <module>
+    sys.exit(main())
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/__main__.py", line 145, in main
+    return graph_cli.process_arguments(parsed_args)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/graph_cli.py", line 179, in process_arguments
+    graph = graph_actions.create_new_graph(session, service_list, parsed_args.include_regions,
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/graph_actions.py", line 39, in create_new_graph
+    return gathering.create_graph(session, service_list, region_allow_list, region_deny_list, scps, client_args_map)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/gathering.py", line 84, in create_graph
+    edges_result = edge_identification.obtain_edges(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/edge_identification.py", line 63, in obtain_edges
+    result.extend(checker_obj.return_edges(nodes, region_allow_list, region_deny_list, scps, client_args_map))
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/principalmapper/graphing/autoscaling_edges.py", line 60, in return_edges
+    for page in lc_paginator.paginate():
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/paginate.py", line 272, in __iter__
+    response = self._make_request(current_kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/paginate.py", line 360, in _make_request
+    return self._method(**current_kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/client.py", line 606, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/client.py", line 1076, in _make_api_call
+    http, parsed_response = self._make_request(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/client.py", line 1100, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/endpoint.py", line 200, in _send_request
+    while self._needs_retry(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/endpoint.py", line 360, in _needs_retry
+    responses = self._event_emitter.emit(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/retryhandler.py", line 207, in __call__
+    if self._checker(**checker_kwargs):
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/retryhandler.py", line 284, in __call__
+    should_retry = self._should_retry(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/retryhandler.py", line 320, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/endpoint.py", line 279, in _do_get_response
+    http_response = self._send(request)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/endpoint.py", line 383, in _send
+    return self.http_session.send(request)
+  File "/Users/yael.palacios/Desktop/iam-tool-benchmark/tools/pmapper-venv/lib/python3.9/site-packages/botocore/httpsession.py", line 512, in send
+    raise ConnectTimeoutError(endpoint_url=request.url, error=e)
+botocore.exceptions.ConnectTimeoutError: Connect timeout on endpoint URL: "https://autoscaling.me-south-1.amazonaws.com/"

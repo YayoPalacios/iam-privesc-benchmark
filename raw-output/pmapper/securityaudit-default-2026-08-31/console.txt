@@ -1,0 +1,123 @@
+# PMapper securityaudit run — console transcript
+
+Same command set as the SUCCESSFUL admin run (admin-flagged-2026-08-31),
+including the same --include-regions allow-list, so the two are comparable.
+Not compared against admin-default-2026-08-31, which crashed and produced nothing.
+
+Start (UTC): 2026-08-31T01:53:57Z
+Interpreter: Python 3.9.25
+
+--- caller identity ---
+{
+    "UserId": "AIDAZV7NGMXUPAGKPKUG3",
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/benchmark-securityaudit"
+}
+
+--- attached policies on this principal ---
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "SecurityAudit",
+            "PolicyArn": "arn:aws:iam::aws:policy/SecurityAudit"
+        }
+    ]
+}
+
+--- pmapper data on disk before this run ---
+total 0
+drwx------@  2 yael.palacios  staff    64 30 ago 19:49 .
+drwx------+ 76 yael.palacios  staff  2432 30 ago 19:23 ..
+(the admin graph was archived to ../admin-flagged-2026-08-31/pmapper-graph/ and removed)
+
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit graph create --include-regions ap-northeast-1 ap-northeast-2 ap-northeast-3 ap-south-1 ap-southeast-1 ap-southeast-2 ca-central-1 eu-central-1 eu-north-1 eu-west-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2
+SLUG    : 01-graph-create
+START   : 2026-08-31T01:53:58Z
+================================================================
+EXIT    : 0
+STDOUT  : output/01-graph-create.txt (609 lines)
+STDERR  : output/01-graph-create.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:47Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit graph display
+SLUG    : 02-graph-display
+START   : 2026-08-31T01:55:47Z
+================================================================
+EXIT    : 0
+STDOUT  : output/02-graph-display.txt (5 lines)
+STDERR  : output/02-graph-display.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:47Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit graph list
+SLUG    : 03-graph-list
+START   : 2026-08-31T01:55:47Z
+================================================================
+EXIT    : 0
+STDOUT  : output/03-graph-list.txt (3 lines)
+STDERR  : output/03-graph-list.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:48Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit query preset privesc *
+SLUG    : 04-query-preset-privesc
+START   : 2026-08-31T01:55:48Z
+================================================================
+EXIT    : 0
+STDOUT  : output/04-query-preset-privesc.txt (114 lines)
+STDERR  : output/04-query-preset-privesc.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:49Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit argquery --preset privesc --principal *
+SLUG    : 05-argquery-preset-privesc
+START   : 2026-08-31T01:55:49Z
+================================================================
+EXIT    : 0
+STDOUT  : output/05-argquery-preset-privesc.txt (114 lines)
+STDERR  : output/05-argquery-preset-privesc.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:49Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit analysis --output-type text
+SLUG    : 06-analysis-text
+START   : 2026-08-31T01:55:49Z
+================================================================
+EXIT    : 0
+STDOUT  : output/06-analysis-text.txt (324 lines)
+STDERR  : output/06-analysis-text.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:50Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit analysis --output-type json
+SLUG    : 07-analysis-json
+START   : 2026-08-31T01:55:50Z
+================================================================
+EXIT    : 0
+STDOUT  : output/07-analysis-json.txt (63 lines)
+STDERR  : output/07-analysis-json.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:51Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit visualize --filetype dot
+SLUG    : 08-visualize-dot
+START   : 2026-08-31T01:55:51Z
+================================================================
+EXIT    : 0
+STDOUT  : output/08-visualize-dot.txt (1 lines)
+STDERR  : output/08-visualize-dot.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:53Z
+
+================================================================
+COMMAND : pmapper --profile benchmark-securityaudit visualize --filetype svg
+SLUG    : 09-visualize-svg
+START   : 2026-08-31T01:55:53Z
+================================================================
+EXIT    : 0
+STDOUT  : output/09-visualize-svg.txt (1 lines)
+STDERR  : output/09-visualize-svg.stderr.txt (0 lines)
+END     : 2026-08-31T01:55:54Z
+End (UTC): 2026-08-31T01:55:54Z

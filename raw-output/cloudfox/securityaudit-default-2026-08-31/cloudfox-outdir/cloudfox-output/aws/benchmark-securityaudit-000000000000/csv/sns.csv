@@ -1,0 +1,5 @@
+Account,ARN,Public?,Resource Policy Summary
+000000000000,arn:aws:sns:us-east-1:000000000000:EC2-Alarms,No,"Default resource policy: Not exploitable
+"
+000000000000,arn:aws:sns:us-east-1:000000000000:EC2-Alarms2,No,"Default resource policy: Not exploitable
+"

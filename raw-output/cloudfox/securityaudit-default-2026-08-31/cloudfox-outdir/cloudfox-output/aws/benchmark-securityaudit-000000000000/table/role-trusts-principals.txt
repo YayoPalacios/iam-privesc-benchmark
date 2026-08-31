@@ -1,0 +1,48 @@
+╭────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────────────────────────┬────────────┬──────────╮
+│                         Role Name                          │                          Trusted Principal                          │ ExternalID │ IsAdmin? │
+├────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────┼────────────┼──────────┤
+│ fn1-privesc3-partial-role                                  │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fn2-exploitableResourceConstraint-role                     │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fn3-exploitableConditionConstraint-role                    │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fn4-exploitableNotAction-role                              │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fp1-allow-and-deny-role                                    │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fp2-allow-and-deny-multiple-policies-role                  │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fp3-deny-iam-role                                          │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fp4-nonExploitableResourceConstraint-role                  │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ fp5-nonExploitableConditionConstraint-role                 │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-AssumeRole-ending-role                             │ arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role │            │ YES      │
+│ privesc-AssumeRole-intermediate-role                       │ arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role     │            │ No       │
+│ privesc-AssumeRole-starting-role                           │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-CloudFormationUpdateStack-role                     │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-codeBuildCreateProjectPassRole-role                │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-ec2InstanceConnect-role                            │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-permissive-role-trust                              │ arn:aws:iam::000000000000:root                                      │            │ No       │
+│ privesc-sageMakerCreateNotebookPassRole-role               │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-sageMakerCreatePresignedNotebookURL-role           │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-sageMakerCreateProcessingJobPassRole-role          │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-sageMakerCreateTrainingJobPassRole-role            │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-sre-role                                           │ arn:aws:iam::000000000000:user/privesc-sre-user                     │            │ No       │
+│ privesc-ssmSendCommand-role                                │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc-ssmStartSession-role                               │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc1-CreateNewPolicyVersion-role                       │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc10-PutUserPolicy-role                               │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc11-PutGroupPolicy-role                              │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc12-PutRolePolicy-role                               │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc13-AddUserToGroup-role                              │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc14-UpdatingAssumeRolePolicy-role                    │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc15-PassExistingRoleToNewLambdaThenInvoke-role       │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc17-EditExistingLambdaFunctionWithRole-role          │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc18-PassExistingRoleToNewGlueDevEndpoint-role        │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc19-UpdateExistingGlueDevEndpoint-role               │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc2-SetExistingDefaultPolicyVersion-role              │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc20-PassExistingRoleToCloudFormation-role            │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc21-PassExistingRoleToNewDataPipeline-role           │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc3-CreateEC2WithExistingInstanceProfile-role         │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc4-CreateAccessKey-role                              │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc5-CreateLoginProfile-role                           │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc6-UpdateLoginProfile-role                           │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc7-AttachUserPolicy-role                             │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc8-AttachGroupPolicy-role                            │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+│ privesc9-AttachRolePolicy-role                             │ arn:aws:iam::000000000000:user/iamadmin                             │            │ No       │
+╰────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────┴────────────┴──────────╯

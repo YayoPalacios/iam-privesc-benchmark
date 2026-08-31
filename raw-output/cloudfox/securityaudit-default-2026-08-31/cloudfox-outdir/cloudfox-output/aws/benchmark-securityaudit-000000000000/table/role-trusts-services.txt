@@ -1,0 +1,21 @@
+╭───────────────────────────────────────────────────┬────────────────────────────────────────────┬──────────╮
+│                     Role Name                     │              Trusted Service               │ IsAdmin? │
+├───────────────────────────────────────────────────┼────────────────────────────────────────────┼──────────┤
+│ privesc-high-priv-service-role                    │ cloudformation.amazonaws.com               │ YES      │
+│ privesc-high-priv-service-role                    │ codebuild.amazonaws.com                    │ YES      │
+│ privesc-high-priv-service-role                    │ datapipeline.amazonaws.com                 │ YES      │
+│ EC2CloudWatchAgentRole                            │ ec2.amazonaws.com                          │ No       │
+│ privesc-high-priv-service-role                    │ ec2.amazonaws.com                          │ YES      │
+│ privesc-high-priv-service-role                    │ ecs-tasks.amazonaws.com                    │ YES      │
+│ privesc-high-priv-service-role                    │ eks.amazonaws.com                          │ YES      │
+│ privesc-high-priv-service-role                    │ elasticbeanstalk.amazonaws.com             │ YES      │
+│ privesc-high-priv-service-role                    │ glue.amazonaws.com                         │ YES      │
+│ AWSServiceRoleForAmazonGuardDuty                  │ guardduty.amazonaws.com                    │ No       │
+│ EC2-AutoRemediation-role-h3s42wj1                 │ lambda.amazonaws.com                       │ No       │
+│ privesc-high-priv-service-role                    │ lambda.amazonaws.com                       │ YES      │
+│ AWSServiceRoleForAmazonGuardDutyMalwareProtection │ malware-protection.guardduty.amazonaws.com │ No       │
+│ AWSServiceRoleForResourceExplorer                 │ resource-explorer-2.amazonaws.com          │ No       │
+│ privesc-high-priv-service-role                    │ sagemaker.amazonaws.com                    │ YES      │
+│ AWSServiceRoleForSupport                          │ support.amazonaws.com                      │ No       │
+│ AWSServiceRoleForTrustedAdvisor                   │ trustedadvisor.amazonaws.com               │ No       │
+╰───────────────────────────────────────────────────┴────────────────────────────────────────────┴──────────╯

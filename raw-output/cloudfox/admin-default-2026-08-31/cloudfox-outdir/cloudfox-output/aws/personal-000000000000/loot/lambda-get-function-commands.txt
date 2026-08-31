@@ -1,0 +1,14 @@
+#############################################
+# The profile you will use to perform these commands is most likely not the profile you used to run CloudFox
+# Set the $profile environment variable to the profile you are going to use to inspect the buckets.
+# E.g., export profile=dev-prod.
+#############################################
+
+=============================================
+# Lambda Name: EC2-AutoRemediation
+
+# Get function metadata including download location
+aws --profile $profile --region us-east-1 lambda get-function --function-name EC2-AutoRemediation
+# Download function code to to disk (requires jq and curl) 
+mkdir -p ./lambdas/EC2-AutoRemediation
+url=`aws --profile $profile lambda get-function --region us-east-1 --function-name EC2-AutoRemediation | jq .Code.Location | sed s/\"//g` && curl "$url" -o ./lambdas/EC2-AutoRemediation.zip

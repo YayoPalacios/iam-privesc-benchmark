@@ -1,0 +1,1844 @@
+[
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can create a stack in CloudFormation to access",
+        "short_reason": "Cloudformation"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can create a stack in CloudFormation to access",
+        "short_reason": "Cloudformation"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can create a project in CodeBuild to access",
+        "short_reason": "CodeBuild"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can create a project in CodeBuild to access",
+        "short_reason": "CodeBuild"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can use EC2 to run an instance and then associate an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can use EC2 to run an instance and then associate an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use EC2 to run an instance and then associate an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use EC2 to run an instance with an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use EC2 to run an instance and then associate an existing instance profile to access",
+        "short_reason": "EC2"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDuty",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/malware-protection.guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fn2-exploitableResourceConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fn3-exploitableConditionConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fp1-allow-and-deny-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fp2-allow-and-deny-multiple-policies-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fp3-deny-iam-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fp4-nonExploitableResourceConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/fp5-nonExploitableConditionConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreatePresignedNotebookURL-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sre-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc1-CreateNewPolicyVersion-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc12-PutRolePolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc13-AddUserToGroup-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc17-EditExistingLambdaFunctionWithRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc19-UpdateExistingGlueDevEndpoint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc9-AttachRolePolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fn2-exploitableResourceConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fn3-exploitableConditionConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fp1-allow-and-deny-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fp2-allow-and-deny-multiple-policies-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fp3-deny-iam-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fp4-nonExploitableResourceConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/fp5-nonExploitableConditionConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-AssumeRole-start-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ec2InstanceConnect-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreatePresignedNotebookURL-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sre-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc19-UpdateExistingGlueDevEndpoint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fn2-exploitableResourceConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fn3-exploitableConditionConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fp1-allow-and-deny-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fp2-allow-and-deny-multiple-policies-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fp3-deny-iam-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fp4-nonExploitableResourceConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/fp5-nonExploitableConditionConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-AssumeRole-start-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ec2InstanceConnect-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreatePresignedNotebookURL-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sre-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc19-UpdateExistingGlueDevEndpoint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+        "destination": "arn:aws:iam::000000000000:user/iamadmin",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDuty",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/malware-protection.guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fn2-exploitableResourceConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fn3-exploitableConditionConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fp1-allow-and-deny-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fp2-allow-and-deny-multiple-policies-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fp3-deny-iam-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fp4-nonExploitableResourceConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/fp5-nonExploitableConditionConstraint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreatePresignedNotebookURL-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-sre-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc1-CreateNewPolicyVersion-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc12-PutRolePolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc13-AddUserToGroup-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc17-EditExistingLambdaFunctionWithRole-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc19-UpdateExistingGlueDevEndpoint-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc9-AttachRolePolicy-role",
+        "reason": "can update the trust document to access",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fn2-exploitableResourceConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fn3-exploitableConditionConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fp1-allow-and-deny-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fp2-allow-and-deny-multiple-policies-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fp3-deny-iam-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fp4-nonExploitableResourceConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/fp5-nonExploitableConditionConstraint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-AssumeRole-start-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ec2InstanceConnect-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreatePresignedNotebookURL-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sre-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc19-UpdateExistingGlueDevEndpoint-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user",
+        "reason": "can create access keys to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fn2-exploitableResourceConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fn3-exploitableConditionConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fp1-allow-and-deny-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fp2-allow-and-deny-multiple-policies-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fp3-deny-iam-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fp4-nonExploitableResourceConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/fp5-nonExploitableConditionConstraint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-AssumeRole-start-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ec2InstanceConnect-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreatePresignedNotebookURL-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-sre-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc19-UpdateExistingGlueDevEndpoint-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role",
+        "destination": "arn:aws:iam::000000000000:user/iamadmin",
+        "reason": "can set the password to authenticate as",
+        "short_reason": "IAM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can use Lambda to edit an existing function (arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation) to access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc17-EditExistingLambdaFunctionWithRole-role",
+        "destination": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "reason": "can use Lambda to edit an existing function (arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation) to access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use Lambda to create a new function with arbitrary code, then pass and access",
+        "short_reason": "Lambda"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use SageMaker to launch a notebook and access",
+        "short_reason": "SageMaker"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use SageMaker to create a processing job and access",
+        "short_reason": "SageMaker"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use SageMaker to create a training job and access",
+        "short_reason": "SageMaker"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use SageMaker to launch a notebook and access",
+        "short_reason": "SageMaker"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use SageMaker to create a processing job and access",
+        "short_reason": "SageMaker"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can use SageMaker to create a training job and access",
+        "short_reason": "SageMaker"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can call ssm:SendCommand to access an EC2 instance with access to",
+        "short_reason": "SSM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can call ssm:StartSession to access an EC2 instance with access to",
+        "short_reason": "SSM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can call ssm:SendCommand to access an EC2 instance with access to",
+        "short_reason": "SSM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "reason": "can call ssm:StartSession to access an EC2 instance with access to",
+        "short_reason": "SSM"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+        "reason": "can access via sts:AssumeRole",
+        "short_reason": "AssumeRole"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+        "reason": "can access via sts:AssumeRole",
+        "short_reason": "AssumeRole"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "destination": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+        "reason": "can access via sts:AssumeRole",
+        "short_reason": "AssumeRole"
+    },
+    {
+        "source": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "destination": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+        "reason": "can access via sts:AssumeRole",
+        "short_reason": "AssumeRole"
+    }
+]

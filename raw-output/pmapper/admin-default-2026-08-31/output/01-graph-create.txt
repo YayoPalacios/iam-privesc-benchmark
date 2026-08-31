@@ -1,0 +1,23 @@
+2026-08-30 19:23:02-0600 | Obtaining IAM Users/Roles/Groups/Policies in the account.
+2026-08-30 19:23:07-0600 | Sorting users, roles, groups, policies, and their relationships.
+2026-08-30 19:23:07-0600 | Obtaining Access Keys data for IAM users
+2026-08-30 19:23:14-0600 | Gathering MFA virtual device information
+2026-08-30 19:23:14-0600 | Gathering MFA physical device information
+2026-08-30 19:23:19-0600 | Determining which principals have administrative privileges
+2026-08-30 19:23:20-0600 | Initiating edge checks.
+2026-08-30 19:23:20-0600 | Generating Edges based on EC2 Auto Scaling.
+2026-08-30 19:23:21-0600 | Unable to search region af-south-1 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:21-0600 | Unable to search region ap-east-1 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:22-0600 | Unable to search region ap-east-2 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:26-0600 | Unable to search region ap-south-2 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:28-0600 | Unable to search region ap-southeast-3 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:29-0600 | Unable to search region ap-southeast-4 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:30-0600 | Unable to search region ap-southeast-5 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:31-0600 | Unable to search region ap-southeast-6 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:32-0600 | Unable to search region ap-southeast-7 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:32-0600 | Unable to search region ca-west-1 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:33-0600 | Unable to search region eu-central-2 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:35-0600 | Unable to search region eu-south-1 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:35-0600 | Unable to search region eu-south-2 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:37-0600 | Unable to search region il-central-1 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.
+2026-08-30 19:23:46-0600 | Unable to search region me-central-1 for launch configs. The region may be disabled, or the error may be caused by an authorization issue. Continuing.

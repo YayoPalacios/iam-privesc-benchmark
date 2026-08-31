@@ -1,0 +1,10 @@
+[
+  {
+    "Account": "000000000000",
+    "Key": "Name",
+    "Region": "us-east-1",
+    "Service": "ec2",
+    "Type": "network-acl",
+    "Value": "CloudGuard-Prod-Protection-NACL"
+  }
+]

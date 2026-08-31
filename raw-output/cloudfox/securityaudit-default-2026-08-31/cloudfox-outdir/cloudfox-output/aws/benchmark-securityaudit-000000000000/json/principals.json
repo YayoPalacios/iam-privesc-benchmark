@@ -1,0 +1,952 @@
+[
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/benchmark-securityaudit",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "benchmark-securityaudit",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn1-privesc3-partial-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fn2-exploitableResourceConstraint-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn2-exploitableResourceConstraint-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fn3-exploitableConditionConstraint-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn3-exploitableConditionConstraint-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn4-exploitableNotAction-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fp1-allow-and-deny-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp1-allow-and-deny-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fp2-allow-and-deny-multiple-policies-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp2-allow-and-deny-multiple-policies-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fp3-deny-iam-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp3-deny-iam-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fp4-nonExploitableResourceConstraint-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp4-nonExploitableResourceConstraint-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/fp5-nonExploitableConditionConstraint-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp5-nonExploitableConditionConstraint-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/iamadmin",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "YES",
+    "Name": "iamadmin",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-AssumeRole-start-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-AssumeRole-start-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-CloudFormationUpdateStack-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-codeBuildCreateProjectPassRole-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-ec2InstanceConnect-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-ec2InstanceConnect-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreateNotebookPassRole-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreatePresignedNotebookURL-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreatePresignedNotebookURL-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreateProcessingJobPassRole-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreateTrainingJobPassRole-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-sre-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sre-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-ssmSendCommand-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-ssmStartSession-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc1-CreateNewPolicyVersion-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc10-PutUserPolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc11-PutGroupPolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc12-PutRolePolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc13-AddUserToGroup-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc14-UpdatingAssumeRolePolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc17-EditExistingLambdaFunctionWithRole-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc19-UpdateExistingGlueDevEndpoint-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc19-UpdateExistingGlueDevEndpoint-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc2-SetExistingDefaultPolicyVersion-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc20-PassExistingRoleToCloudFormation-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc21-PassExistingRoleToNewDataPipeline-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc3-CreateEC2WithExistingInstanceProfile-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc4-CreateAccessKey-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc5-CreateLoginProfile-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc6-UpdateLoginProfile-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc7-AttachUserPolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc8-AttachGroupPolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc9-AttachRolePolicy-user",
+    "Type": "User"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/aws-service-role/guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDuty",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "AWSServiceRoleForAmazonGuardDuty",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/aws-service-role/malware-protection.guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "AWSServiceRoleForResourceExplorer",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "AWSServiceRoleForSupport",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "AWSServiceRoleForTrustedAdvisor",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "EC2-AutoRemediation-role-h3s42wj1",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "EC2CloudWatchAgentRole",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn1-privesc3-partial-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fn2-exploitableResourceConstraint-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn2-exploitableResourceConstraint-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fn3-exploitableConditionConstraint-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn3-exploitableConditionConstraint-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fn4-exploitableNotAction-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fp1-allow-and-deny-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp1-allow-and-deny-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fp2-allow-and-deny-multiple-policies-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp2-allow-and-deny-multiple-policies-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fp3-deny-iam-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp3-deny-iam-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fp4-nonExploitableResourceConstraint-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp4-nonExploitableResourceConstraint-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/fp5-nonExploitableConditionConstraint-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "fp5-nonExploitableConditionConstraint-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "YES",
+    "Name": "privesc-AssumeRole-ending-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-AssumeRole-intermediate-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-AssumeRole-starting-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-CloudFormationUpdateStack-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-codeBuildCreateProjectPassRole-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-ec2InstanceConnect-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "YES",
+    "Name": "privesc-high-priv-service-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-permissive-role-trust",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreateNotebookPassRole-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreatePresignedNotebookURL-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreatePresignedNotebookURL-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreateProcessingJobPassRole-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sageMakerCreateTrainingJobPassRole-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-sre-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-sre-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-ssmSendCommand-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc-ssmStartSession-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc1-CreateNewPolicyVersion-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc1-CreateNewPolicyVersion-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc10-PutUserPolicy-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc11-PutGroupPolicy-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc12-PutRolePolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc12-PutRolePolicy-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc13-AddUserToGroup-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc13-AddUserToGroup-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc14-UpdatingAssumeRolePolicy-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc17-EditExistingLambdaFunctionWithRole-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc17-EditExistingLambdaFunctionWithRole-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc19-UpdateExistingGlueDevEndpoint-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc19-UpdateExistingGlueDevEndpoint-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc2-SetExistingDefaultPolicyVersion-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc20-PassExistingRoleToCloudFormation-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc21-PassExistingRoleToNewDataPipeline-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc3-CreateEC2WithExistingInstanceProfile-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc4-CreateAccessKey-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc5-CreateLoginProfile-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc6-UpdateLoginProfile-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc7-AttachUserPolicy-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc8-AttachGroupPolicy-role",
+    "Type": "Role"
+  },
+  {
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:role/privesc9-AttachRolePolicy-role",
+    "AttachedPolicies": "",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "InlinePolicies": "",
+    "IsAdminRole?": "No",
+    "Name": "privesc9-AttachRolePolicy-role",
+    "Type": "Role"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Global": "140",
+    "Resource Type": "Total",
+    "us-east-1": "3",
+    "us-west-2": "1"
+  },
+  {
+    "Global": "-",
+    "Resource Type": "CloudFormation Stacks",
+    "us-east-1": "-",
+    "us-west-2": "1"
+  },
+  {
+    "Global": "43",
+    "Resource Type": "IAM Access Keys",
+    "us-east-1": "-",
+    "us-west-2": "-"
+  },
+  {
+    "Global": "52",
+    "Resource Type": "IAM Roles",
+    "us-east-1": "-",
+    "us-west-2": "-"
+  },
+  {
+    "Global": "42",
+    "Resource Type": "IAM Users",
+    "us-east-1": "-",
+    "us-west-2": "-"
+  },
+  {
+    "Global": "3",
+    "Resource Type": "IAM Groups",
+    "us-east-1": "-",
+    "us-west-2": "-"
+  },
+  {
+    "Global": "-",
+    "Resource Type": "Lambda Functions",
+    "us-east-1": "1",
+    "us-west-2": "-"
+  },
+  {
+    "Global": "-",
+    "Resource Type": "SNS Topics",
+    "us-east-1": "2",
+    "us-west-2": "-"
+  }
+]

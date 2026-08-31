@@ -1,0 +1,114 @@
+user/fn1-privesc3-partial-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/fn1-privesc3-partial-user can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+
+user/fn2-exploitableResourceConstraint-user is an administrative principal
+user/fn4-exploitableNotAction-user is an administrative principal
+user/iamadmin is an administrative principal
+user/privesc-codeBuildCreateProjectPassRole-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc-codeBuildCreateProjectPassRole-user can create a project in CodeBuild to access role/privesc-high-priv-service-role
+
+user/privesc-sageMakerCreateNotebookPassRole-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc-sageMakerCreateNotebookPassRole-user can use SageMaker to launch a notebook and access role/privesc-high-priv-service-role
+
+user/privesc-sageMakerCreateProcessingJobPassRole-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc-sageMakerCreateProcessingJobPassRole-user can use SageMaker to create a processing job and access role/privesc-high-priv-service-role
+
+user/privesc-sageMakerCreateTrainingJobPassRole-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc-sageMakerCreateTrainingJobPassRole-user can use SageMaker to create a training job and access role/privesc-high-priv-service-role
+
+user/privesc-sre-user is an administrative principal
+user/privesc-ssmSendCommand-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc-ssmSendCommand-user can call ssm:SendCommand to access an EC2 instance with access to role/privesc-high-priv-service-role
+
+user/privesc-ssmStartSession-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc-ssmStartSession-user can call ssm:StartSession to access an EC2 instance with access to role/privesc-high-priv-service-role
+
+user/privesc1-CreateNewPolicyVersion-user is an administrative principal
+user/privesc10-PutUserPolicy-user is an administrative principal
+user/privesc11-PutGroupPolicy-user is an administrative principal
+user/privesc14-UpdatingAssumeRolePolicy-user can escalate privileges by accessing the administrative principal role/fn2-exploitableResourceConstraint-role:
+   user/privesc14-UpdatingAssumeRolePolicy-user can update the trust document to access role/fn2-exploitableResourceConstraint-role
+
+user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+
+user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+
+user/privesc20-PassExistingRoleToCloudFormation-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc20-PassExistingRoleToCloudFormation-user can create a stack in CloudFormation to access role/privesc-high-priv-service-role
+
+user/privesc3-CreateEC2WithExistingInstanceProfile-user can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   user/privesc3-CreateEC2WithExistingInstanceProfile-user can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+
+user/privesc4-CreateAccessKey-user can escalate privileges by accessing the administrative principal user/fn2-exploitableResourceConstraint-user:
+   user/privesc4-CreateAccessKey-user can create access keys to authenticate as user/fn2-exploitableResourceConstraint-user
+
+user/privesc5-CreateLoginProfile-user can escalate privileges by accessing the administrative principal user/fn2-exploitableResourceConstraint-user:
+   user/privesc5-CreateLoginProfile-user can set the password to authenticate as user/fn2-exploitableResourceConstraint-user
+
+user/privesc6-UpdateLoginProfile-user can escalate privileges by accessing the administrative principal user/iamadmin:
+   user/privesc6-UpdateLoginProfile-user can set the password to authenticate as user/iamadmin
+
+user/privesc7-AttachUserPolicy-user is an administrative principal
+user/privesc8-AttachGroupPolicy-user is an administrative principal
+role/fn1-privesc3-partial-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/fn1-privesc3-partial-role can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+
+role/fn2-exploitableResourceConstraint-role is an administrative principal
+role/fn4-exploitableNotAction-role is an administrative principal
+role/privesc-AssumeRole-ending-role is an administrative principal
+role/privesc-AssumeRole-intermediate-role can escalate privileges by accessing the administrative principal role/privesc-AssumeRole-ending-role:
+   role/privesc-AssumeRole-intermediate-role can access via sts:AssumeRole role/privesc-AssumeRole-ending-role
+
+role/privesc-AssumeRole-starting-role can escalate privileges by accessing the administrative principal role/privesc-AssumeRole-ending-role:
+   role/privesc-AssumeRole-starting-role can access via sts:AssumeRole role/privesc-AssumeRole-intermediate-role
+   role/privesc-AssumeRole-intermediate-role can access via sts:AssumeRole role/privesc-AssumeRole-ending-role
+
+role/privesc-codeBuildCreateProjectPassRole-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc-codeBuildCreateProjectPassRole-role can create a project in CodeBuild to access role/privesc-high-priv-service-role
+
+role/privesc-high-priv-service-role is an administrative principal
+role/privesc-sageMakerCreateNotebookPassRole-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc-sageMakerCreateNotebookPassRole-role can use SageMaker to launch a notebook and access role/privesc-high-priv-service-role
+
+role/privesc-sageMakerCreateProcessingJobPassRole-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc-sageMakerCreateProcessingJobPassRole-role can use SageMaker to create a processing job and access role/privesc-high-priv-service-role
+
+role/privesc-sageMakerCreateTrainingJobPassRole-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc-sageMakerCreateTrainingJobPassRole-role can use SageMaker to create a training job and access role/privesc-high-priv-service-role
+
+role/privesc-sre-role is an administrative principal
+role/privesc-ssmSendCommand-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc-ssmSendCommand-role can call ssm:SendCommand to access an EC2 instance with access to role/privesc-high-priv-service-role
+
+role/privesc-ssmStartSession-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc-ssmStartSession-role can call ssm:StartSession to access an EC2 instance with access to role/privesc-high-priv-service-role
+
+role/privesc1-CreateNewPolicyVersion-role is an administrative principal
+role/privesc12-PutRolePolicy-role is an administrative principal
+role/privesc14-UpdatingAssumeRolePolicy-role can escalate privileges by accessing the administrative principal role/fn2-exploitableResourceConstraint-role:
+   role/privesc14-UpdatingAssumeRolePolicy-role can update the trust document to access role/fn2-exploitableResourceConstraint-role
+
+role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+
+role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role can use Lambda to create a new function with arbitrary code, then pass and access role/privesc-high-priv-service-role
+
+role/privesc20-PassExistingRoleToCloudFormation-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc20-PassExistingRoleToCloudFormation-role can create a stack in CloudFormation to access role/privesc-high-priv-service-role
+
+role/privesc3-CreateEC2WithExistingInstanceProfile-role can escalate privileges by accessing the administrative principal role/privesc-high-priv-service-role:
+   role/privesc3-CreateEC2WithExistingInstanceProfile-role can use EC2 to run an instance with an existing instance profile to access role/privesc-high-priv-service-role
+
+role/privesc4-CreateAccessKey-role can escalate privileges by accessing the administrative principal user/fn2-exploitableResourceConstraint-user:
+   role/privesc4-CreateAccessKey-role can create access keys to authenticate as user/fn2-exploitableResourceConstraint-user
+
+role/privesc5-CreateLoginProfile-role can escalate privileges by accessing the administrative principal user/fn2-exploitableResourceConstraint-user:
+   role/privesc5-CreateLoginProfile-role can set the password to authenticate as user/fn2-exploitableResourceConstraint-user
+
+role/privesc6-UpdateLoginProfile-role can escalate privileges by accessing the administrative principal user/iamadmin:
+   role/privesc6-UpdateLoginProfile-role can set the password to authenticate as user/iamadmin
+
+role/privesc9-AttachRolePolicy-role is an administrative principal

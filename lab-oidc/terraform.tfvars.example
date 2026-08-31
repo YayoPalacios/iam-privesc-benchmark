@@ -1,0 +1,9 @@
+# Copy to terraform.tfvars and fill in. terraform.tfvars is gitignored
+# (*.tfvars in the root .gitignore), which is where the account ID belongs.
+
+aws_local_profile = "personal"
+
+# Optional safety rail. When set, `terraform apply` refuses if the credentials
+# in scope resolve to a different account. Strongly recommended on a machine
+# that also holds work profiles.
+# expected_account_id = "000000000000"

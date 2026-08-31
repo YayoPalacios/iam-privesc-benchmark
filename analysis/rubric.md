@@ -164,7 +164,96 @@ Prediction 5 is the thesis. If it turns out false, that is a real result and the
 
 Append-only. New rules only — never edits to the rules above. Each entry: date, the scenario that forced it, the rule.
 
-_(none yet)_
+### 2026-08-31 — §5.3 redaction covers path names, not only file contents
+
+**What forced it.** The first two tool runs (cloudfox `admin-default-2026-08-31`,
+PMapper `admin-default-2026-08-31`). Both tools write the AWS account ID into a
+**directory name**, which §5.3 as written did not reach:
+
+- cloudfox writes its output to
+  `<outdir>/cloudfox-output/aws/<profile>-<account-id>/`.
+- PMapper stores its graph under
+  `<appdata>/com.nccgroup.principalmapper/<account-id>/`, and names that path in
+  its own error output.
+- cloudfox's API response cache additionally carries the account ID in all 1838
+  of its filenames. That cache is excluded from the repository for separate
+  reasons; see `raw-output/README.md`.
+
+§5.3 says the substitution is "applied to every file under `raw-output/`", which
+`redact.sh` implemented as a content-only rewrite. Running it left the account ID
+committed in directory names, against the CLAUDE.md constraint that account IDs
+are never committed — and `redact.sh --check` passed while that was true, which
+is the worse half of the problem.
+
+**The rule.** The §5.3 substitution applies to each **path component** of every
+entry under `raw-output/` as well as to file contents. `redact.sh` renames
+offending files and directories bottom-up using `redacted_basename()`, which is
+the same three expressions the content pass applies, and `--check` fails on an
+offending name exactly as it fails on offending contents.
+
+**Why this is an append and not an edit.** It does not change what is graded, how
+a grade is reached, or what counts as evidence. It widens the scope of the
+existing one-way substitution so that the property §5.3 claims — that raw output
+is committed unedited modulo one auditable rule, with no account ID in the
+repository — is actually true. It remains one rule: a name and the bytes inside
+the file are redacted by the same expressions.
+
+The pre-change script is recoverable from this file's sibling history
+(`git log -p redact.sh`), so a reader can see exactly what the widening changed.
+
+### 2026-08-31 — §3 gains **CS (Correctly Silent)** for scenarios with no path to detect
+
+**What forced it.** Phase 4 grading, `analysis/matrix.md`. Twelve principal rows are
+`tool-test-FP` or `inert` fixtures — `fp1-allow-and-deny`,
+`fp2-allow-and-deny-multiple-policies`, `fp3-deny-iam`,
+`fp4-nonExploitableResourceConstraint`, `fp5-nonExploitableConditionConstraint`
+(two rows each), `privesc-permissive-role-trust--role`, and
+`privesc-AssumeRole-start--user`. For every one of them **correct tool behaviour is
+to report nothing**, and §3 offered no grade that says so:
+
+- **D**, **P** and **M** all presuppose a path exists to be detected, partially
+  detected, or missed. There is no path, so all three misdescribe the outcome — and
+  **M** actively misleads, since it reads as a failure when the tool did the right
+  thing.
+- **N/A** means something else entirely: the tool's documentation disclaims the
+  category (§4.9). No tool disclaims false-positive resistance.
+- **FP** is the *other* outcome for these rows, and it was already available.
+
+Phase 4 recorded these twelve cells with a `none` placeholder and flagged the gap
+rather than inventing a grade mid-pass. This entry closes it.
+
+The same pass reclassified six further rows to `non-path` (see `scenarios.md`
+Corrections, 2026-08-31): principals that hold a real escalation grant but cannot
+authenticate as the principal they can empower. Those rows also have no path to
+detect, and they take the same grade.
+
+**The rule.** §3's grade table gains one row:
+
+| Grade | Definition |
+|---|---|
+| **CS** — Correctly Silent | The scenario has no escalation path to detect — a designed false-positive fixture, an inert principal, or a row reclassified `non-path`. The tool **ran, produced output, and emitted no escalation claim** about the principal. CS and **FP** are the only two outcomes available on such a row; the D/P/M ladder does not apply and is not reported for it. |
+
+Three constraints travel with it, and they are the point of writing it down rather
+than leaving `none` in place:
+
+1. **CS requires output.** A tool that crashed, hung, or produced nothing cannot earn
+   CS. Silence from a tool that never ran is vacuous, not correct — a crashed tool
+   passes every false-positive test ever devised — so those cells take **M** under
+   §4.7 and are counted in that rule's crash-M tally, not in any CS total. This is
+   what stops the crashed PMapper default run reading as twelve clean passes.
+2. **CS is never added to a detection count.** CS rows sit outside the D/P/M
+   denominator entirely and are reported as their own bucket with their own
+   denominator, alongside any FPs on the same rows. Pooling CS with D would let a
+   tool inflate a detection score by correctly saying nothing.
+3. **CS is not evidence of correctness on its own.** A tool that reports nothing
+   anywhere scores CS on every fixture. CS is only informative read next to that
+   tool's detection counts on the rows that do have paths.
+
+**Why this is an append and not an edit.** It adds a grade for a case §3 did not
+reach; it does not change the definition of D, P, M, FP or N/A, does not move any
+cell between those grades, and does not alter any detection denominator — the twelve
+(now eighteen) affected rows were already excluded from the detection buckets in
+`matrix.md` before this rule existed. It replaces a placeholder with a defined term.
 
 ---
 

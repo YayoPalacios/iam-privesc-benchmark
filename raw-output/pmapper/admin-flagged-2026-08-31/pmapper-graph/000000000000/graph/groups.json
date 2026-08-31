@@ -1,0 +1,19 @@
+[
+    {
+        "arn": "arn:aws:iam::000000000000:group/privesc-sre-group",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sre-admin-policy",
+                "name": "privesc-sre-admin-policy"
+            }
+        ]
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:group/privesc11-PutGroupPolicy-group",
+        "attached_policies": []
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:group/privesc8-AttachGroupPolicy-group",
+        "attached_policies": []
+    }
+]

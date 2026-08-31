@@ -1,0 +1,14 @@
+[
+  {
+    "ARN": "arn:aws:sns:us-east-1:000000000000:EC2-Alarms",
+    "Account": "000000000000",
+    "Public?": "No",
+    "Resource Policy Summary": "Default resource policy: Not exploitable\n"
+  },
+  {
+    "ARN": "arn:aws:sns:us-east-1:000000000000:EC2-Alarms2",
+    "Account": "000000000000",
+    "Public?": "No",
+    "Resource Policy Summary": "Default resource policy: Not exploitable\n"
+  }
+]

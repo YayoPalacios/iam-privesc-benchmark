@@ -1,0 +1,11 @@
+[
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "ExternalID": "",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+    "Role Name": "privesc-permissive-role-trust",
+    "Trusted Principal": "arn:aws:iam::000000000000:root"
+  }
+]

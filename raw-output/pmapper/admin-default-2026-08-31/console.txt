@@ -1,0 +1,93 @@
+# PMapper admin-default run — console transcript
+
+Start (UTC): 2026-08-31T01:23:01Z
+Interpreter: Python 3.9.25
+
+--- caller identity ---
+{
+    "UserId": "AIDAZV7NGMXUIHN6FVLRB",
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:user/iamadmin"
+}
+
+
+================================================================
+COMMAND : pmapper --profile personal graph create
+SLUG    : 01-graph-create
+START   : 2026-08-31T01:23:01Z
+================================================================
+EXIT    : 1
+STDOUT  : output/01-graph-create.txt (23 lines)
+STDERR  : output/01-graph-create.stderr.txt (94 lines)
+END     : 2026-08-31T01:28:53Z
+
+================================================================
+COMMAND : pmapper --profile personal graph display
+SLUG    : 02-graph-display
+START   : 2026-08-31T01:28:53Z
+================================================================
+EXIT    : 1
+STDOUT  : output/02-graph-display.txt (0 lines)
+STDERR  : output/02-graph-display.stderr.txt (14 lines)
+END     : 2026-08-31T01:28:54Z
+
+================================================================
+COMMAND : pmapper --profile personal graph list
+SLUG    : 03-graph-list
+START   : 2026-08-31T01:28:54Z
+================================================================
+EXIT    : 0
+STDOUT  : output/03-graph-list.txt (2 lines)
+STDERR  : output/03-graph-list.stderr.txt (0 lines)
+END     : 2026-08-31T01:28:54Z
+
+================================================================
+COMMAND : pmapper --profile personal query preset privesc *
+SLUG    : 04-query-preset-privesc
+START   : 2026-08-31T01:28:54Z
+================================================================
+EXIT    : 1
+STDOUT  : output/04-query-preset-privesc.txt (0 lines)
+STDERR  : output/04-query-preset-privesc.stderr.txt (14 lines)
+END     : 2026-08-31T01:28:55Z
+
+================================================================
+COMMAND : pmapper --profile personal argquery --preset privesc --principal *
+SLUG    : 05-argquery-preset-privesc
+START   : 2026-08-31T01:28:55Z
+================================================================
+EXIT    : 1
+STDOUT  : output/05-argquery-preset-privesc.txt (0 lines)
+STDERR  : output/05-argquery-preset-privesc.stderr.txt (14 lines)
+END     : 2026-08-31T01:28:55Z
+
+================================================================
+COMMAND : pmapper --profile personal analysis --output-type text
+SLUG    : 06-analysis-text
+START   : 2026-08-31T01:28:55Z
+================================================================
+EXIT    : 1
+STDOUT  : output/06-analysis-text.txt (0 lines)
+STDERR  : output/06-analysis-text.stderr.txt (14 lines)
+END     : 2026-08-31T01:28:56Z
+
+================================================================
+COMMAND : pmapper --profile personal analysis --output-type json
+SLUG    : 07-analysis-json
+START   : 2026-08-31T01:28:56Z
+================================================================
+EXIT    : 1
+STDOUT  : output/07-analysis-json.txt (0 lines)
+STDERR  : output/07-analysis-json.stderr.txt (14 lines)
+END     : 2026-08-31T01:28:57Z
+
+================================================================
+COMMAND : pmapper --profile personal visualize --filetype dot
+SLUG    : 08-visualize-dot
+START   : 2026-08-31T01:28:57Z
+================================================================
+EXIT    : 1
+STDOUT  : output/08-visualize-dot.txt (0 lines)
+STDERR  : output/08-visualize-dot.stderr.txt (14 lines)
+END     : 2026-08-31T01:28:57Z
+End (UTC): 2026-08-31T01:28:57Z

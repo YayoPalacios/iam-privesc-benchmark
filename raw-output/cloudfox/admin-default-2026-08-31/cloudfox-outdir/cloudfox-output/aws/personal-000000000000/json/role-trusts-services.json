@@ -1,0 +1,138 @@
+[
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "cloudformation.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "codebuild.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "datapipeline.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+    "Role Name": "EC2CloudWatchAgentRole",
+    "Trusted Service": "ec2.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "ec2.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "ecs-tasks.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "eks.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "elasticbeanstalk.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "glue.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/aws-service-role/guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDuty",
+    "Role Name": "AWSServiceRoleForAmazonGuardDuty",
+    "Trusted Service": "guardduty.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+    "Role Name": "EC2-AutoRemediation-role-h3s42wj1",
+    "Trusted Service": "lambda.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "lambda.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/aws-service-role/malware-protection.guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+    "Role Name": "AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+    "Trusted Service": "malware-protection.guardduty.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+    "Role Name": "AWSServiceRoleForResourceExplorer",
+    "Trusted Service": "resource-explorer-2.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "YES",
+    "Role Arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+    "Role Name": "privesc-high-priv-service-role",
+    "Trusted Service": "sagemaker.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+    "Role Name": "AWSServiceRoleForSupport",
+    "Trusted Service": "support.amazonaws.com"
+  },
+  {
+    "Account": "000000000000",
+    "CanPrivEscToAdmin?": "Skipping, no pmapper data",
+    "IsAdmin?": "No",
+    "Role Arn": "arn:aws:iam::000000000000:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+    "Role Name": "AWSServiceRoleForTrustedAdvisor",
+    "Trusted Service": "trustedadvisor.amazonaws.com"
+  }
+]

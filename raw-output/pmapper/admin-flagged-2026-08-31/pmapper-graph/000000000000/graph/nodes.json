@@ -1,0 +1,2436 @@
+[
+    {
+        "arn": "arn:aws:iam::000000000000:user/fn1-privesc3-partial-user",
+        "id_value": "AIDAZV7NGMXUDJWT2U5EN",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn1-privesc3-partial",
+                "name": "fn1-privesc3-partial"
+            },
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn1-passrole-star",
+                "name": "fn1-passrole-star"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fn2-exploitableResourceConstraint-user",
+        "id_value": "AIDAZV7NGMXUN6VLDH4FG",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn2-exploitableResourceConstraint",
+                "name": "fn2-exploitableResourceConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fn3-exploitableConditionConstraint-user",
+        "id_value": "AIDAZV7NGMXUB7YYM4QPN",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn3-exploitableConditionConstraint",
+                "name": "fn3-exploitableConditionConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fn4-exploitableNotAction-user",
+        "id_value": "AIDAZV7NGMXUPTMPTC3RB",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn4-exploitableNotAction",
+                "name": "fn4-exploitableNotAction"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fp1-allow-and-deny-user",
+        "id_value": "AIDAZV7NGMXUFSCIJWSZG",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp1-allow-and-deny",
+                "name": "fp1-allow-and-deny"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fp2-allow-and-deny-multiple-policies-user",
+        "id_value": "AIDAZV7NGMXUFM3VIEW4U",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp2-allow-all",
+                "name": "fp2-allow-all"
+            },
+            {
+                "arn": "arn:aws:iam::000000000000:policy/deny-all",
+                "name": "deny-all"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fp3-deny-iam-user",
+        "id_value": "AIDAZV7NGMXUAA5TIFWLA",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp3-deny-iam",
+                "name": "fp3-deny-iam"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fp4-nonExploitableResourceConstraint-user",
+        "id_value": "AIDAZV7NGMXUKUXIITAY7",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp4-nonExploitableResourceConstraint",
+                "name": "fp4-nonExploitableResourceConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/fp5-nonExploitableConditionConstraint-user",
+        "id_value": "AIDAZV7NGMXUPWGIBM236",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp5-nonExploitableConditionConstraint",
+                "name": "fp5-nonExploitableConditionConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/iamadmin",
+        "id_value": "AIDAZV7NGMXUIHN6FVLRB",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/AdministratorAccess",
+                "name": "AdministratorAccess"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": true,
+        "access_keys": 2,
+        "is_admin": true,
+        "permissions_boundary": {
+            "arn": "arn:aws:iam::aws:policy/AdministratorAccess",
+            "name": "AdministratorAccess"
+        },
+        "has_mfa": true,
+        "tags": {
+            "AKIAXXXXXXXXXXXXXXXX": "personal-cli",
+            "AKIAXXXXXXXXXXXXXXXX": "personalkey",
+            "AKIAXXXXXXXXXXXXXXXX": "cloudwatch-demo"
+        }
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-AssumeRole-start-user",
+        "id_value": "AIDAZV7NGMXUIHOE4OQ2Y",
+        "attached_policies": [],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-CloudFormationUpdateStack-user",
+        "id_value": "AIDAZV7NGMXUKKBLZMOLO",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-CloudFormationUpdateStack",
+                "name": "privesc-CloudFormationUpdateStack"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-codeBuildCreateProjectPassRole-user",
+        "id_value": "AIDAZV7NGMXUPSRUAZUEC",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-codeBuildCreateProjectPassRole-policy",
+                "name": "privesc-codeBuildCreateProjectPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-ec2InstanceConnect-user",
+        "id_value": "AIDAZV7NGMXUL4SRPUTXA",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-ec2InstanceConnect-policy",
+                "name": "privesc-ec2InstanceConnect-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateNotebookPassRole-user",
+        "id_value": "AIDAZV7NGMXUGZ3VBNA2O",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreateNotebookPassRole-policy",
+                "name": "privesc-sageMakerCreateNotebookPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreatePresignedNotebookURL-user",
+        "id_value": "AIDAZV7NGMXUECDL7QM3U",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreatePresignedNotebookURL-policy",
+                "name": "privesc-sageMakerCreatePresignedNotebookURL-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateProcessingJobPassRole-user",
+        "id_value": "AIDAZV7NGMXUOBTIIZWJZ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreateProcessingJobPassRole-policy",
+                "name": "privesc-sageMakerCreateProcessingJobPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-sageMakerCreateTrainingJobPassRole-user",
+        "id_value": "AIDAZV7NGMXUAQWNMI4HV",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreateTrainingJobPassRole-policy",
+                "name": "privesc-sageMakerCreateTrainingJobPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-sre-user",
+        "id_value": "AIDAZV7NGMXUNMQK43U2C",
+        "attached_policies": [],
+        "group_memberships": [
+            "arn:aws:iam::000000000000:group/privesc-sre-group"
+        ],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-ssmSendCommand-user",
+        "id_value": "AIDAZV7NGMXUK2NHVCU33",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-ssmSendCommand-policy",
+                "name": "privesc-ssmSendCommand-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc-ssmStartSession-user",
+        "id_value": "AIDAZV7NGMXUACDVSGKUI",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-ssmStartSession-policy",
+                "name": "privesc-ssmStartSession-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user",
+        "id_value": "AIDAZV7NGMXUN6GHRN6QT",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion",
+                "name": "privesc1-CreateNewPolicyVersion"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user",
+        "id_value": "AIDAZV7NGMXULEZJHVBLF",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc10-PutUserPolicy",
+                "name": "privesc10-PutUserPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user",
+        "id_value": "AIDAZV7NGMXUKZUBD4VF6",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc11-PutGroupPolicy",
+                "name": "privesc11-PutGroupPolicy"
+            }
+        ],
+        "group_memberships": [
+            "arn:aws:iam::000000000000:group/privesc11-PutGroupPolicy-group"
+        ],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user",
+        "id_value": "AIDAZV7NGMXUKMSGK4DOS",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc12-PutRolePolicy",
+                "name": "privesc12-PutRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user",
+        "id_value": "AIDAZV7NGMXUEKWUDBSNJ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc13-AddUserToGroup",
+                "name": "privesc13-AddUserToGroup"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc14-UpdatingAssumeRolePolicy-user",
+        "id_value": "AIDAZV7NGMXUB4X6ZUSKY",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc14-UpdatingAssumeRolePolicy",
+                "name": "privesc14-UpdatingAssumeRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+        "id_value": "AIDAZV7NGMXUEPHKK6GI5",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc15-PassExistingRoleToNewLambdaThenInvoke",
+                "name": "privesc15-PassExistingRoleToNewLambdaThenInvoke"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+        "id_value": "AIDAZV7NGMXULIQUQYWMK",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo",
+                "name": "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc17-EditExistingLambdaFunctionWithRole-user",
+        "id_value": "AIDAZV7NGMXUOFQ4WYGQI",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc17-EditExistingLambdaFunctionWithRole",
+                "name": "privesc17-EditExistingLambdaFunctionWithRole"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+        "id_value": "AIDAZV7NGMXUB3VYLEOSH",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc18-PassExistingRoleToNewGlueDevEndpoint",
+                "name": "privesc18-PassExistingRoleToNewGlueDevEndpoint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc19-UpdateExistingGlueDevEndpoint-user",
+        "id_value": "AIDAZV7NGMXUGRTEEY6BH",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc19-UpdateExistingGlueDevEndpoint",
+                "name": "privesc19-UpdateExistingGlueDevEndpoint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user",
+        "id_value": "AIDAZV7NGMXUJX6HO3YXN",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc2-SetExistingDefaultPolicyVersion",
+                "name": "privesc2-SetExistingDefaultPolicyVersion"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc20-PassExistingRoleToCloudFormation-user",
+        "id_value": "AIDAZV7NGMXUOUJUWVBAN",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc20-PassExistingRoleToCloudFormation",
+                "name": "privesc20-PassExistingRoleToCloudFormation"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc21-PassExistingRoleToNewDataPipeline-user",
+        "id_value": "AIDAZV7NGMXUBJSRHK5LV",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc21-PassExistingRoleToNewDataPipeline",
+                "name": "privesc21-PassExistingRoleToNewDataPipeline"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user",
+        "id_value": "AIDAZV7NGMXUBDI4FYTUM",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc3-CreateEC2WithExistingInstanceProfile",
+                "name": "privesc3-CreateEC2WithExistingInstanceProfile"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc4-CreateAccessKey-user",
+        "id_value": "AIDAZV7NGMXUFVSCWOZ6Y",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc4-CreateAccessKey",
+                "name": "privesc4-CreateAccessKey"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user",
+        "id_value": "AIDAZV7NGMXUGEY5HMY5X",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc5-CreateLoginProfile",
+                "name": "privesc5-CreateLoginProfile"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user",
+        "id_value": "AIDAZV7NGMXUH6TXDW7H2",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc6-UpdateLoginProfile",
+                "name": "privesc6-UpdateLoginProfile"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user",
+        "id_value": "AIDAZV7NGMXUBK2VHSITJ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc7-AttachUserPolicy",
+                "name": "privesc7-AttachUserPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user",
+        "id_value": "AIDAZV7NGMXUKCHXJ5CL4",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc8-AttachGroupPolicy",
+                "name": "privesc8-AttachGroupPolicy"
+            }
+        ],
+        "group_memberships": [
+            "arn:aws:iam::000000000000:group/privesc8-AttachGroupPolicy-group"
+        ],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user",
+        "id_value": "AIDAZV7NGMXUB2LCQXGTU",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc9-AttachRolePolicy",
+                "name": "privesc9-AttachRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": null,
+        "instance_profile": null,
+        "active_password": false,
+        "access_keys": 1,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/aws-service-role/guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDuty",
+        "id_value": "AROAZV7NGMXUDTTU5C3QO",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy",
+                "name": "AmazonGuardDutyServiceRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "guardduty.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/aws-service-role/malware-protection.guardduty.amazonaws.com/AWSServiceRoleForAmazonGuardDutyMalwareProtection",
+        "id_value": "AROAZV7NGMXUHXQL5AU56",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyMalwareProtectionServiceRolePolicy",
+                "name": "AmazonGuardDutyMalwareProtectionServiceRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "malware-protection.guardduty.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+        "id_value": "AROAZV7NGMXUGE5N4WB62",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy",
+                "name": "AWSResourceExplorerServiceRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "resource-explorer-2.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+        "id_value": "AROAZV7NGMXUAOJBGRNWQ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy",
+                "name": "AWSSupportServiceRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "support.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+        "id_value": "AROAZV7NGMXULMZ4SMYS6",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy",
+                "name": "AWSTrustedAdvisorServiceRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "trustedadvisor.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+        "id_value": "AROAZV7NGMXUBUQESOO3X",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:role/service-role/EC2-AutoRemediation-role-h3s42wj1",
+                "name": "EC2TaggingPermissions"
+            },
+            {
+                "arn": "arn:aws:iam::000000000000:policy/service-role/AWSLambdaBasicExecutionRole-6ee3187d-851d-4ed1-be6d-968092e15b25",
+                "name": "AWSLambdaBasicExecutionRole-6ee3187d-851d-4ed1-be6d-968092e15b25"
+            },
+            {
+                "arn": "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess",
+                "name": "AmazonEC2ReadOnlyAccess"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/EC2CloudWatchAgentRole",
+        "id_value": "AROAZV7NGMXUOR43NUFXR",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+                "name": "CloudWatchAgentServerPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [
+            "arn:aws:iam::000000000000:instance-profile/EC2CloudWatchAgentRole"
+        ],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fn1-privesc3-partial-role",
+        "id_value": "AROAZV7NGMXUEFOIRASZ6",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn1-privesc3-partial",
+                "name": "fn1-privesc3-partial"
+            },
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn1-passrole-star",
+                "name": "fn1-passrole-star"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fn2-exploitableResourceConstraint-role",
+        "id_value": "AROAZV7NGMXUPTZQTNBZA",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn2-exploitableResourceConstraint",
+                "name": "fn2-exploitableResourceConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fn3-exploitableConditionConstraint-role",
+        "id_value": "AROAZV7NGMXUJI7KFZSP5",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn3-exploitableConditionConstraint",
+                "name": "fn3-exploitableConditionConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fn4-exploitableNotAction-role",
+        "id_value": "AROAZV7NGMXUDZXMEKUSQ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fn4-exploitableNotAction",
+                "name": "fn4-exploitableNotAction"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fp1-allow-and-deny-role",
+        "id_value": "AROAZV7NGMXUHOKRVLKOM",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp1-allow-and-deny",
+                "name": "fp1-allow-and-deny"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fp2-allow-and-deny-multiple-policies-role",
+        "id_value": "AROAZV7NGMXUPATUSYXYR",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp2-allow-all",
+                "name": "fp2-allow-all"
+            },
+            {
+                "arn": "arn:aws:iam::000000000000:policy/deny-all",
+                "name": "deny-all"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fp3-deny-iam-role",
+        "id_value": "AROAZV7NGMXUC6S72C53L",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp3-deny-iam",
+                "name": "fp3-deny-iam"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fp4-nonExploitableResourceConstraint-role",
+        "id_value": "AROAZV7NGMXUOE37V4ZX7",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp4-nonExploitableResourceConstraint",
+                "name": "fp4-nonExploitableResourceConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/fp5-nonExploitableConditionConstraint-role",
+        "id_value": "AROAZV7NGMXUDI2EPHB7L",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/fp5-nonExploitableConditionConstraint",
+                "name": "fp5-nonExploitableConditionConstraint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-ending-role",
+        "id_value": "AROAZV7NGMXUIBZKFKONQ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-AssumeRole-high-priv-policy",
+                "name": "privesc-AssumeRole-high-priv-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-intermediate-role",
+        "id_value": "AROAZV7NGMXUBNIETBRDX",
+        "attached_policies": [],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-AssumeRole-starting-role",
+        "id_value": "AROAZV7NGMXUEC4DBRGRX",
+        "attached_policies": [],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-CloudFormationUpdateStack-role",
+        "id_value": "AROAZV7NGMXUGBJ4J7DO6",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-CloudFormationUpdateStack",
+                "name": "privesc-CloudFormationUpdateStack"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-codeBuildCreateProjectPassRole-role",
+        "id_value": "AROAZV7NGMXUC6VZZ222J",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-codeBuildCreateProjectPassRole-policy",
+                "name": "privesc-codeBuildCreateProjectPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-ec2InstanceConnect-role",
+        "id_value": "AROAZV7NGMXUI2WT6KQD4",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-ec2InstanceConnect-policy",
+                "name": "privesc-ec2InstanceConnect-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-high-priv-service-role",
+        "id_value": "AROAZV7NGMXUGMEAIIH3E",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-high-priv-service-policy",
+                "name": "privesc-high-priv-service-policy"
+            },
+            {
+                "arn": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+                "name": "AmazonSSMManagedInstanceCore"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [
+                            "ec2.amazonaws.com",
+                            "cloudformation.amazonaws.com",
+                            "elasticbeanstalk.amazonaws.com",
+                            "codebuild.amazonaws.com",
+                            "ecs-tasks.amazonaws.com",
+                            "sagemaker.amazonaws.com",
+                            "eks.amazonaws.com",
+                            "datapipeline.amazonaws.com",
+                            "glue.amazonaws.com",
+                            "lambda.amazonaws.com"
+                        ]
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [
+            "arn:aws:iam::000000000000:instance-profile/privesc-high-priv-service-profile"
+        ],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-permissive-role-trust",
+        "id_value": "AROAZV7NGMXUHO6JUKAOY",
+        "attached_policies": [],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateNotebookPassRole-role",
+        "id_value": "AROAZV7NGMXUP2WJZ7QFZ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreateNotebookPassRole-policy",
+                "name": "privesc-sageMakerCreateNotebookPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreatePresignedNotebookURL-role",
+        "id_value": "AROAZV7NGMXULYS3KSJSZ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreatePresignedNotebookURL-policy",
+                "name": "privesc-sageMakerCreatePresignedNotebookURL-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateProcessingJobPassRole-role",
+        "id_value": "AROAZV7NGMXUFJGWG6CGR",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreateProcessingJobPassRole-policy",
+                "name": "privesc-sageMakerCreateProcessingJobPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-sageMakerCreateTrainingJobPassRole-role",
+        "id_value": "AROAZV7NGMXUGDS7LJ5WD",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sageMakerCreateTrainingJobPassRole-policy",
+                "name": "privesc-sageMakerCreateTrainingJobPassRole-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-sre-role",
+        "id_value": "AROAZV7NGMXUC5FS5YI64",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-sre-admin-policy",
+                "name": "privesc-sre-admin-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/privesc-sre-user"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-ssmSendCommand-role",
+        "id_value": "AROAZV7NGMXUIGVYZINWR",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-ssmSendCommand-policy",
+                "name": "privesc-ssmSendCommand-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc-ssmStartSession-role",
+        "id_value": "AROAZV7NGMXUJJHZH3HZL",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc-ssmStartSession-policy",
+                "name": "privesc-ssmStartSession-policy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc1-CreateNewPolicyVersion-role",
+        "id_value": "AROAZV7NGMXUFMYBT3I3N",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion",
+                "name": "privesc1-CreateNewPolicyVersion"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role",
+        "id_value": "AROAZV7NGMXULZAV6U5UD",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc10-PutUserPolicy",
+                "name": "privesc10-PutUserPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role",
+        "id_value": "AROAZV7NGMXUPNGYYMT6G",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc11-PutGroupPolicy",
+                "name": "privesc11-PutGroupPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc12-PutRolePolicy-role",
+        "id_value": "AROAZV7NGMXUHRQR3N7IL",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc12-PutRolePolicy",
+                "name": "privesc12-PutRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc13-AddUserToGroup-role",
+        "id_value": "AROAZV7NGMXUFWXTBAJGY",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc13-AddUserToGroup",
+                "name": "privesc13-AddUserToGroup"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role",
+        "id_value": "AROAZV7NGMXUNACHUF7LW",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc14-UpdatingAssumeRolePolicy",
+                "name": "privesc14-UpdatingAssumeRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc15-PassExistingRoleToNewLambdaThenInvoke-role",
+        "id_value": "AROAZV7NGMXUENLQSSXA3",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc15-PassExistingRoleToNewLambdaThenInvoke",
+                "name": "privesc15-PassExistingRoleToNewLambdaThenInvoke"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-role",
+        "id_value": "AROAZV7NGMXUMH6MRNWVM",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo",
+                "name": "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc17-EditExistingLambdaFunctionWithRole-role",
+        "id_value": "AROAZV7NGMXUCQR7IHTSS",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc17-EditExistingLambdaFunctionWithRole",
+                "name": "privesc17-EditExistingLambdaFunctionWithRole"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc18-PassExistingRoleToNewGlueDevEndpoint-role",
+        "id_value": "AROAZV7NGMXULZUHSHQIT",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc18-PassExistingRoleToNewGlueDevEndpoint",
+                "name": "privesc18-PassExistingRoleToNewGlueDevEndpoint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc19-UpdateExistingGlueDevEndpoint-role",
+        "id_value": "AROAZV7NGMXUONEXO3LPA",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc19-UpdateExistingGlueDevEndpoint",
+                "name": "privesc19-UpdateExistingGlueDevEndpoint"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role",
+        "id_value": "AROAZV7NGMXUCBYGHHDBK",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc2-SetExistingDefaultPolicyVersion",
+                "name": "privesc2-SetExistingDefaultPolicyVersion"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc20-PassExistingRoleToCloudFormation-role",
+        "id_value": "AROAZV7NGMXUIVVM46YXK",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc20-PassExistingRoleToCloudFormation",
+                "name": "privesc20-PassExistingRoleToCloudFormation"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc21-PassExistingRoleToNewDataPipeline-role",
+        "id_value": "AROAZV7NGMXUF5KEUIJY7",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc21-PassExistingRoleToNewDataPipeline",
+                "name": "privesc21-PassExistingRoleToNewDataPipeline"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role",
+        "id_value": "AROAZV7NGMXUPHDZY4ISB",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc3-CreateEC2WithExistingInstanceProfile",
+                "name": "privesc3-CreateEC2WithExistingInstanceProfile"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role",
+        "id_value": "AROAZV7NGMXULIYYWC37A",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc4-CreateAccessKey",
+                "name": "privesc4-CreateAccessKey"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc5-CreateLoginProfile-role",
+        "id_value": "AROAZV7NGMXUGCC7SW4GX",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc5-CreateLoginProfile",
+                "name": "privesc5-CreateLoginProfile"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role",
+        "id_value": "AROAZV7NGMXUBEPVO27SM",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc6-UpdateLoginProfile",
+                "name": "privesc6-UpdateLoginProfile"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role",
+        "id_value": "AROAZV7NGMXUONTU6IPMQ",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc7-AttachUserPolicy",
+                "name": "privesc7-AttachUserPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role",
+        "id_value": "AROAZV7NGMXUKIX7BLKSG",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc8-AttachGroupPolicy",
+                "name": "privesc8-AttachGroupPolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": false,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    },
+    {
+        "arn": "arn:aws:iam::000000000000:role/privesc9-AttachRolePolicy-role",
+        "id_value": "AROAZV7NGMXUOK5D6QXN5",
+        "attached_policies": [
+            {
+                "arn": "arn:aws:iam::000000000000:policy/privesc9-AttachRolePolicy",
+                "name": "privesc9-AttachRolePolicy"
+            }
+        ],
+        "group_memberships": [],
+        "trust_policy": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::000000000000:user/iamadmin"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "instance_profile": [],
+        "active_password": false,
+        "access_keys": 0,
+        "is_admin": true,
+        "permissions_boundary": null,
+        "has_mfa": false,
+        "tags": {}
+    }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "ARN": "arn:aws:sns:us-east-1:000000000000:EC2-Alarms",
+    "Account": "000000000000",
+    "Interesting": "No",
+    "Public": "No",
+    "Resource Policy Summary": "Default resource policy: Not exploitable\n"
+  },
+  {
+    "ARN": "arn:aws:sns:us-east-1:000000000000:EC2-Alarms2",
+    "Account": "000000000000",
+    "Interesting": "No",
+    "Public": "No",
+    "Resource Policy Summary": "Default resource policy: Not exploitable\n"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:000000000000:function:EC2-AutoRemediation",
+    "Account": "000000000000",
+    "Interesting": "No",
+    "Public": "No",
+    "Resource Policy Summary": "sns.amazonaws.com can lambda:InvokeFunction\n -\u003e   Only when AWS:SourceArn is like arn:aws:sns:us-east-1:000000000000:EC2-Alarms2"
+  }
+]

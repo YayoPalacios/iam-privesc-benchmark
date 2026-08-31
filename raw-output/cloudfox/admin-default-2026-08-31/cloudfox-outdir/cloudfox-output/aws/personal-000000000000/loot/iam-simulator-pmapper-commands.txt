@@ -1,0 +1,16 @@
+pmapper --profile personal graph create
+pmapper --profile personal query "who can do sts:AssumeRole with *" | tee iam-simulator/loot/pmapper-output-sts:AssumeRole.txt
+pmapper --profile personal query "who can do iam:PassRole with *" | tee iam-simulator/loot/pmapper-output-iam:PassRole.txt
+pmapper --profile personal query "who can do secretsmanager:GetSecretValue with *" | tee iam-simulator/loot/pmapper-output-secretsmanager:GetSecretValue.txt
+pmapper --profile personal query "who can do ssm:GetParameter with *" | tee iam-simulator/loot/pmapper-output-ssm:GetParameter.txt
+pmapper --profile personal query "who can do s3:ListBucket with *" | tee iam-simulator/loot/pmapper-output-s3:ListBucket.txt
+pmapper --profile personal query "who can do s3:GetObject with *" | tee iam-simulator/loot/pmapper-output-s3:GetObject.txt
+pmapper --profile personal query "who can do ssm:SendCommand with *" | tee iam-simulator/loot/pmapper-output-ssm:SendCommand.txt
+pmapper --profile personal query "who can do ssm:StartSession with *" | tee iam-simulator/loot/pmapper-output-ssm:StartSession.txt
+pmapper --profile personal query "who can do ecr:BatchGetImage with *" | tee iam-simulator/loot/pmapper-output-ecr:BatchGetImage.txt
+pmapper --profile personal query "who can do ecr:GetAuthorizationToken with *" | tee iam-simulator/loot/pmapper-output-ecr:GetAuthorizationToken.txt
+pmapper --profile personal query "who can do eks:UpdateClusterConfig with *" | tee iam-simulator/loot/pmapper-output-eks:UpdateClusterConfig.txt
+pmapper --profile personal query "who can do lambda:ListFunctions with *" | tee iam-simulator/loot/pmapper-output-lambda:ListFunctions.txt
+pmapper --profile personal query "who can do ec2:DescribeInstanceAttributeInput with *" | tee iam-simulator/loot/pmapper-output-ec2:DescribeInstanceAttributeInput.txt
+pmapper --profile personal query "who can do sns:Subscribe with *" | tee iam-simulator/loot/pmapper-output-sns:Subscribe.txt
+pmapper --profile personal query "who can do sqs:SendMessage with *" | tee iam-simulator/loot/pmapper-output-sqs:SendMessage.txt

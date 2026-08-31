@@ -93,13 +93,22 @@ will generate findings.
 - **`class`** — `privesc` (canonical escalation path), `tool-test-FN` (designed
   true positive that naive analysis misses), `tool-test-FP` (correct behaviour is
   to report *nothing*), `chain-hop`, `target-only` (endpoint, not a start point),
-  `inert`.
+  `inert`, `non-path`.
+- **`non-path`** — added 2026-08-31. The principal holds the enabling permission
+  and can use it to make **another** principal administrative, but has no route to
+  authenticating as that principal, so it cannot escalate **itself**. The grant is
+  real and the thing it can empower exists — which is why `target_absent` stays
+  `no` — but the row is not a self-escalation path, and correct tool behaviour is
+  to report no path. Graded **CS** or **FP**, never on the D/P/M ladder
+  (rubric §9, 2026-08-31). Six rows, all from the six-row asymmetry resolved in
+  the Phase-4 addendum; one validation file each.
 
 ## Counts
 
 | | mechanisms | principal rows |
 |---|---:|---:|
-| privesc | 31 | 62 |
+| privesc | 31 | 56 |
+| non-path | 6 † | 6 |
 | tool-test-FN | 4 | 8 |
 | tool-test-FP | 6 | 11 |
 | chain-hop | 2 | 2 |
@@ -107,7 +116,13 @@ will generate findings.
 | inert | 1 | 1 |
 | **total** | **46** | **86** |
 
-`target_absent = yes` on 7 mechanisms (14 rows). Verified across all 17 enabled
+† **The mechanism column does not sum, and that is deliberate.** The six `non-path`
+rows belong to `privesc7`–`privesc12`, six mechanisms that *also* keep a `privesc`
+row: for each of them one principal can self-escalate and the other cannot. Those
+six mechanisms are counted once, under `privesc`, so the mechanism total is
+unchanged at 46. Corrected 2026-08-31; see the Corrections table.
+
+`target_absent = yes` on 8 mechanisms (16 rows). Verified across all 17 enabled
 regions, not just `us-east-1` — see `account-baseline.md`.
 
 All 41 lab users hold exactly one access key. No lab role holds one; roles are
@@ -121,8 +136,8 @@ reached by `sts:AssumeRole` from `user/iamadmin`.
 |---|---|---|---|---|---|---|:--:|---|
 | `privesc1-CreateNewPolicyVersion--role` | `arn:aws:iam::000000000000:role/privesc1-CreateNewPolicyVersion-role` | privesc1-CreateNewPolicyVersion | Allow: `iam:CreatePolicyVersion` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc1-CreateNewPolicyVersion--user` | `arn:aws:iam::000000000000:user/privesc1-CreateNewPolicyVersion-user` | privesc1-CreateNewPolicyVersion | Allow: `iam:CreatePolicyVersion` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
-| `privesc2-SetExistingDefaultPolicyVersion--role` | `arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role` | privesc2-SetExistingDefaultPolicyVersion | Allow: `iam:SetDefaultPolicyVersion` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
-| `privesc2-SetExistingDefaultPolicyVersion--user` | `arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user` | privesc2-SetExistingDefaultPolicyVersion | Allow: `iam:SetDefaultPolicyVersion` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
+| `privesc2-SetExistingDefaultPolicyVersion--role` | `arn:aws:iam::000000000000:role/privesc2-SetExistingDefaultPolicyVersion-role` | privesc2-SetExistingDefaultPolicyVersion | Allow: `iam:SetDefaultPolicyVersion` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **yes** | privesc |
+| `privesc2-SetExistingDefaultPolicyVersion--user` | `arn:aws:iam::000000000000:user/privesc2-SetExistingDefaultPolicyVersion-user` | privesc2-SetExistingDefaultPolicyVersion | Allow: `iam:SetDefaultPolicyVersion` | any IAM principal -> account admin | yes | yes - access key | **yes** | privesc |
 | `privesc3-CreateEC2WithExistingInstanceProfile--role` | `arn:aws:iam::000000000000:role/privesc3-CreateEC2WithExistingInstanceProfile-role` | privesc3-CreateEC2WithExistingInstanceProfile | Allow: `iam:PassRole`, `ec2:DescribeInstances`, `ec2:RunInstances`, `ec2:CreateKeyPair` +1 more | privesc-high-priv-service-role (`*:*`) via ec2 + privesc-high-priv-service-profile | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc3-CreateEC2WithExistingInstanceProfile--user` | `arn:aws:iam::000000000000:user/privesc3-CreateEC2WithExistingInstanceProfile-user` | privesc3-CreateEC2WithExistingInstanceProfile | Allow: `iam:PassRole`, `ec2:DescribeInstances`, `ec2:RunInstances`, `ec2:CreateKeyPair` +1 more | privesc-high-priv-service-role (`*:*`) via ec2 + privesc-high-priv-service-profile | yes | yes - access key | **no** | privesc |
 | `privesc4-CreateAccessKey--role` | `arn:aws:iam::000000000000:role/privesc4-CreateAccessKey-role` | privesc4-CreateAccessKey | Allow: `iam:CreateAccessKey` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
@@ -131,18 +146,18 @@ reached by `sts:AssumeRole` from `user/iamadmin`.
 | `privesc5-CreateLoginProfile--user` | `arn:aws:iam::000000000000:user/privesc5-CreateLoginProfile-user` | privesc5-CreateLoginProfile | Allow: `iam:CreateLoginProfile` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
 | `privesc6-UpdateLoginProfile--role` | `arn:aws:iam::000000000000:role/privesc6-UpdateLoginProfile-role` | privesc6-UpdateLoginProfile | Allow: `iam:UpdateLoginProfile` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc6-UpdateLoginProfile--user` | `arn:aws:iam::000000000000:user/privesc6-UpdateLoginProfile-user` | privesc6-UpdateLoginProfile | Allow: `iam:UpdateLoginProfile` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
-| `privesc7-AttachUserPolicy--role` | `arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role` | privesc7-AttachUserPolicy | Allow: `iam:AttachUserPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
+| `privesc7-AttachUserPolicy--role` | `arn:aws:iam::000000000000:role/privesc7-AttachUserPolicy-role` | privesc7-AttachUserPolicy | Allow: `iam:AttachUserPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | non-path |
 | `privesc7-AttachUserPolicy--user` | `arn:aws:iam::000000000000:user/privesc7-AttachUserPolicy-user` | privesc7-AttachUserPolicy | Allow: `iam:AttachUserPolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
-| `privesc8-AttachGroupPolicy--role` | `arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role` | privesc8-AttachGroupPolicy | Allow: `iam:AttachGroupPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
+| `privesc8-AttachGroupPolicy--role` | `arn:aws:iam::000000000000:role/privesc8-AttachGroupPolicy-role` | privesc8-AttachGroupPolicy | Allow: `iam:AttachGroupPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | non-path |
 | `privesc8-AttachGroupPolicy--user` | `arn:aws:iam::000000000000:user/privesc8-AttachGroupPolicy-user` | privesc8-AttachGroupPolicy | Allow: `iam:AttachGroupPolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
 | `privesc9-AttachRolePolicy--role` | `arn:aws:iam::000000000000:role/privesc9-AttachRolePolicy-role` | privesc9-AttachRolePolicy | Allow: `iam:AttachRolePolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
-| `privesc9-AttachRolePolicy--user` | `arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user` | privesc9-AttachRolePolicy | Allow: `iam:AttachRolePolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
-| `privesc10-PutUserPolicy--role` | `arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role` | privesc10-PutUserPolicy | Allow: `iam:PutUserPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
+| `privesc9-AttachRolePolicy--user` | `arn:aws:iam::000000000000:user/privesc9-AttachRolePolicy-user` | privesc9-AttachRolePolicy | Allow: `iam:AttachRolePolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | non-path |
+| `privesc10-PutUserPolicy--role` | `arn:aws:iam::000000000000:role/privesc10-PutUserPolicy-role` | privesc10-PutUserPolicy | Allow: `iam:PutUserPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | non-path |
 | `privesc10-PutUserPolicy--user` | `arn:aws:iam::000000000000:user/privesc10-PutUserPolicy-user` | privesc10-PutUserPolicy | Allow: `iam:PutUserPolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
-| `privesc11-PutGroupPolicy--role` | `arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role` | privesc11-PutGroupPolicy | Allow: `iam:PutGroupPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
+| `privesc11-PutGroupPolicy--role` | `arn:aws:iam::000000000000:role/privesc11-PutGroupPolicy-role` | privesc11-PutGroupPolicy | Allow: `iam:PutGroupPolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | non-path |
 | `privesc11-PutGroupPolicy--user` | `arn:aws:iam::000000000000:user/privesc11-PutGroupPolicy-user` | privesc11-PutGroupPolicy | Allow: `iam:PutGroupPolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
 | `privesc12-PutRolePolicy--role` | `arn:aws:iam::000000000000:role/privesc12-PutRolePolicy-role` | privesc12-PutRolePolicy | Allow: `iam:PutRolePolicy` | any IAM principal -> account admin | no | no - assume from `user/iamadmin` | **no** | privesc |
-| `privesc12-PutRolePolicy--user` | `arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user` | privesc12-PutRolePolicy | Allow: `iam:PutRolePolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | privesc |
+| `privesc12-PutRolePolicy--user` | `arn:aws:iam::000000000000:user/privesc12-PutRolePolicy-user` | privesc12-PutRolePolicy | Allow: `iam:PutRolePolicy` | any IAM principal -> account admin | yes | yes - access key | **no** | non-path |
 | `privesc13-AddUserToGroup--role` | `arn:aws:iam::000000000000:role/privesc13-AddUserToGroup-role` | privesc13-AddUserToGroup | Allow: `iam:AddUserToGroup` | privesc-sre-group (`iam:*`,`ec2:*`,`s3:*`) | no | no - assume from `user/iamadmin` | **no** | privesc |
 | `privesc13-AddUserToGroup--user` | `arn:aws:iam::000000000000:user/privesc13-AddUserToGroup-user` | privesc13-AddUserToGroup | Allow: `iam:AddUserToGroup` | privesc-sre-group (`iam:*`,`ec2:*`,`s3:*`) | yes | yes - access key | **no** | privesc |
 | `privesc14-UpdatingAssumeRolePolicy--role` | `arn:aws:iam::000000000000:role/privesc14-UpdatingAssumeRolePolicy-role` | privesc14-UpdatingAssumeRolePolicy | Allow: `iam:UpdateAssumeRolePolicy`, `sts:AssumeRole` | any role, e.g. privesc-sre-role (`iam:*`,`ec2:*`,`s3:*`) | no | no - assume from `user/iamadmin` | **no** | privesc |
@@ -214,7 +229,7 @@ One entry per mechanism. Applies to both principal rows unless stated.
 
 - **`privesc1-CreateNewPolicyVersion`** (privesc, target_absent **no**) — rewrite any customer-managed policy in place  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc2-SetExistingDefaultPolicyVersion`** (privesc, target_absent **no**) — roll a policy back to a more permissive existing version  
+- **`privesc2-SetExistingDefaultPolicyVersion`** (privesc, target_absent **yes**) — the grant (`iam:SetDefaultPolicyVersion` on `*`) is real, but escalation needs a customer-managed policy that already carries a more-permissive non-default version, and **none exists**: all 45 account-owned policies have exactly one version (only AWS-managed policies are multi-version, and those cannot be targeted). The principal has no `iam:CreatePolicyVersion` to manufacture one. Corrected from **no** on 2026-08-31 after Phase-3 validation — see `analysis/validation/privesc2-SetExistingDefaultPolicyVersion--role.md` and the Corrections table  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc3-CreateEC2WithExistingInstanceProfile`** (privesc, target_absent **no**) — instance profile confirmed present and bound to the high-priv role; exploitation launches a billable EC2  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
@@ -224,17 +239,17 @@ One entry per mechanism. Applies to both principal rows unless stated.
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc6-UpdateLoginProfile`** (privesc, target_absent **no**) — reset an existing console password  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc7-AttachUserPolicy`** (privesc, target_absent **no**) — attach AdministratorAccess to self  
+- **`privesc7-AttachUserPolicy`** (privesc + non-path, target_absent **no**) — attach AdministratorAccess to self. **`--role` row corrected to `non-path` 2026-08-31.** `iam:AttachUserPolicy` can only target a user, so the role cannot attach to itself; it holds one grant and no way to mint or take over a user credential, and no role trusts it. It can make another principal admin but cannot escalate itself. The `--user` row is unchanged and is a working path. See `analysis/validation/privesc7-AttachUserPolicy--role.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc8-AttachGroupPolicy`** (privesc, target_absent **no**) — attach admin to privesc8-AttachGroupPolicy-group, which the user is in  
+- **`privesc8-AttachGroupPolicy`** (privesc + non-path, target_absent **no**) — attach admin to privesc8-AttachGroupPolicy-group, which the user is in. **`--role` row corrected to `non-path` 2026-08-31.** IAM groups contain users only, so the role cannot join the group it can empower. The `--user` row is a member of `privesc8-AttachGroupPolicy-group` (which carries zero policies today) and is a working path. See `analysis/validation/privesc8-AttachGroupPolicy--role.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc9-AttachRolePolicy`** (privesc, target_absent **no**) — attach admin to any assumable role  
+- **`privesc9-AttachRolePolicy`** (privesc + non-path, target_absent **no**) — attach admin to any assumable role. **`--user` row corrected to `non-path` 2026-08-31.** The user can attach admin to any role and cannot assume one: it is named in no trust policy, holds no `sts:AssumeRole`, no `iam:UpdateAssumeRolePolicy` and no `iam:PassRole`. The `--role` row self-attaches and is a working path. See `analysis/validation/privesc9-AttachRolePolicy--user.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc10-PutUserPolicy`** (privesc, target_absent **no**) — inline admin policy on self  
+- **`privesc10-PutUserPolicy`** (privesc + non-path, target_absent **no**) — inline admin policy on self. **`--role` row corrected to `non-path` 2026-08-31.** Same shape as `privesc7`: `iam:PutUserPolicy` targets users only. See `analysis/validation/privesc10-PutUserPolicy--role.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc11-PutGroupPolicy`** (privesc, target_absent **no**) — inline admin policy on privesc11-PutGroupPolicy-group, which the user is in  
+- **`privesc11-PutGroupPolicy`** (privesc + non-path, target_absent **no**) — inline admin policy on privesc11-PutGroupPolicy-group, which the user is in. **`--role` row corrected to `non-path` 2026-08-31.** Same shape as `privesc8`: a role cannot be a group member. See `analysis/validation/privesc11-PutGroupPolicy--role.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
-- **`privesc12-PutRolePolicy`** (privesc, target_absent **no**) — inline admin policy on any assumable role  
+- **`privesc12-PutRolePolicy`** (privesc + non-path, target_absent **no**) — inline admin policy on any assumable role. **`--user` row corrected to `non-path` 2026-08-31.** Same shape as `privesc9`: the user can write an inline admin policy onto any role and can assume none. See `analysis/validation/privesc12-PutRolePolicy--user.md`  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
 - **`privesc13-AddUserToGroup`** (privesc, target_absent **no**) — group membership confirmed to carry privesc-sre-admin-policy  
   _Role trust:_ `arn:aws:iam::000000000000:user/iamadmin`
@@ -332,4 +347,8 @@ Recorded per the CLAUDE.md constraint to flag inference rather than assert it.
 |---|---|---|---|
 | 2026-08-31 | `privesc-CloudFormationUpdateStack` (both rows) | `target_absent` **yes → no** | First pass checked `us-east-1` only. A 17-region sweep found a CloudFormation stack in `us-west-2`. |
 | 2026-08-31 | `privesc-CloudFormationUpdateStack` (both rows) | `target_absent` **no → yes** (reverted) | The only reachable stack was `iamwho` residue — the fixture stack that created the deleted `iamwho-test-*` roles. It was removed to keep the baseline uncontaminated, so no stack exists in any region and the target is genuinely absent. Grading a scenario as exploitable only because the withheld tool's own leftovers made it so would not have been defensible. |
+| 2026-08-31 | `privesc2-SetExistingDefaultPolicyVersion` (both rows) | `target_absent` **no → yes** | Phase-3 validation: escalation requires a customer-managed policy with a more-permissive existing version to activate; zero account-owned policies have >1 version and the principal lacks `iam:CreatePolicyVersion`, so the target does not exist. Verified via `get-account-authorization-details`. |
 | 2026-08-31 | header §2 | rewritten twice | 11 `iamwho-test-*` roles deleted, then the fixture stack and its template bucket. See `fixture-removal-2026-08-31.md`. |
+| 2026-08-31 (Phase-4 addendum) | `privesc7-AttachUserPolicy--role`, `privesc8-AttachGroupPolicy--role`, `privesc10-PutUserPolicy--role`, `privesc11-PutGroupPolicy--role` | class **`privesc` → `non-path`** | Each role holds exactly one grant, targeting a construct it is not (a user, or a group it cannot join), and has no credential-minting permission and no inbound trust. It can make another principal administrative but cannot escalate itself. PMapper reported the `--user` sibling of each and not these; the asymmetry was PMapper being right. Rubric §6: an M that is not a real path is a scenario-list error, not a tool miss. Four validation files. |
+| 2026-08-31 (Phase-4 addendum) | `privesc9-AttachRolePolicy--user`, `privesc12-PutRolePolicy--user` | class **`privesc` → `non-path`** | Mirror image of the four above. Each user can make any role administrative and can assume none: named in no trust policy, no `sts:AssumeRole`, no `iam:UpdateAssumeRolePolicy`, no `iam:PassRole`. PMapper reported the `--role` sibling of each. Two validation files. |
+| 2026-08-31 (Phase-4 addendum) | `privesc-ssmSendCommand` (both rows), `privesc-ssmStartSession` (both rows) | no change to the row; **PMapper regraded D → FP** | Not a scenario-list correction — the rows were already `target_absent = yes` and correct. Recorded here because the four validation files written in the same pass confirm PMapper asserts a path through an EC2 instance that does not exist in any of the 17 enabled regions, making these the benchmark's first confirmed false positives. See `matrix.md` §6. |
