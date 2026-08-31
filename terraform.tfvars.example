@@ -1,0 +1,14 @@
+# Copy to lab/terraform.tfvars before applying. Real tfvars are gitignored
+# (*.tfvars), so this file plus the values recorded in each run's
+# run-metadata.md are the only record of what was actually deployed.
+#
+# Fill in from the iam-vulnerable module's variables.tf at the pinned commit --
+# do not guess. Whatever is toggled here determines the scenario set the tools
+# get graded against, so it is part of the result.
+#
+# Rubric §5: the iam-vulnerable commit hash and the values used go in every
+# run-metadata.md.
+
+# Example shape only. Replace with the real variable names at the pinned commit.
+# aws_region      = "us-east-1"
+# resource_prefix = ""
