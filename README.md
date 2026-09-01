@@ -1,64 +1,65 @@
 # IAM tool benchmark
 
-The evidence behind a write-up benchmarking two open-source AWS IAM
-privilege-escalation tools — PMapper 1.1.5 and cloudfox 2.0.5 — against Bishop
-Fox's `iam-vulnerable` lab in a throwaway account. Everything here is what I
-graded from: the rubric I froze first, the grades, the checks I did by hand, and
-the untouched tool output.
+This is the evidence behind a write-up benchmarking two open-source AWS IAM
+privilege-escalation tools, PMapper 1.1.5 and cloudfox 2.0.5, against Bishop
+Fox's `iam-vulnerable` lab in a throwaway account. Everything I graded from is
+here: the rubric I froze first, the grades, the checks I did by hand, and the
+untouched tool output.
 
-**Read the article first: [POST.md](POST.md).** The long working
-draft it was cut from is [FINDINGS-full.md](FINDINGS-full.md).
+**Read the article first: [POST.md](POST.md).** The long working draft it was
+cut from is [FINDINGS-full.md](FINDINGS-full.md).
 
 ## What's here
 
-**[analysis/rubric.md](analysis/rubric.md)** — what counts as Detected, Partial,
-Missed, and a false alarm. Committed before I deployed anything, so `git log` on
-that file is the proof the bar didn't move after I saw results. Amended only by
-append.
+**[analysis/rubric.md](analysis/rubric.md)** is what counts as Detected,
+Partial, Missed, and a false alarm. I committed it before I deployed anything,
+so `git log` on that file shows the bar didn't move after I saw results. It was
+amended only by append.
 
-**[analysis/grades.csv](analysis/grades.csv)** — 344 rows, one per
-`(scenario, tool, context, flagset)`. Each carries its grade, the path to the
-raw output it came from, the exact query or search I used, and whether I
-confirmed it by hand or inferred it. That last column is published, not buried:
-most rows are `inferred`, and you can see which.
+**[analysis/grades.csv](analysis/grades.csv)** is 344 rows, one per
+`(scenario, tool, context, flagset)`. Each row carries its grade, the path to
+the raw output it came from, the exact query or search I used, and whether I
+confirmed it by hand or inferred it. That last column is a published column, not
+a caveat in prose. Most rows are inferred, and you can see which.
 
-**[analysis/validation/](analysis/validation/)** — 19 files, one per scenario I
-checked by hand, with the exact commands and what came back. This is where the
-"my answer key was wrong" section of the article comes from.
+**[analysis/validation/](analysis/validation/)** is 19 files, one per scenario I
+checked by hand, with the exact commands and what came back. This is where
+section 3 of the article comes from, the part where my answer key turned out to
+be wrong.
 
-**[raw-output/](raw-output/)** — unedited output from every run, one directory
+**[raw-output/](raw-output/)** is unedited output from every run, one directory
 per tool per run: cloudfox and PMapper, as admin and as a read-only
 `SecurityAudit` user, default flags and flagged. The only change is `redact.sh`,
 a one-way substitution that swaps the account ID for `000000000000` and access
 key IDs for placeholders. The script is committed next to its output, so
-"unedited" means "unedited apart from one rule you can read."
+"unedited" means unedited apart from one rule you can read.
 
-Also: `analysis/scenarios.md` (the ground truth, generated from the AWS API
-rather than the lab's README), `analysis/matrix.md` (the per-scenario matrix,
-written by hand from `grades.csv` — there is no generator), `lab/`
-(`iam-vulnerable`, unmodified) and `lab-oidc/` (the GitHub OIDC scenario from
-the last section of the article, in its own state).
+There's also `analysis/scenarios.md`, the ground truth, generated from the AWS
+API rather than the lab's README. `analysis/matrix.md` is the per-scenario
+matrix, written by hand from `grades.csv`. There is no generator. `lab/` is
+`iam-vulnerable`, unmodified, and `lab-oidc/` is the GitHub OIDC scenario from
+section 4, in its own state.
 
 ## If you reproduce this, tear it down
 
-Both Terraform states in this repo are empty — 0 resource instances each — so
+Both Terraform states in this repo are empty, 0 resource instances each, so
 these labs are already destroyed. That's a statement about the local state
-files; check the account itself if you need certainty.
+files. Check the account itself if you need certainty.
 
 If you deploy them yourself, destroy the OIDC one first:
 
-```
-cd lab-oidc && terraform destroy   # 13 resources — first
+```bash
+cd lab-oidc && terraform destroy   # 13 resources, first
 cd ../lab   && terraform destroy   # 265 resources
 ```
 
-**OIDC first, because those roles are reachable from outside AWS with no
-credentials at all.** One of them trusts every repo in a GitHub org, and the
-only thing keeping strangers out is that the org name is unregistered. If
-someone registers it, they get admin in that account. The main lab at least
-requires stealing existing credentials first.
+OIDC goes first because those roles are reachable from outside AWS with no
+credentials at all. One of them trusts every repo in a GitHub org, and the only
+thing keeping strangers out is that the org name is unregistered. If someone
+registers it, they get admin in that account. The main lab at least requires
+stealing existing credentials first.
 
-The main lab is the bigger cleanup: it creates 41 real access keys, so
+The main lab is the bigger cleanup. It creates 41 real access keys, so
 `lab/terraform.tfstate` holds 41 live AWS secret keys in plaintext. The state
 file is gitignored, so it never gets committed, but it's real credential
 material sitting on a laptop until the keys are deleted. Confirm with
@@ -68,7 +69,7 @@ lab users.
 ## Account hygiene
 
 Throwaway account only. `iam-vulnerable` creates real users, real access keys,
-and real roles built to escalate to account admin — this is not something to
+and real roles built to escalate to account admin. This is not something to
 point at an account tied to anything you care about, and definitely not a shared
 one.
 
