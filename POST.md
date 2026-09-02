@@ -1,8 +1,8 @@
 # Two AWS IAM privesc tools, one path finder
 
-*Four things that surprised me while grading PMapper and cloudfox against a deliberately broken AWS account.*
+*Four things that surprised me while grading PMapper and cloudfox against an AWS IAM privilege-escalation lab.*
 
-Over two weekends I deployed Bishop Fox's `iam-vulnerable` into a throwaway AWS account and ran two open-source IAM privilege-escalation tools against it: cloudfox 2.0.5 and PMapper 1.1.5. I graded every scenario by hand against a rubric I froze in git before I deployed anything.
+Over two weekends I deployed Bishop Fox's `iam-vulnerable` in a sandbox AWS account and ran two open-source IAM privilege-escalation tools against it: cloudfox 2.0.5 and PMapper 1.1.5. I graded every scenario by hand using grading rules I finalized and saved in git before I deployed anything.
 
 I expected a scoreboard. I got four findings, none of them about which tool wins.
 
@@ -12,7 +12,7 @@ I expected a scoreboard. I got four findings, none of them about which tool wins
 
 PMapper builds a map of every identity in an account and then answers questions over it. Everything starts with `pmapper graph create`, so I ran that as admin against the fresh lab. It ran for five minutes fifty-two seconds and exited with an error.
 
-The first four minutes look fine. It pulls users, roles, groups and policies, works out who's already an admin, then starts checking for links, starting with EC2 Auto Scaling, which means checking every region. My account has 17 regions on and AWS has many more, so most of those calls hit regions I can't use. PMapper is written to shrug those off:
+The first four minutes look fine. It pulls users, roles, groups and policies, works out who's already an admin, then starts checking for links, starting with EC2 Auto Scaling, which means checking every region. My account has 17 regions on and AWS has many more, so most of those calls hit regions I can't use. PMapper is supposed to handle those errors and continue:
 
 ```plaintext
 19:23:21 | Unable to search region af-south-1 for launch configs. The region may be
@@ -42,9 +42,9 @@ ValueError: Did not find file at: /Users/.../com.nccgroup.principalmapper/000000
 
 The seventh, `graph list`, exited cleanly and printed `Account IDs:` and nothing under it. The one command that worked is the one whose only job is to tell you there's nothing there.
 
-This is one sighting, not a rate. But the bug isn't about my setup: any unreachable endpoint in that loop triggers it, that loop is the only thing that builds the map, and the line hasn't changed on main since 2022-02-03.
+This happened once, so I can't say how common it is. But the bug isn't about my setup: any unreachable endpoint in that loop triggers it, that loop is the only thing that builds the map, and the line hasn't changed on main since 2022-02-03.
 
-Getting to the crash took longer than the crash did. PMapper won't import on Python 3.10+, `from collections import Mapping`, removed in 3.10, while its setup file claims "Python 3.5+," so pip installs it happily and you find out when you run it. The real ceiling is 3.9, end of life since October 2025. I didn't patch the import, a patched copy isn't the published tool. cloudfox, for contrast, took under a minute: download the binary, check the hash, run it.
+Getting to the crash took longer than the crash did. PMapper won't import on Python 3.10+, `from collections import Mapping`, removed in 3.10, while its setup file claims "Python 3.5+," so pip installs it happily and you find out when you run it. It actually only works up to Python 3.9, which reached end of life in October 2025. I didn't patch the import, a patched copy isn't the published tool. cloudfox, for contrast, took under a minute: download the binary, check the hash, run it.
 
 ---
 
@@ -66,25 +66,25 @@ Because that's documented, I graded cloudfox N/A on path-finding rather than cou
 
 The broader thing: I set out to compare two tools on path-finding and found one engine and one tool that displays that engine's output. If PMapper's map had been on disk when cloudfox ran, cloudfox would have displayed PMapper's answer, and I'd have graded the same engine twice thinking I had two data points. That only didn't happen because I ran cloudfox first, on a machine where PMapper had never run.
 
-Two tools isn't a survey of the field. But of those two, the maintained one doesn't find paths and points you at the other, and the other hasn't been touched since February 2022 and throws its whole map away on a timeout.
+Two tools aren't enough to judge the whole field. But of those two, the maintained one doesn't find paths and points you at the other, and the other hasn't been touched since February 2022 and throws its whole map away on a timeout.
 
 ---
 
 ## 3. My answer key was wrong and the tool was right
 
-Six of the lab's mechanisms come in two flavours: one on a user, one on a role, same permission. PMapper reported one flavour of each and not the other. I scored the missing six as misses and wrote down "PMapper being inconsistent."
+Six of the lab's privilege-escalation methods each have two versions: one on a user and one on a role, both with the same permission. PMapper reported one version of each but not the other. I scored the missing six as misses and wrote down "PMapper being inconsistent."
 
-It isn't inconsistent. It's right, and I was wrong. I checked all six by hand, and in every case the flavour PMapper skipped can't escalate itself:
+It isn't inconsistent. It's right, and I was wrong. I checked all six by hand, and in every case the version PMapper skipped can't escalate itself:
 
 - The permissions that edit **users**: a role holding one can hand a user admin, but a role can't log in as that user.
 - The permissions that edit **groups**: a role can make a group admin, but AWS doesn't let a role be *in* a group.
 - The permissions that edit **roles**: a user holding one can make any role admin, but can't assume it.
 
-Every time, the flavour PMapper *did* report is the one that can turn the permission on itself. Its own data marks the difference, the six it reported are `is_admin: true`, the six it skipped are `is_admin: false`. The rule, once you see it: PMapper reports a principal that can escalate *itself*, not one that can escalate someone else.
+Every time, the version PMapper *did* report is the one that can turn the permission on itself. Its own data marks the difference, the six it reported are `is_admin: true`, the six it skipped are `is_admin: false`. The rule, once you see it: PMapper reports a principal that can escalate *itself*, not one that can escalate someone else.
 
-My answer key couldn't make that distinction, because I built it from a list of who-holds-what. That's a fine inventory, and it says nothing about whether the permission gives that principal a path it can actually use.
+My answer key couldn't make that distinction because it only recorded the permissions assigned to each principal. That works as an inventory, but it doesn't show whether the principal has a path it can actually use.
 
-PMapper's detections didn't move when I fixed this. It found 44 rows before and 44 after, only my denominator changed. The part worth keeping is the rule: **a list of who-holds-what is not a list of who-can-reach-what.** Grade a path finder against the first and you invent misses, and you invent them against exactly the tools that get reachability right. A less precise tool that flagged all twelve flavours would have scored better on my broken list while being less accurate.
+PMapper's detections didn't move when I fixed this. It found 44 rows before and 44 after. Only the number of expected findings changed. The important part is this: **knowing who has each permission does not tell you what each principal can actually reach.** If you grade a path finder against that kind of list, you can count things the tool was right to skip as misses. A less precise tool that flagged all twelve versions would have scored better against my broken list, even though it was less accurate.
 
 PMapper's four false alarms in this run are the same mistake in reverse. It reported, at High severity, that a user can call `ssm:SendCommand` to reach an EC2 instance with a privileged role attached. There are no EC2 instances in that account, in any of the 17 regions. It reasoned from "there's an instance profile" to "there must be an instance." Permissions on paper again, once in the tool, once in me grading it.
 
@@ -92,7 +92,7 @@ PMapper's four false alarms in this run are the same mistake in reverse. It repo
 
 ## 4. AWS's GitHub OIDC guardrail checks how a rule is written, not what it allows
 
-The lab ships no federated-login scenario, so I built one after the matrix was frozen. Two chains, two hops each. Hop 1 is a GitHub Actions role you log into from outside AWS, allowed to do exactly one thing: become hop 2. Hop 2 is full admin and trusts only hop 1. Hop 2's trust is narrow, and it doesn't matter, because the way in is one step back.
+The lab ships no GitHub OIDC scenario, so I built one after the matrix was frozen. Two chains, two hops each. Hop 1 is a GitHub Actions role you log into from outside AWS, allowed to do exactly one thing: become hop 2. Hop 2 is full admin and trusts only hop 1. Hop 2's trust is narrow, and it doesn't matter, because the way in is one step back.
 
 Scenario A was meant to be the obvious bad case: a rule trusting every repo on GitHub. AWS refused to create the role:
 
@@ -112,9 +112,9 @@ I wasn't expecting that. AWS ships a guardrail against exactly the mistake I was
 | `repo:*` | ACCEPTED |
 | `repo:*/*` | ACCEPTED |
 
-Every GitHub Actions login starts with `repo:`. So `repo:*` matches every repo on GitHub, the exact thing AWS just refused as `*`. Same meaning, different spelling. (An org can customise its login format so it doesn't start with `repo:`, in which case `repo:*` matches nothing, so the accurate claim is "every default-format login.")
+Every GitHub Actions login starts with `repo:`. So `repo:*` matches every repo on GitHub, the exact thing AWS just refused as `*`. Same meaning, different spelling. (An org can customise its login format so it doesn't start with `repo:`, in which case `repo:*` matches nothing, so the more accurate way to say it is "every default-format login.")
 
-The rejection message is specific and helpful, which makes the likely next move for an engineer who hits it pasting in the first thing that's accepted.
+The rejection message is specific and helpful. An engineer who sees it is likely to try another value and use the first one AWS accepts.
 
 Scenario B is the realistic one:
 
@@ -124,14 +124,14 @@ Scenario B is the realistic one:
 
 There's a repo restriction. It names an org. It passes a quick review. And it allows every repo in that org, every branch, every environment, and every repo anyone creates in it later. What was meant was `repo:iam-tool-benchmark-lab/deploy:ref:refs/heads/main`. One asterisk apart. AWS catches the obvious version of A. B looks reasonable in a quick review.
 
-Two limits, because this is the part people will want me to overclaim. As full admin I tried to assume all four roles and got `AccessDenied` on every one, so the only way in is a GitHub login from outside. And I did not prove the chain end to end, that needs a live repo running a workflow, and I didn't run one.
+Two limits before I make this sound bigger than it is. As full admin I tried to assume all four roles and got `AccessDenied` on every one, so the only way in is a GitHub login from outside. And I did not prove the chain end to end, that needs a live repo running a workflow, and I didn't run one.
 
 ---
 
 ## What ties them together
 
-PMapper's error handler checks *that* a region failed, not *how*. cloudfox's column reports that a privesc verdict exists without an engine behind it, and elsewhere prints `Condition=Yes` for both an always-true condition and a never-true one, because the column says a condition is present, not what it does. My answer key checked that a permission was granted, not what it actually let the principal reach. AWS checks that a `sub` restriction is present and doesn't look like a wildcard, not what it matches.
+PMapper's error handler checks *that* a region failed, not *how*. cloudfox has a privesc column without its own engine behind it, and elsewhere prints `Condition=Yes` for both an always-true condition and a never-true one, because the column says a condition is present, not what it does. My answer key checked that a permission was granted, not what it actually let the principal reach. AWS checks that a `sub` restriction is present and doesn't look like a wildcard, not what it matches.
 
-Checking whether a safeguard exists is easy, but it isn't enough. What it actually allows is the part that matters, and that's what tools, reviewers, and even the cloud provider writing the guardrail keep missing.
+Checking that something is there is easy. What it actually allows is the part that matters, and that's what tools, reviewers, and even the cloud provider writing the guardrail keep missing.
 
-*The frozen rubric, the full grade file, the hand-validations with exact commands, and all raw tool output are in the repo, unedited apart from one published script that swaps the account ID and access keys for placeholders.*
+*The grading rules, the full grade file, the manual checks with exact commands, and all raw tool output are in [the repo](https://github.com/YayoPalacios/iam-privesc-benchmark). I only changed one published script to replace the account ID and access keys with placeholders.*
