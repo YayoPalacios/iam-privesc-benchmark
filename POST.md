@@ -52,7 +52,7 @@ Getting to the crash took longer than the crash did. PMapper won't import on Pyt
 
 cloudfox ran without a hitch. One command produced fifteen CSVs and their JSON versions: 94 principals, 6,008 permission grants, 44 trust edges. Nothing crashed, nothing needed a flag.
 
-One of its columns is `CanPrivEscToAdmin?`. It appears 140 times, and in this run every one reads:
+One of its columns is `CanPrivEscToAdmin?`. It appears 158 times, and in this run every one reads:
 
 ```json
 "CanPrivEscToAdmin?": "Skipping, no pmapper data",
